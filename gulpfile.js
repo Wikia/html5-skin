@@ -20,7 +20,8 @@ var gulp        = require('gulp'),
     open        = require('gulp-open'),
     git         = require('git-rev'),
     realFs      = require('fs'),
-    gracefulFs  = require('graceful-fs');
+    gracefulFs  = require('graceful-fs'),
+    concat      = require('gulp-concat');
     //Fix OSX EMFILE error
     gracefulFs.gracefulify(realFs);
 
@@ -39,7 +40,7 @@ var devServer = {
 };
 
 //Build JS
-function buildJS(file, hash, watch, ugly, sourcemap, debug, externalReact) {
+function buildJS(file, hash, watch, ugly, sourcemap, debug, externalReact, callback) {
   var props ={
     entries: ['./js/controller.js'],
     debug: debug,
@@ -54,6 +55,7 @@ function buildJS(file, hash, watch, ugly, sourcemap, debug, externalReact) {
       bundler.external('react');
       bundler.external('react-dom');
     }
+
     bundler.bundle()
       .on("error", function (err) {
           gutil.log(
@@ -73,7 +75,10 @@ function buildJS(file, hash, watch, ugly, sourcemap, debug, externalReact) {
       .pipe(ugly ? uglify() : gutil.noop())
       .pipe(sourcemap ? sourcemaps.write('./') : gutil.noop())
       .pipe(gulp.dest('./build'))
-      .pipe(reload ? connect.reload() : gutil.noop())
+      .on('end', function () {
+        callback();
+      })
+      .pipe(reload ? connect.reload() : gutil.noop());
   }
 
   if (watch) {
@@ -86,6 +91,15 @@ function buildJS(file, hash, watch, ugly, sourcemap, debug, externalReact) {
   return rebundle(false);
 }
 
+gulp.task('build:all', ['build:vendor', 'build'], function () {
+  gulp.src(['build/core.js', 'build/main_html5.js', 'build/html5-skin.min.js']).pipe(concat('all.js')).pipe(gulp.dest('build'));
+  gulp.src(['build/core.js', 'build/main_html5.js', 'build/youtube.js', 'build/html5-skin.min.js']).pipe(concat('all-with-youtube.js')).pipe(gulp.dest('build'));
+});
+
+gulp.task('build:vendor', function () {
+  gulp.src('vendor/*.js').pipe(uglify()).pipe(gulp.dest('build'));
+});
+
 // Build All
 gulp.task('build', ['browserify', 'browserify:min', 'sass', 'sass:min', 'assets', 'pages']);
 
@@ -93,40 +107,40 @@ gulp.task('build', ['browserify', 'browserify:min', 'sass', 'sass:min', 'assets'
 gulp.task('build:watch', ['watchify', 'watchify:min', 'sass', 'sass:min', 'assets', 'pages']);
 
 // Browserify JS
-gulp.task('browserify', function() {
+gulp.task('browserify', function(callback) {
   process.env.NODE_ENV = 'production';
   git.long(function (hash) {
-    return buildJS('html5-skin.js', hash, false, false, false, false, false);
+    return buildJS('html5-skin.js', hash, false, false, false, false, false, callback);
   })
 });
 
 // Browserify Minified JS
-gulp.task('browserify:min', function() {
+gulp.task('browserify:min', function(callback) {
   process.env.NODE_ENV = 'production';
   git.long(function (hash) {
-    return buildJS('html5-skin.min.js', hash, false, true, true, true, false);
+    return buildJS('html5-skin.min.js', hash, false, true, true, true, false, callback);
   })
 });
 
 // Browserify Minified, External React.js
-gulp.task('external-react', function() {
+gulp.task('external-react', function(callback) {
   process.env.NODE_ENV = 'production';
   git.long(function (hash) {
-    return buildJS('html5-skin.min.js', hash, false, true, true, true, true);
+    return buildJS('html5-skin.min.js', hash, false, true, true, true, true, callback);
   })
 });
 
 // Watchify JS
-gulp.task('watchify', function() {
+gulp.task('watchify', function(callback) {
   git.long(function (hash) {
-    return buildJS('html5-skin.js', hash, true, false, false, false, false);
+    return buildJS('html5-skin.js', hash, true, false, false, false, false, callback);
   })
 });
 
 // Watchify Minified JS
-gulp.task('watchify:min', function() {
+gulp.task('watchify:min', function(callback) {
   git.long(function (hash) {
-    return buildJS('html5-skin.min.js', hash, true, true, true, true, false);
+    return buildJS('html5-skin.min.js', hash, true, true, true, true, false, callback);
   })
 });
 
