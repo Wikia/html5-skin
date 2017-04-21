@@ -83,7 +83,10 @@ var ControlBar = React.createClass({
       this.props.controller.startHideControlBarTimer();
       evt.stopPropagation(); // W3C
       evt.cancelBubble = true; // IE
-      if (!this.props.controller.state.volumeState.volumeSliderVisible){
+      var canShowVolumeSliderBar = !this.props.skinConfig.controlBar
+        || !this.props.skinConfig.controlBar.volumeControl
+        || this.props.skinConfig.controlBar.volumeControl.sliderVisible !== false;
+      if (canShowVolumeSliderBar && !this.props.controller.state.volumeState.volumeSliderVisible){
         this.props.controller.showVolumeSliderBar();
       }
       else {
