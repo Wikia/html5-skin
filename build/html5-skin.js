@@ -1793,7 +1793,10 @@ var ControlBar = React.createClass({displayName: "ControlBar",
       this.props.controller.startHideControlBarTimer();
       evt.stopPropagation(); // W3C
       evt.cancelBubble = true; // IE
-      if (!this.props.controller.state.volumeState.volumeSliderVisible){
+      var canShowVolumeSliderBar = !this.props.skinConfig.controlBar
+        || !this.props.skinConfig.controlBar.volumeControl
+        || this.props.skinConfig.controlBar.volumeControl.sliderVisible !== false;
+      if (canShowVolumeSliderBar && !this.props.controller.state.volumeState.volumeSliderVisible){
         this.props.controller.showVolumeSliderBar();
       }
       else {
@@ -5302,7 +5305,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "4d64edc972d477f3d522c83590f19d2bf8484c77"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "9cc537165b4e10b6d8b51cc214974b03d6cf9233"};
   }
 
   var Html5Skin = function (mb, id) {
