@@ -3428,10 +3428,10 @@ var SharePanel = React.createClass({displayName: "SharePanel",
       return (
         React.createElement("div", {className: "oo-share-tab-panel"}, 
           React.createElement("div", {className: "oo-social-action-text oo-text-capitalize"}, titleString), 
-          React.createElement("a", {className: "oo-twitter", onClick: this.handleTwitterClick}, " "), 
-          React.createElement("a", {className: "oo-facebook", onClick: this.handleFacebookClick}, " "), 
-          React.createElement("a", {className: "oo-google-plus", onClick: this.handleGPlusClick}, " "), 
-          React.createElement("a", {className: "oo-email-share", onClick: this.handleEmailClick}, " ")
+          React.createElement("a", {className: "oo-twitter", onClick: this.handleTwitterClick}, this.props.skinConfig.icons.shareTwitter), 
+          React.createElement("a", {className: "oo-facebook", onClick: this.handleFacebookClick}, this.props.skinConfig.icons.shareFacebook), 
+          React.createElement("a", {className: "oo-google-plus", onClick: this.handleGPlusClick}, this.props.skinConfig.icons.shareGoogle), 
+          React.createElement("a", {className: "oo-email-share", onClick: this.handleEmailClick}, this.props.skinConfig.icons.shareMail)
         )
       );
     }
@@ -5305,7 +5305,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "9cc537165b4e10b6d8b51cc214974b03d6cf9233"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "a1ace830ff1d4d8d023a54c7a57fb519f0c58bde"};
   }
 
   var Html5Skin = function (mb, id) {

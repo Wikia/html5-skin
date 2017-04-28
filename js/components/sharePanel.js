@@ -30,10 +30,10 @@ var SharePanel = React.createClass({
       return (
         <div className="oo-share-tab-panel">
           <div className="oo-social-action-text oo-text-capitalize">{titleString}</div>
-          <a className="oo-twitter" onClick={this.handleTwitterClick}> </a>
-          <a className="oo-facebook" onClick={this.handleFacebookClick}> </a>
-          <a className="oo-google-plus" onClick={this.handleGPlusClick}> </a>
-          <a className="oo-email-share" onClick={this.handleEmailClick}> </a>
+          <a className="oo-twitter" onClick={this.handleTwitterClick}>{this.props.skinConfig.icons.shareTwitter}</a>
+          <a className="oo-facebook" onClick={this.handleFacebookClick}>{this.props.skinConfig.icons.shareFacebook}</a>
+          <a className="oo-google-plus" onClick={this.handleGPlusClick}>{this.props.skinConfig.icons.shareGoogle}</a>
+          <a className="oo-email-share" onClick={this.handleEmailClick}>{this.props.skinConfig.icons.shareMail}</a>
         </div>
       );
     }
