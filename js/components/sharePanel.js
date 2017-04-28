@@ -26,14 +26,26 @@ var SharePanel = React.createClass({
   getActivePanel: function() {
     if (this.state.activeTab === this.tabs.SHARE) {
       var titleString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.SHARE_CALL_TO_ACTION, this.props.localizableStrings);
+      var shareTwitter = {
+        __html: this.props.skinConfig.icons.shareTwitter.svg
+      };
+      var shareFacebook = {
+        __html: this.props.skinConfig.icons.shareFacebook.svg
+      };
+      var shareGoogle = {
+        __html: this.props.skinConfig.icons.shareGoogle.svg
+      };
+      var shareMail = {
+        __html: this.props.skinConfig.icons.shareMail.svg
+      };
 
       return (
         <div className="oo-share-tab-panel">
           <div className="oo-social-action-text oo-text-capitalize">{titleString}</div>
-          <a className="oo-twitter" onClick={this.handleTwitterClick}>{this.props.skinConfig.icons.shareTwitter}</a>
-          <a className="oo-facebook" onClick={this.handleFacebookClick}>{this.props.skinConfig.icons.shareFacebook}</a>
-          <a className="oo-google-plus" onClick={this.handleGPlusClick}>{this.props.skinConfig.icons.shareGoogle}</a>
-          <a className="oo-email-share" onClick={this.handleEmailClick}>{this.props.skinConfig.icons.shareMail}</a>
+          <a dangerouslySetInnerHTML={shareTwitter} className="oo-twitter" onClick={this.handleTwitterClick} />
+          <a dangerouslySetInnerHTML={shareFacebook} className="oo-facebook" onClick={this.handleFacebookClick} />
+          <a dangerouslySetInnerHTML={shareGoogle} className="oo-google-plus" onClick={this.handleGPlusClick} />
+          <a dangerouslySetInnerHTML={shareMail} className="oo-email-share" onClick={this.handleEmailClick} />
         </div>
       );
     }
