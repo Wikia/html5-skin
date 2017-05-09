@@ -912,7 +912,6 @@ AdPanel.defaultProps = {
 };
 
 module.exports = AdPanel;
-
 },{"../components/icon":26,"../constants/constants":41,"./spinner":32,"./utils":38,"classnames":56,"react":217}],8:[function(require,module,exports){
 var React = require('react'),
     Icon = require('../components/icon');
@@ -1311,7 +1310,6 @@ var ColorSelectionTab = React.createClass({displayName: "ColorSelectionTab",
 });
 
 module.exports = ColorSelectionTab;
-
 },{"../../constants/constants":41,"../colorSelector":20,"../utils":38,"./selectionContainer":18,"react":217}],14:[function(require,module,exports){
 var React = require('react'),
     ClassNames = require('classnames'),
@@ -2613,7 +2611,6 @@ DiscoverItem.propTypes = {
 };
 
 module.exports = DiscoverItem;
-
 },{"./utils":38,"react":217}],25:[function(require,module,exports){
 /**
  * Panel component for Discovery Screen
@@ -3831,7 +3828,6 @@ Tabs.Panel = React.createClass({
     );
   }
 });
-
 },{"./icon":26,"classnames":56,"react":217}],34:[function(require,module,exports){
 /**
  * Display component for video text tracks
@@ -4746,7 +4742,6 @@ var Utils = {
 };
 
 module.exports = Utils;
-
 },{}],39:[function(require,module,exports){
 /**
  * Panel component for video quality selection
@@ -5293,7 +5288,6 @@ module.exports = {
     }
   }
 };
-
 },{}],42:[function(require,module,exports){
 /********************************************************************
  CONTROLLER
@@ -5306,7 +5300,7 @@ var React = require('react'),
     Fullscreen = require('screenfull'),
     Skin = require('./skin'),
     SkinJSON = require('../config/skin'),
-    Localization = ({"languageFiles":({"en":require("../config/languageFiles/en.json"),"es":require("../config/languageFiles/es.json"),"zh":require("../config/languageFiles/zh.json")})});
+    Localization = ({"languageFiles":({"en":require("..\\config\\languageFiles\\en.json"),"es":require("..\\config\\languageFiles\\es.json"),"zh":require("..\\config\\languageFiles\\zh.json")})});
 
 OO.plugin("Html5Skin", function (OO, _, $, W) {
   //Check if the player is at least v4. If not, the skin cannot load.
@@ -5317,7 +5311,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "31d307e802e405d13137b5d76af330b8f87455cc"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "ccbea88eb8f011bde9343f8e6e72ec1aff516046"};
   }
 
   var Html5Skin = function (mb, id) {
@@ -6785,8 +6779,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   return Html5Skin;
 });
-
-},{"../config/languageFiles/en.json":1,"../config/languageFiles/es.json":2,"../config/languageFiles/zh.json":3,"../config/skin":4,"./components/accessibilityControls":5,"./components/utils":38,"./constants/constants":41,"./skin":47,"react":217,"react-dom":60,"screenfull":218}],43:[function(require,module,exports){
+},{"../config/skin":4,"..\\config\\languageFiles\\en.json":1,"..\\config\\languageFiles\\es.json":2,"..\\config\\languageFiles\\zh.json":3,"./components/accessibilityControls":5,"./components/utils":38,"./constants/constants":41,"./skin":47,"react":217,"react-dom":60,"screenfull":218}],43:[function(require,module,exports){
 /**
  * Enables accessability controls.
  *
@@ -7517,7 +7510,6 @@ ContentScreen.defaultProps = {
 };
 
 module.exports = ContentScreen;
-
 },{"../components/closeButton":8,"../components/icon":26,"../components/utils":38,"../components/watermark":40,"../constants/constants":41,"../mixins/accessibilityMixin":43,"react":217}],50:[function(require,module,exports){
 /********************************************************************
   END SCREEN
@@ -7992,7 +7984,6 @@ var PlayingScreen = React.createClass({displayName: "PlayingScreen",
   }
 });
 module.exports = PlayingScreen;
-
 },{"../components/adOverlay":6,"../components/controlBar":21,"../components/spinner":32,"../components/textTrackPanel":34,"../components/upNextPanel":37,"../components/watermark":40,"../mixins/resizeMixin":45,"classnames":56,"react":217,"react-dom":60}],54:[function(require,module,exports){
 var React = require('react');
 
