@@ -97,7 +97,7 @@ gulp.task('build:all', ['build:vendor', 'build'], function () {
 	gulp.src(['build/core.js', 'build/main_html5.js', 'build/html5-skin.min.js', 'build/google_ima.js']).pipe(concat('all-with-google-ima.js')).pipe(gulp.dest('build'));
 	gulp.src([
     'build/core.js',
-    'build/bit_wrapper.min.js',
+    'build/bitmovin/bit_wrapper.min.js',
     'build/main_html5.js',
     'build/html5-skin.min.js',
     'build/google_ima.min.js'
