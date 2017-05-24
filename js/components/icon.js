@@ -13,7 +13,7 @@ var Icon = React.createClass({
         __html: this.props.skinConfig.icons[this.props.icon].svg
       };
       return <span dangerouslySetInnerHTML={svg} onMouseOver={this.props.onMouseOver} onMouseOut={this.props.onMouseOut}
-                   onClick={this.props.onClick} className="oo-icon-svg"/>;
+                   onClick={this.props.onClick}/>;
     }
     var iconStyle = Utils.extend({fontFamily: this.props.skinConfig.icons[this.props.icon].fontFamilyName}, this.props.style);
     return (

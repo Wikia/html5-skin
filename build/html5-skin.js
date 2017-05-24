@@ -1939,7 +1939,7 @@ var ControlBar = React.createClass({displayName: "ControlBar",
         "oo-volume-bar": true,
         "oo-on": turnedOn
       });
-      var barStyle = turnedOn ? {backgroundColor: this.props.skinConfig.controlBar.volumeControl.color ? this.props.skinConfig.controlBar.volumeControl.color : this.props.skinConfig.general.accentColor} : null;
+      var barStyle = {backgroundColor: this.props.skinConfig.controlBar.volumeControl.color ? this.props.skinConfig.controlBar.volumeControl.color : this.props.skinConfig.general.accentColor};
 
       volumeBars.push(React.createElement("a", {"data-volume": (i+1)/10, className: volumeClass, key: i, 
         style: barStyle, 
@@ -2861,7 +2861,7 @@ var Icon = React.createClass({displayName: "Icon",
         __html: this.props.skinConfig.icons[this.props.icon].svg
       };
       return React.createElement("span", {dangerouslySetInnerHTML: svg, onMouseOver: this.props.onMouseOver, onMouseOut: this.props.onMouseOut, 
-                   onClick: this.props.onClick, className: "oo-icon-svg"});
+                   onClick: this.props.onClick});
     }
     var iconStyle = Utils.extend({fontFamily: this.props.skinConfig.icons[this.props.icon].fontFamilyName}, this.props.style);
     return (
@@ -4777,6 +4777,26 @@ var VideoQualityPanel = React.createClass({displayName: "VideoQualityPanel",
     this.props.togglePopoverAction();
   },
 
+  addAutoButton: function(bitrateButtons) {
+    var autoQualityBtn = ClassNames({
+      'oo-quality-auto-btn': true,
+      'oo-selected': this.state.selected == 'auto'
+    });
+    var selectedBitrateStyle = {color: (this.props.skinConfig.general.accentColor && this.state.selected == 'auto') ? this.props.skinConfig.general.accentColor : null};
+
+    //add auto btn to beginning of array
+    bitrateButtons.unshift(
+      React.createElement("li", {className: "oo-auto-li", key: "auto-li"}, 
+        React.createElement("a", {className: autoQualityBtn, key: "auto", onClick: this.handleVideoQualityClick.bind(this, 'auto')}, 
+          React.createElement("div", {className: "oo-quality-auto-icon", style: selectedBitrateStyle}, 
+            React.createElement(Icon, React.__spread({},  this.props, {icon: "auto"}))
+          ), 
+          React.createElement("div", {className: "oo-quality-auto-label", style: selectedBitrateStyle}, "Auto")
+        )
+      )
+    );
+  },
+
   render: function() {
     var availableBitrates  = this.props.videoQualityOptions.availableBitrates;
     var bitrateButtons = [];
@@ -4790,15 +4810,18 @@ var VideoQualityPanel = React.createClass({displayName: "VideoQualityPanel",
       });
       var selectedBitrateStyle = {color: (this.props.skinConfig.general.accentColor && this.state.selected == availableBitrates[i].id) ? this.props.skinConfig.general.accentColor : null};
 
-      if (availableBitrates[i].id === 'auto') {
-        label = 'Auto';
-      } else if (typeof availableBitrates[i].height === "number") {
-				label = Math.round(availableBitrates[i].height) + 'p';
-			}
-			else {
-				label = availableBitrates[i].bitrate;
-			}
-			bitrateButtons.push(React.createElement("li", {key: i}, React.createElement("a", {className: qualityBtn, style: selectedBitrateStyle, key: i, onClick: this.handleVideoQualityClick.bind(this, availableBitrates[i].id)}, label)));
+      if (availableBitrates[i].id == 'auto') {
+        this.addAutoButton(bitrateButtons);
+      }
+      else {
+        if (typeof availableBitrates[i].bitrate === "number") {
+          label = Math.round(availableBitrates[i].bitrate/1000) + ' kbps';
+        } 
+        else {
+          label = availableBitrates[i].bitrate;
+        }
+        bitrateButtons.push(React.createElement("li", {key: i}, React.createElement("a", {className: qualityBtn, style: selectedBitrateStyle, key: i, onClick: this.handleVideoQualityClick.bind(this, availableBitrates[i].id)}, label)));
+      }
     }
 
     var qualityScreenClass = ClassNames({
@@ -5294,7 +5317,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "27c1b1c436f1d7f37304c5ac3c5d4aeda6cf75c2"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "31d307e802e405d13137b5d76af330b8f87455cc"};
   }
 
   var Html5Skin = function (mb, id) {
@@ -6134,15 +6157,10 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
     onBitrateInfoAvailable: function(event, bitrates) {
       if (bitrates && bitrates.bitrates) {
-        // copy array
-        var bitratesList = bitrates.bitrates.slice();
-				bitratesList.sort(function (a, b) {
-					return b.height - a.height;
-				});
-        this.state.videoQualityOptions.availableBitrates = bitratesList;
+        this.state.videoQualityOptions.availableBitrates = bitrates.bitrates;
         this.renderSkin({
           "videoQualityOptions": {
-            "availableBitrates": bitratesList,
+            "availableBitrates": bitrates.bitrates,
             "selectedBitrate": this.state.videoQualityOptions.selectedBitrate
           }
         });

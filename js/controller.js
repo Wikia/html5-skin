@@ -861,15 +861,10 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
     onBitrateInfoAvailable: function(event, bitrates) {
       if (bitrates && bitrates.bitrates) {
-        // copy array
-        var bitratesList = bitrates.bitrates.slice();
-				bitratesList.sort(function (a, b) {
-					return b.height - a.height;
-				});
-        this.state.videoQualityOptions.availableBitrates = bitratesList;
+        this.state.videoQualityOptions.availableBitrates = bitrates.bitrates;
         this.renderSkin({
           "videoQualityOptions": {
-            "availableBitrates": bitratesList,
+            "availableBitrates": bitrates.bitrates,
             "selectedBitrate": this.state.videoQualityOptions.selectedBitrate
           }
         });
