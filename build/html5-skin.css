@@ -44,7 +44,7 @@
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
-.oo-player-container .oo-expand, .oo-player-container .oo-state-screen, .oo-player-container .oo-spinner-screen, .oo-player-container .oo-state-screen .oo-fading-underlay, .oo-player-container .oo-spinner-screen .oo-fading-underlay, .oo-player-container .oo-state-screen .oo-fading-underlay-active, .oo-player-container .oo-spinner-screen .oo-fading-underlay-active, .oo-player-container .oo-state-screen .oo-underlay-gradient, .oo-player-container .oo-spinner-screen .oo-underlay-gradient, .oo-player-container .oo-state-screen .oo-state-screen-selectable, .oo-player-container .oo-spinner-screen .oo-state-screen-selectable, .oo-player-container .oo-player > div, .oo-player-container .oo-player > embed, .oo-player-container .oo-player > figure, .oo-player-container .oo-player > object, .oo-player-container .oo-player-skin, .oo-player-container video {
+.oo-player-container .oo-expand, .oo-player-container .oo-state-screen, .oo-player-container .oo-spinner-screen, .oo-player-container .oo-state-screen .oo-fading-underlay, .oo-player-container .oo-spinner-screen .oo-fading-underlay, .oo-player-container .oo-state-screen .oo-fading-underlay-active, .oo-player-container .oo-spinner-screen .oo-fading-underlay-active, .oo-player-container .oo-state-screen .oo-underlay-gradient, .oo-player-container .oo-spinner-screen .oo-underlay-gradient, .oo-player-container .oo-state-screen .oo-state-screen-selectable, .oo-player-container .oo-spinner-screen .oo-state-screen-selectable, .oo-player-container .oo-plugins, .oo-player-container .oo-player > div, .oo-player-container .oo-player > embed, .oo-player-container .oo-player > figure, .oo-player-container .oo-player > object, .oo-player-container .oo-player-skin, .oo-player-container video {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -999,6 +999,44 @@
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
+.oo-player-container .oo-player-skin-plugins {
+  z-index: 12000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 90px;
+  position: absolute;
+  overflow: hidden;
+  display: none; }
+
+.oo-player-container .oo-player-skin-plugins.oo-showing:not(:empty) {
+  display: block; }
+
+.oo-player-container .oo-player-skin-plugins.oo-overlay-showing:not(:empty) {
+  display: block; }
+
+.oo-player-container .oo-player-skin-plugins.oo-overlay-blur:not(:empty) {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  filter: blur(3px);
+  z-index: -10000;
+  position: absolute; }
+
+.oo-player-container .oo-player-skin-plugins-click-layer {
+  z-index: 12005;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 90px;
+  position: absolute;
+  display: none; }
+
+.oo-player-container .oo-player-skin-plugins.oo-full:not(.oo-overlay-showing), .oo-player-container .oo-player-skin-plugins-click-layer.oo-full {
+  bottom: 0; }
+
+.oo-player-container .oo-player-skin-plugins-click-layer.oo-showing {
+  display: block; }
 
 .oo-player-container .tabs-menu {
   white-space: nowrap;
