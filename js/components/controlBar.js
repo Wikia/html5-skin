@@ -11,6 +11,7 @@ var React = require('react'),
     Popover = require('../views/popover'),
     VideoQualityPanel = require('./videoQualityPanel'),
     ClosedCaptionPopover = require('./closed-caption/closedCaptionPopover'),
+    ConfigPanel = require('./configPanel'),
     Logo = require('./logo');
     Icon = require('./icon');
 
@@ -112,12 +113,27 @@ var ControlBar = React.createClass({
     } else {
       this.toggleQualityPopover();
       this.closeCaptionPopover();
+      this.closeConfigPopover();
     }
   },
 
-  toggleQualityPopover: function() {
-    this.props.controller.toggleVideoQualityPopOver();
+    toggleQualityPanel: function() {
+        this.props.controller.toggleVideoQualityPopOver();
+    },
+
+    handleConfigPanelClick: function() {
+        this.toggleConfigPopover();
+    },
+
+  toggleConfigPopover: function() {
+    this.props.controller.toggleConfigPanelPopover();
   },
+
+    closeConfigPopover: function() {
+        if(this.props.controller.state.configPanelOptions.showConfigPanelPopover == true) {
+            this.toggleConfigPopover();
+        }
+    },
 
   closeQualityPopover: function() {
     if(this.props.controller.state.videoQualityOptions.showVideoQualityPopover == true) {
@@ -269,8 +285,9 @@ var ControlBar = React.createClass({
       "oo-control-bar-item oo-live oo-live-indicator": true,
       "oo-live-nonclickable": isLiveNow
     });
-
-    var videoQualityPopover = this.props.controller.state.videoQualityOptions.showVideoQualityPopover ? <Popover><VideoQualityPanel{...this.props} togglePopoverAction={this.toggleQualityPopover} popover={true}/></Popover> : null;
+    var configPanelContent = this.props.controller.state.configPanelOptions.showVideoQualityPanel ? <VideoQualityPanel{...this.props} togglePopoverAction={this.toggleConfigPopover} toggleVideoQualityPanel={this.toggleQualityPanel} popover={true}/> :  <ConfigPanel toggleQualityAction={this.toggleQualityPanel} />;
+    var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? <Popover>{configPanelContent}</Popover> : null;
+    //var videoQualityPopover = this.props.controller.state.videoQualityOptions.showVideoQualityPopover ? <Popover><VideoQualityPanel{...this.props} togglePopoverAction={this.toggleQualityPopover} popover={true}/></Popover> : null;
     var closedCaptionPopover = this.props.controller.state.closedCaptionOptions.showClosedCaptionPopover ? <Popover popoverClassName="oo-popover oo-popover-pull-right"><ClosedCaptionPopover {...this.props} togglePopoverAction={this.toggleCaptionPopover}/></Popover> : null;
 
     var qualityClass = ClassNames({
@@ -324,8 +341,8 @@ var ControlBar = React.createClass({
 
       "quality": (
         <div className="oo-popover-button-container" key="quality">
-          {videoQualityPopover}
-          <a className={qualityClass} onClick={this.handleQualityClick} style={selectedStyle}>
+          {configPanelPopover}
+          <a className={qualityClass} onClick={this.handleConfigPanelClick} style={selectedStyle}>
             <Icon {...this.props} icon="quality" style={dynamicStyles.iconCharacter}
               onMouseOver={this.highlight} onMouseOut={this.removeHighlight}/>
           </a>

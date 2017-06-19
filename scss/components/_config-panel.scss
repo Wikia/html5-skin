@@ -1,0 +1,32 @@
+
+.oo-config-panel {
+  margin: 10px 0;
+
+  ul {
+    list-style-type: none;
+    padding: 0 18px;
+    margin:0;
+    font-size: 12px;
+
+    li {
+      display: block;
+      margin: 0 0 6px 0;
+
+      a {
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+          color: rgba($white, 0.6)
+        }
+      }
+    }
+  }
+
+  .chevron {
+    transform: rotate(-90deg);
+    fill: #999999;
+  }
+}

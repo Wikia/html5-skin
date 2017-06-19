@@ -101,6 +101,17 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         "showVideoQualityPopover":false
       },
 
+        "autoPlay": {
+          "enabled": true
+        },
+
+        "configPanelOptions": {
+            "availableBitrates": null,
+            "selectedBitrate": null,
+            "showVideoQualityPanel":false,
+            "showConfigPanelPopover": false
+        },
+
       "volumeState": {
         "volume": 1,
         "muted": false,
@@ -1267,10 +1278,15 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.mb.publish(OO.EVENTS.DISCOVERY_API.SEND_DISPLAY_EVENT, eventData);
     },
 
-    toggleVideoQualityPopOver: function() {
-      this.state.videoQualityOptions.showVideoQualityPopover = !this.state.videoQualityOptions.showVideoQualityPopover;
+    toggleConfigPanelPopover: function() {
+      this.state.configPanelOptions.showConfigPanelPopover = !this.state.configPanelOptions.showConfigPanelPopover;
       this.renderSkin();
     },
+
+      toggleVideoQualityPopOver: function() {
+          this.state.configPanelOptions.showVideoQualityPanel = !this.state.configPanelOptions.showVideoQualityPanel;
+          this.renderSkin();
+      },
 
     toggleClosedCaptionPopOver: function() {
       this.state.closedCaptionOptions.showClosedCaptionPopover = !this.state.closedCaptionOptions.showClosedCaptionPopover;
@@ -1294,12 +1310,21 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
             "showVideoQualityPopover":this.state.videoQualityOptions.showVideoQualityPopover
           }
         });
-      if(this.state.videoQualityOptions.showVideoQualityPopover == true) {
-        this.toggleVideoQualityPopOver();
+      if(this.state.configPanelOptions.showConfigPanelPopover == true) {
+        debugger;
+          console.log("this.state.configPanelOptions.showConfigPanelPopover ");
+        this.toggleConfigPanelPopover();
+      }
+      if(this.state.configPanelOptions.showVideoQualityPanel == true) {
+        debugger;
+          console.log("this.state.configPanelOptions.showVideoQualityPanel ");
+          this.toggleVideoQualityPopOver();
       }
     },
 
     sendVideoQualityChangeEvent: function(selectedContentData) {
+        debugger;
+        console.log("sendVideoQualityChangeEvent");
       this.state.videoQualityOptions.selectedBitrate = {
         "id": selectedContentData.id
       };
