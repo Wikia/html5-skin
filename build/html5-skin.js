@@ -630,13 +630,13 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
     render: function(){
 
         var switchThumbClassName = ClassNames({
-            'oo-switch-thumb-autoplay': true,
-            'oo-switch-thumb-on-autoplay': this.props.autoPlay.enabled,
-            'oo-switch-thumb-off-autoplay': !this.props.autoPlay.enabled
+            'oo-switch-thumb': true,
+            'oo-switch-thumb-on': this.props.autoPlay.enabled,
+            'oo-switch-thumb-off': !this.props.autoPlay.enabled
         });
         var switchBodyClassName = ClassNames({
-            'oo-switch-body-autoplay': true,
-            'oo-switch-body-off-autoplay': !this.props.autoPlay.enabled
+            'oo-switch-body': true,
+            'oo-switch-body-off': !this.props.autoPlay.enabled
         });
         var onCaptionClassName = ClassNames({
             'oo-switch-captions oo-switch-captions-on': true,
@@ -646,12 +646,26 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
             'oo-switch-captions oo-switch-captions-off': true,
             'oo-switch-captions-active': !this.props.autoPlay.enabled
         });
-        var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
+          var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
+        // var offString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.OFF, this.props.localizableStrings);
+        // var onString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.ON, this.props.localizableStrings);
+
+        // return (
+        //     <div className="oo-switch-container">
+        //         <span className={offCaptionClassName}>Off</span>
+        //         <div className="oo-switch-element">
+        //             <span className={switchBodyClassName} style={ccOnStyle}></span>
+        //             <span className={switchThumbClassName}></span>
+        //         </div>
+        //         <span className={onCaptionClassName}>On</span>
+        //         <a className="oo-switch-container-selectable"></a>
+        //     </div>
+        // );
 
         return (
-            React.createElement("div", {className: "oo-switch-container-autoplay", onClick: this.handleAutoPlaySwitch}, 
+            React.createElement("div", {className: "oo-switch-container", onClick: this.handleAutoPlaySwitch}, 
                 React.createElement("span", {className: offCaptionClassName}), 
-                React.createElement("div", {className: "oo-switch-element-autoplay"}, 
+                React.createElement("div", {className: "oo-switch-element"}, 
                     React.createElement("span", {className: switchBodyClassName, style: ccOnStyle}), 
                     React.createElement("span", {className: switchThumbClassName})
                 ), 
@@ -975,13 +989,13 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
     render: function(){
 
         var switchThumbClassName = ClassNames({
-            'oo-switch-thumb-autoplay': true,
-            'oo-switch-thumb-on-autoplay': this.props.autoPlay.enabled,
-            'oo-switch-thumb-off-autoplay': !this.props.autoPlay.enabled
+            'oo-switch-thumb': true,
+            'oo-switch-thumb-on': this.props.autoPlay.enabled,
+            'oo-switch-thumb-off': !this.props.autoPlay.enabled
         });
         var switchBodyClassName = ClassNames({
-            'oo-switch-body-autoplay': true,
-            'oo-switch-body-off-autoplay': !this.props.autoPlay.enabled
+            'oo-switch-body': true,
+            'oo-switch-body-off': !this.props.autoPlay.enabled
         });
         var onCaptionClassName = ClassNames({
             'oo-switch-captions oo-switch-captions-on': true,
@@ -991,12 +1005,26 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
             'oo-switch-captions oo-switch-captions-off': true,
             'oo-switch-captions-active': !this.props.autoPlay.enabled
         });
-        var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
+          var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
+        // var offString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.OFF, this.props.localizableStrings);
+        // var onString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.ON, this.props.localizableStrings);
+
+        // return (
+        //     <div className="oo-switch-container">
+        //         <span className={offCaptionClassName}>Off</span>
+        //         <div className="oo-switch-element">
+        //             <span className={switchBodyClassName} style={ccOnStyle}></span>
+        //             <span className={switchThumbClassName}></span>
+        //         </div>
+        //         <span className={onCaptionClassName}>On</span>
+        //         <a className="oo-switch-container-selectable"></a>
+        //     </div>
+        // );
 
         return (
-            React.createElement("div", {className: "oo-switch-container-autoplay", onClick: this.handleAutoPlaySwitch}, 
+            React.createElement("div", {className: "oo-switch-container", onClick: this.handleAutoPlaySwitch}, 
                 React.createElement("span", {className: offCaptionClassName}), 
-                React.createElement("div", {className: "oo-switch-element-autoplay"}, 
+                React.createElement("div", {className: "oo-switch-element"}, 
                     React.createElement("span", {className: switchBodyClassName, style: ccOnStyle}), 
                     React.createElement("span", {className: switchThumbClassName})
                 ), 
@@ -1810,9 +1838,17 @@ module.exports = ColorSelector;
  * @module VideoQualityPanel
  */
 var React = require('react'),
+    ClassNames = require('classnames'),
+    VideoQualityPanel = require('./videoQualityPanel'),
     AutoplaySwitch = require('./autoplaySwitch');
 
 var ConfigPanel = React.createClass({displayName: "ConfigPanel",
+    getInitialState: function() {
+        return {
+
+        };
+    },
+
     handleVideoQualityClick: function () {
         this.props.toggleQualityAction();
     },
@@ -1821,10 +1857,10 @@ var ConfigPanel = React.createClass({displayName: "ConfigPanel",
         return (
             React.createElement("div", {className: "oo-config-panel"}, 
                     React.createElement("ul", null, 
-                        React.createElement("li", null, React.createElement("a", {onClick: this.handleVideoQualityClick}, "Video Quality ", React.createElement("svg", {className: "oo-chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
+                        React.createElement("li", null, React.createElement("a", {onClick: this.handleVideoQualityClick}, "Video Quality ", React.createElement("svg", {className: "chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
                             React.createElement("path", {d: "M9 14a.997.997 0 0 1-.707-.293l-7-7a.999.999 0 1 1 1.414-1.414L9 11.586l6.293-6.293a.999.999 0 1 1 1.414 1.414l-7 7A.997.997 0 0 1 9 14", "fill-rule": "evenodd"})
                         ))), 
-                        React.createElement("li", {className: "oo-autoplay-element"}, "Autoplay Videos", React.createElement(AutoplaySwitch, React.__spread({autoPlay: this.props.controller.state.autoPlay},  this.props)))
+                        React.createElement("li", null, "Autoplay Videos", React.createElement(AutoplaySwitch, React.__spread({autoPlay: this.props.controller.state.autoPlay},  this.props)))
                     )
             )
         );
@@ -1834,7 +1870,7 @@ var ConfigPanel = React.createClass({displayName: "ConfigPanel",
 
 module.exports = ConfigPanel;
 
-},{"./autoplaySwitch":9,"react":221}],24:[function(require,module,exports){
+},{"./autoplaySwitch":9,"./videoQualityPanel":42,"classnames":59,"react":221}],24:[function(require,module,exports){
 /********************************************************************
   CONTROL BAR
 *********************************************************************/
@@ -1954,23 +1990,23 @@ var ControlBar = React.createClass({displayName: "ControlBar",
     }
   },
 
-  toggleQualityPanel: function() {
-    this.props.controller.toggleVideoQualityPopOver();
-  },
+    toggleQualityPanel: function() {
+        this.props.controller.toggleVideoQualityPopOver();
+    },
 
-  handleConfigPanelClick: function() {
-    this.toggleConfigPopover();
-  },
+    handleConfigPanelClick: function() {
+        this.toggleConfigPopover();
+    },
 
   toggleConfigPopover: function() {
     this.props.controller.toggleConfigPanelPopover();
   },
 
-  closeConfigPopover: function() {
-    if(this.props.controller.state.configPanelOptions.showConfigPanelPopover == true) {
-      this.toggleConfigPopover();
-    }
-  },
+    closeConfigPopover: function() {
+        if(this.props.controller.state.configPanelOptions.showConfigPanelPopover == true) {
+            this.toggleConfigPopover();
+        }
+    },
 
   closeQualityPopover: function() {
     if(this.props.controller.state.videoQualityOptions.showVideoQualityPopover == true) {
@@ -2122,8 +2158,10 @@ var ControlBar = React.createClass({displayName: "ControlBar",
       "oo-control-bar-item oo-live oo-live-indicator": true,
       "oo-live-nonclickable": isLiveNow
     });
-    var configPanelContent = this.props.controller.state.configPanelOptions.showVideoQualityPanel ? React.createElement(VideoQualityPanel, React.__spread({}, this.props, {togglePopoverAction: this.toggleConfigPopover, toggleVideoQualityPanel: this.toggleQualityPanel, popover: true})) :  React.createElement(ConfigPanel, React.__spread({},  this.props, {toggleQualityAction: this.toggleQualityPanel}));
-    var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? React.createElement(Popover, {popoverClassName: "oo-popover oo-popover-pull-autoplay"}, configPanelContent) : null;
+    var showVideoQualityPanel = !this.props.skinConfig.controlBar.autoplayToggle || this.props.controller.state.configPanelOptions.showVideoQualityPanel;
+    var configPanelContent = showVideoQualityPanel ? React.createElement(VideoQualityPanel, React.__spread({}, this.props, {togglePopoverAction: this.toggleConfigPopover, toggleVideoQualityPanel: this.toggleQualityPanel, popover: true})) :  React.createElement(ConfigPanel, React.__spread({},  this.props, {toggleQualityAction: this.toggleQualityPanel}));
+    var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? React.createElement(Popover, null, configPanelContent) : null;
+    //var videoQualityPopover = this.props.controller.state.videoQualityOptions.showVideoQualityPopover ? <Popover><VideoQualityPanel{...this.props} togglePopoverAction={this.toggleQualityPopover} popover={true}/></Popover> : null;
     var closedCaptionPopover = this.props.controller.state.closedCaptionOptions.showClosedCaptionPopover ? React.createElement(Popover, {popoverClassName: "oo-popover oo-popover-pull-right"}, React.createElement(ClosedCaptionPopover, React.__spread({},  this.props, {togglePopoverAction: this.toggleCaptionPopover}))) : null;
 
     var qualityClass = ClassNames({
@@ -4957,6 +4995,15 @@ var VideoQualityPanel = React.createClass({displayName: "VideoQualityPanel",
       'oo-mobile-fullscreen': !this.props.popover && this.props.controller.state.isMobile && (this.props.controller.state.fullscreen || this.props.controller.state.isFullWindow)
     });
 
+    var back;
+    if(this.props.skinConfig.controlBar.autoplayToggle) {
+      back = React.createElement("a", {className: "back", onClick: this.handleBackClick}, 
+        React.createElement("svg", {className: "chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
+          React.createElement("path", {d: "M9 14a.997.997 0 0 1-.707-.293l-7-7a.999.999 0 1 1 1.414-1.414L9 11.586l6.293-6.293a.999.999 0 1 1 1.414 1.414l-7 7A.997.997 0 0 1 9 14", "fill-rule": "evenodd"})), 
+        "Back"
+      );
+    }
+
     return (
       React.createElement("div", {className: qualityScreenClass}, 
         React.createElement(ScrollArea, {
@@ -4966,11 +5013,7 @@ var VideoQualityPanel = React.createClass({displayName: "VideoQualityPanel",
           React.createElement("ul", null, 
             bitrateButtons
           ), 
-          React.createElement("a", {className: "back", onClick: this.handleBackClick}, 
-            React.createElement("svg", {className: "oo-chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
-            React.createElement("path", {d: "M9 14a.997.997 0 0 1-.707-.293l-7-7a.999.999 0 1 1 1.414-1.414L9 11.586l6.293-6.293a.999.999 0 1 1 1.414 1.414l-7 7A.997.997 0 0 1 9 14", "fill-rule": "evenodd"})), 
-            "Back"
-          )
+          back
         )
       )
     );
@@ -5447,136 +5490,137 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     return null;
   }
 
-  if (OO.publicApi && OO.publicApi.VERSION) {
+	if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "cffc2d48400ca6342af1a25a2db59c5655ae2be2"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "2141eb0ebc013b8f0a21eaa74762294ef7907e4a"};
   }
 
-  var Html5Skin = function (mb, id) {
-    this.mb = mb;
-    this.id = id;
-    this.state = {
-      "playerParam": {},
-      "persistentSettings": {
-        "closedCaptionOptions": {},
-        "autoPlay": {}
+	var autoplayCookieName = 'html5-skin.autoplay',
+    Html5Skin = function (mb, id) {
+      this.mb = mb;
+      this.id = id;
+      this.state = {
+        "playerParam": {},
+        "persistentSettings": {
+          "closedCaptionOptions": {},
+          "autoPlay": {}
 
-      },
-      "assetId": null,
-      "contentTree": {},
-      "thumbnails": null,
-      "isLiveStream": false,
-      "screenToShow": null,
-      "playerState": null,
-      "discoveryData": null,
-      "isPlayingAd": false,
-      "adOverlayUrl": null,
-      "showAdOverlay": false,
-      "showAdOverlayCloseButton": false,
-      "showAdControls": true,
-      "showAdMarquee": true,
-      "configLoaded": false,
-      "config": {},
-      "fullscreen": false,
-      "pauseAnimationDisabled": false,
-      "adPauseAnimationDisabled": true,
-      "pausedCallback": null,
-      "seeking": false,
-      "queuedPlayheadUpdate": null,
-      "accessibilityControlsEnabled": false,
-      "duration": 0,
-      "mainVideoDuration": 0,
-      "adVideoDuration": 0,
-      "adStartTime": 0,
-      "elementId": null,
-      "mainVideoContainer": null,
-      "mainVideoInnerWrapper": null,
-      "mainVideoElement": null,
-      "mainVideoMediaType": null,
-      "mainVideoAspectRatio": 0,
-      "pluginsElement": null,
-      "pluginsClickElement": null,
-      "buffering": false,
-      "mainVideoBuffered": null,
-      "mainVideoPlayhead": 0,
-      "focusedElement": null,
+        },
+        "assetId": null,
+        "contentTree": {},
+        "thumbnails": null,
+        "isLiveStream": false,
+        "screenToShow": null,
+        "playerState": null,
+        "discoveryData": null,
+        "isPlayingAd": false,
+        "adOverlayUrl": null,
+        "showAdOverlay": false,
+        "showAdOverlayCloseButton": false,
+        "showAdControls": true,
+        "showAdMarquee": true,
+        "configLoaded": false,
+        "config": {},
+        "fullscreen": false,
+        "pauseAnimationDisabled": false,
+        "adPauseAnimationDisabled": true,
+        "pausedCallback": null,
+        "seeking": false,
+        "queuedPlayheadUpdate": null,
+        "accessibilityControlsEnabled": false,
+        "duration": 0,
+        "mainVideoDuration": 0,
+        "adVideoDuration": 0,
+        "adStartTime": 0,
+        "elementId": null,
+        "mainVideoContainer": null,
+        "mainVideoInnerWrapper": null,
+        "mainVideoElement": null,
+        "mainVideoMediaType": null,
+        "mainVideoAspectRatio": 0,
+        "pluginsElement": null,
+        "pluginsClickElement": null,
+        "buffering": false,
+        "mainVideoBuffered": null,
+        "mainVideoPlayhead": 0,
+        "focusedElement": null,
 
-      "currentAdsInfo": {
-        "currentAdItem": null,
-        "numberOfAds": 0,
-        "skipAdButtonEnabled": false
-      },
+        "currentAdsInfo": {
+          "currentAdItem": null,
+          "numberOfAds": 0,
+          "skipAdButtonEnabled": false
+        },
 
-      "closedCaptionsInfoCache": {},
-      "closedCaptionOptions": {
-        "enabled": null,
-        "language": null,
-        "availableLanguages": null,
-        "cueText": null,
-        "showClosedCaptionPopover": false,
-        "textColor": null,
-        "windowColor": null,
-        "backgroundColor": null,
-        "textOpacity": null,
-        "backgroundOpacity": null,
-        "windowOpacity": null,
-        "fontType": null,
-        "fontSize": null,
-        "textEnhancement": null
-      },
+        "closedCaptionsInfoCache": {},
+        "closedCaptionOptions": {
+          "enabled": null,
+          "language": null,
+          "availableLanguages": null,
+          "cueText": null,
+          "showClosedCaptionPopover": false,
+          "textColor": null,
+          "windowColor": null,
+          "backgroundColor": null,
+          "textOpacity": null,
+          "backgroundOpacity": null,
+          "windowOpacity": null,
+          "fontType": null,
+          "fontSize": null,
+          "textEnhancement": null
+        },
 
-      "videoQualityOptions": {
-        "availableBitrates": null,
-        "selectedBitrate": null,
-        "showVideoQualityPopover":false
-      },
+        "videoQualityOptions": {
+          "availableBitrates": null,
+          "selectedBitrate": null,
+          "showVideoQualityPopover":false
+        },
 
-      "autoPlay": {
-        "enabled": Cookies.get('autoplay') !== '0'
-      },
+          "autoPlay": {
+            "enabled": false
+          },
 
-      "configPanelOptions": {
-        "availableBitrates": null,
-        "selectedBitrate": null,
-        "showVideoQualityPanel":false,
-        "showConfigPanelPopover": false
-      },
+          "configPanelOptions": {
+              "availableBitrates": null,
+              "selectedBitrate": null,
+              "showVideoQualityPanel":false,
+              "showConfigPanelPopover": false
+          },
 
-      "volumeState": {
-        "volume": 1,
-        "muted": false,
-        "oldVolume": 1,
-        "volumeSliderVisible": false
-      },
+        "volumeState": {
+          "volume": 1,
+          "muted": false,
+          "oldVolume": 1,
+          "volumeSliderVisible": false
+        },
 
-      "upNextInfo": {
-        "upNextData": null,
-        "countDownFinished": false,
-        "countDownCancelled": false,
-        "timeToShow": 0,
-        "showing": false,
-        "delayedSetEmbedCodeEvent": false,
-        "delayedContentData": null
-      },
+        "upNextInfo": {
+          "upNextData": null,
+          "countDownFinished": false,
+          "countDownCancelled": false,
+          "timeToShow": 0,
+          "showing": false,
+          "delayedSetEmbedCodeEvent": false,
+          "delayedContentData": null
+        },
 
-      "moreOptionsItems": null,
+        "moreOptionsItems": null,
 
-      "isMobile": false,
-      "controlBarVisible": true,
-      "forceControlBarVisible": false,
-      "timer": null,
-      "errorCode": null,
-      "isSubscribed": false,
-      "isPlaybackReadySubscribed": false,
-      "isSkipAdClicked": false,
-      "isInitialPlay": false,
-      "isFullScreenSupported": false,
-      "isVideoFullScreenSupported": false,
-      "isFullWindow": false,
-      "autoPauseDisabled": false
-    };
+        "isMobile": false,
+        "controlBarVisible": true,
+        "forceControlBarVisible": false,
+        "timer": null,
+        "errorCode": null,
+        "isSubscribed": false,
+        "isPlaybackReadySubscribed": false,
+        "isSkipAdClicked": false,
+        "isInitialPlay": false,
+        "isFullScreenSupported": false,
+        "isVideoFullScreenSupported": false,
+        "isFullWindow": false,
+        "autoPauseDisabled": false
+      };
 
-    this.init();
+      this.init();
   };
 
   Html5Skin.prototype = {
@@ -6252,6 +6296,11 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.skin = ReactDOM.render(
         React.createElement(Skin, {skinConfig: SkinJSON, localizableStrings: Localization.languageFiles, language: Utils.getLanguageToUse(SkinJSON), controller: this, closedCaptionOptions: this.state.closedCaptionOptions, pauseAnimationDisabled: this.state.pauseAnimationDisabled}), document.querySelector("#" + this.state.elementId + " .oo-player-skin")
       );
+
+      if (this.skin.props.skinConfig.controlBar && this.skin.props.skinConfig.controlBar.autoplayCookieName) {
+				autoplayCookieName = this.skin.props.skinConfig.controlBar.autoplayCookieName;
+			}
+			this.state.autoPlay.enabled = Cookies.get(autoplayCookieName) !== '0';
       this.state.configLoaded = true;
       this.renderSkin();
       this.createPluginElements();
@@ -6713,10 +6762,10 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.renderSkin();
     },
 
-    toggleVideoQualityPopOver: function() {
-      this.state.configPanelOptions.showVideoQualityPanel = !this.state.configPanelOptions.showVideoQualityPanel;
-      this.renderSkin();
-    },
+      toggleVideoQualityPopOver: function() {
+          this.state.configPanelOptions.showVideoQualityPanel = !this.state.configPanelOptions.showVideoQualityPanel;
+          this.renderSkin();
+      },
 
     toggleClosedCaptionPopOver: function() {
       this.state.closedCaptionOptions.showClosedCaptionPopover = !this.state.closedCaptionOptions.showClosedCaptionPopover;
@@ -6812,7 +6861,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
       this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
       this.renderSkin();
-      Cookies.set('autoplay', this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
+      Cookies.set(autoplayCookieName, this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
     },
 
     upNextDismissButtonClicked: function() {

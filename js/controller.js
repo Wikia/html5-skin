@@ -20,136 +20,137 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     return null;
   }
 
-  if (OO.publicApi && OO.publicApi.VERSION) {
+	if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
     OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "<SKIN_REV>"};
   }
 
-  var Html5Skin = function (mb, id) {
-    this.mb = mb;
-    this.id = id;
-    this.state = {
-      "playerParam": {},
-      "persistentSettings": {
-        "closedCaptionOptions": {},
-        "autoPlay": {}
+	var autoplayCookieName = 'html5-skin.autoplay',
+    Html5Skin = function (mb, id) {
+      this.mb = mb;
+      this.id = id;
+      this.state = {
+        "playerParam": {},
+        "persistentSettings": {
+          "closedCaptionOptions": {},
+          "autoPlay": {}
 
-      },
-      "assetId": null,
-      "contentTree": {},
-      "thumbnails": null,
-      "isLiveStream": false,
-      "screenToShow": null,
-      "playerState": null,
-      "discoveryData": null,
-      "isPlayingAd": false,
-      "adOverlayUrl": null,
-      "showAdOverlay": false,
-      "showAdOverlayCloseButton": false,
-      "showAdControls": true,
-      "showAdMarquee": true,
-      "configLoaded": false,
-      "config": {},
-      "fullscreen": false,
-      "pauseAnimationDisabled": false,
-      "adPauseAnimationDisabled": true,
-      "pausedCallback": null,
-      "seeking": false,
-      "queuedPlayheadUpdate": null,
-      "accessibilityControlsEnabled": false,
-      "duration": 0,
-      "mainVideoDuration": 0,
-      "adVideoDuration": 0,
-      "adStartTime": 0,
-      "elementId": null,
-      "mainVideoContainer": null,
-      "mainVideoInnerWrapper": null,
-      "mainVideoElement": null,
-      "mainVideoMediaType": null,
-      "mainVideoAspectRatio": 0,
-      "pluginsElement": null,
-      "pluginsClickElement": null,
-      "buffering": false,
-      "mainVideoBuffered": null,
-      "mainVideoPlayhead": 0,
-      "focusedElement": null,
+        },
+        "assetId": null,
+        "contentTree": {},
+        "thumbnails": null,
+        "isLiveStream": false,
+        "screenToShow": null,
+        "playerState": null,
+        "discoveryData": null,
+        "isPlayingAd": false,
+        "adOverlayUrl": null,
+        "showAdOverlay": false,
+        "showAdOverlayCloseButton": false,
+        "showAdControls": true,
+        "showAdMarquee": true,
+        "configLoaded": false,
+        "config": {},
+        "fullscreen": false,
+        "pauseAnimationDisabled": false,
+        "adPauseAnimationDisabled": true,
+        "pausedCallback": null,
+        "seeking": false,
+        "queuedPlayheadUpdate": null,
+        "accessibilityControlsEnabled": false,
+        "duration": 0,
+        "mainVideoDuration": 0,
+        "adVideoDuration": 0,
+        "adStartTime": 0,
+        "elementId": null,
+        "mainVideoContainer": null,
+        "mainVideoInnerWrapper": null,
+        "mainVideoElement": null,
+        "mainVideoMediaType": null,
+        "mainVideoAspectRatio": 0,
+        "pluginsElement": null,
+        "pluginsClickElement": null,
+        "buffering": false,
+        "mainVideoBuffered": null,
+        "mainVideoPlayhead": 0,
+        "focusedElement": null,
 
-      "currentAdsInfo": {
-        "currentAdItem": null,
-        "numberOfAds": 0,
-        "skipAdButtonEnabled": false
-      },
+        "currentAdsInfo": {
+          "currentAdItem": null,
+          "numberOfAds": 0,
+          "skipAdButtonEnabled": false
+        },
 
-      "closedCaptionsInfoCache": {},
-      "closedCaptionOptions": {
-        "enabled": null,
-        "language": null,
-        "availableLanguages": null,
-        "cueText": null,
-        "showClosedCaptionPopover": false,
-        "textColor": null,
-        "windowColor": null,
-        "backgroundColor": null,
-        "textOpacity": null,
-        "backgroundOpacity": null,
-        "windowOpacity": null,
-        "fontType": null,
-        "fontSize": null,
-        "textEnhancement": null
-      },
+        "closedCaptionsInfoCache": {},
+        "closedCaptionOptions": {
+          "enabled": null,
+          "language": null,
+          "availableLanguages": null,
+          "cueText": null,
+          "showClosedCaptionPopover": false,
+          "textColor": null,
+          "windowColor": null,
+          "backgroundColor": null,
+          "textOpacity": null,
+          "backgroundOpacity": null,
+          "windowOpacity": null,
+          "fontType": null,
+          "fontSize": null,
+          "textEnhancement": null
+        },
 
-      "videoQualityOptions": {
-        "availableBitrates": null,
-        "selectedBitrate": null,
-        "showVideoQualityPopover":false
-      },
+        "videoQualityOptions": {
+          "availableBitrates": null,
+          "selectedBitrate": null,
+          "showVideoQualityPopover":false
+        },
 
-      "autoPlay": {
-        "enabled": Cookies.get('autoplay') !== '0'
-      },
+        "autoPlay": {
+          "enabled": false
+        },
 
-      "configPanelOptions": {
-        "availableBitrates": null,
-        "selectedBitrate": null,
-        "showVideoQualityPanel":false,
-        "showConfigPanelPopover": false
-      },
+        "configPanelOptions": {
+            "availableBitrates": null,
+            "selectedBitrate": null,
+            "showVideoQualityPanel":false,
+            "showConfigPanelPopover": false
+        },
 
-      "volumeState": {
-        "volume": 1,
-        "muted": false,
-        "oldVolume": 1,
-        "volumeSliderVisible": false
-      },
+        "volumeState": {
+          "volume": 1,
+          "muted": false,
+          "oldVolume": 1,
+          "volumeSliderVisible": false
+        },
 
-      "upNextInfo": {
-        "upNextData": null,
-        "countDownFinished": false,
-        "countDownCancelled": false,
-        "timeToShow": 0,
-        "showing": false,
-        "delayedSetEmbedCodeEvent": false,
-        "delayedContentData": null
-      },
+        "upNextInfo": {
+          "upNextData": null,
+          "countDownFinished": false,
+          "countDownCancelled": false,
+          "timeToShow": 0,
+          "showing": false,
+          "delayedSetEmbedCodeEvent": false,
+          "delayedContentData": null
+        },
 
-      "moreOptionsItems": null,
+        "moreOptionsItems": null,
 
-      "isMobile": false,
-      "controlBarVisible": true,
-      "forceControlBarVisible": false,
-      "timer": null,
-      "errorCode": null,
-      "isSubscribed": false,
-      "isPlaybackReadySubscribed": false,
-      "isSkipAdClicked": false,
-      "isInitialPlay": false,
-      "isFullScreenSupported": false,
-      "isVideoFullScreenSupported": false,
-      "isFullWindow": false,
-      "autoPauseDisabled": false
-    };
+        "isMobile": false,
+        "controlBarVisible": true,
+        "forceControlBarVisible": false,
+        "timer": null,
+        "errorCode": null,
+        "isSubscribed": false,
+        "isPlaybackReadySubscribed": false,
+        "isSkipAdClicked": false,
+        "isInitialPlay": false,
+        "isFullScreenSupported": false,
+        "isVideoFullScreenSupported": false,
+        "isFullWindow": false,
+        "autoPauseDisabled": false
+      };
 
-    this.init();
+      this.init();
   };
 
   Html5Skin.prototype = {
@@ -825,6 +826,11 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.skin = ReactDOM.render(
         React.createElement(Skin, {skinConfig: SkinJSON, localizableStrings: Localization.languageFiles, language: Utils.getLanguageToUse(SkinJSON), controller: this, closedCaptionOptions: this.state.closedCaptionOptions, pauseAnimationDisabled: this.state.pauseAnimationDisabled}), document.querySelector("#" + this.state.elementId + " .oo-player-skin")
       );
+
+      if (this.skin.props.skinConfig.controlBar && this.skin.props.skinConfig.controlBar.autoplayCookieName) {
+				autoplayCookieName = this.skin.props.skinConfig.controlBar.autoplayCookieName;
+			}
+			this.state.autoPlay.enabled = Cookies.get(autoplayCookieName) !== '0';
       this.state.configLoaded = true;
       this.renderSkin();
       this.createPluginElements();
@@ -1385,7 +1391,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
       this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
       this.renderSkin();
-      Cookies.set('autoplay', this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
+      Cookies.set(autoplayCookieName, this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
     },
 
     upNextDismissButtonClicked: function() {
