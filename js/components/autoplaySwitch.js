@@ -11,7 +11,7 @@ var AutoplaySwitch = React.createClass({
     render: function(){
 
         var switchThumbClassName = ClassNames({
-            'oo-switch-thumb': true,
+            'oo-switch-thumb-autoplay': true,
             'oo-switch-thumb-on': this.props.autoPlay.enabled,
             'oo-switch-thumb-off': !this.props.autoPlay.enabled
         });
@@ -44,9 +44,9 @@ var AutoplaySwitch = React.createClass({
         // );
 
         return (
-            <div className="oo-switch-container" onClick={this.handleAutoPlaySwitch}>
+            <div className="oo-switch-container-autoplay" onClick={this.handleAutoPlaySwitch}>
                 <span className={offCaptionClassName}></span>
-                <div className="oo-switch-element">
+                <div className="oo-switch-element-autoplay">
                     <span className={switchBodyClassName} style={ccOnStyle}></span>
                     <span className={switchThumbClassName}></span>
                 </div>

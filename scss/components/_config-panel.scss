@@ -3,17 +3,25 @@
   margin: 10px 0;
 
   ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     list-style-type: none;
     padding: 0 18px;
     margin:0;
     font-size: 12px;
 
     li {
-      display: block;
+      display: inline-flex;
       margin: 0 0 6px 0;
+
+      span {
+        //margin-right: 10px;
+      }
 
       a {
         color: $white;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;

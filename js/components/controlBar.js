@@ -286,7 +286,7 @@ var ControlBar = React.createClass({
       "oo-live-nonclickable": isLiveNow
     });
     var configPanelContent = this.props.controller.state.configPanelOptions.showVideoQualityPanel ? <VideoQualityPanel{...this.props} togglePopoverAction={this.toggleConfigPopover} toggleVideoQualityPanel={this.toggleQualityPanel} popover={true}/> :  <ConfigPanel {...this.props} toggleQualityAction={this.toggleQualityPanel} />;
-    var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? <Popover>{configPanelContent}</Popover> : null;
+    var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? <Popover popoverClassName="oo-popover oo-popover-pull-autoplay">{configPanelContent}</Popover> : null;
     //var videoQualityPopover = this.props.controller.state.videoQualityOptions.showVideoQualityPopover ? <Popover><VideoQualityPanel{...this.props} togglePopoverAction={this.toggleQualityPopover} popover={true}/></Popover> : null;
     var closedCaptionPopover = this.props.controller.state.closedCaptionOptions.showClosedCaptionPopover ? <Popover popoverClassName="oo-popover oo-popover-pull-right"><ClosedCaptionPopover {...this.props} togglePopoverAction={this.toggleCaptionPopover}/></Popover> : null;
 
