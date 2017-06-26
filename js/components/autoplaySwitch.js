@@ -4,9 +4,9 @@ var React = require('react'),
     ClassNames = require('classnames');
 
 var AutoplaySwitch = React.createClass({
-    // handleOnOffSwitch: function() {
-    //     this.props.controller.toggleClosedCaptionEnabled();
-    // },
+    handleAutoPlaySwitch: function() {
+        this.props.controller.toggleAutoPlayEnabled();
+    },
 
     render: function(){
 
@@ -44,7 +44,7 @@ var AutoplaySwitch = React.createClass({
         // );
 
         return (
-            <div className="oo-switch-container">
+            <div className="oo-switch-container" onClick={this.handleAutoPlaySwitch}>
                 <span className={offCaptionClassName}></span>
                 <div className="oo-switch-element">
                     <span className={switchBodyClassName} style={ccOnStyle}></span>

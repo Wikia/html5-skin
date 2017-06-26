@@ -30,7 +30,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     this.state = {
       "playerParam": {},
       "persistentSettings": {
-        "closedCaptionOptions": {}
+        "closedCaptionOptions": {},
+        "autoPlay": {}
+
       },
       "assetId": null,
       "contentTree": {},
@@ -102,7 +104,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       },
 
         "autoPlay": {
-          "enabled": true
+          "enabled": false
         },
 
         "configPanelOptions": {
@@ -1311,20 +1313,15 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
           }
         });
       if(this.state.configPanelOptions.showConfigPanelPopover == true) {
-        debugger;
-          console.log("this.state.configPanelOptions.showConfigPanelPopover ");
+
         this.toggleConfigPanelPopover();
       }
       if(this.state.configPanelOptions.showVideoQualityPanel == true) {
-        debugger;
-          console.log("this.state.configPanelOptions.showVideoQualityPanel ");
           this.toggleVideoQualityPopOver();
       }
     },
 
     sendVideoQualityChangeEvent: function(selectedContentData) {
-        debugger;
-        console.log("sendVideoQualityChangeEvent");
       this.state.videoQualityOptions.selectedBitrate = {
         "id": selectedContentData.id
       };
@@ -1382,6 +1379,14 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.renderSkin();
       this.mb.publish(OO.EVENTS.SAVE_PLAYER_SETTINGS, this.state.persistentSettings);
     },
+
+      toggleAutoPlayEnabled: function() {
+          this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
+          this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
+          this.renderSkin();
+          //this.mb.publish(OO.EVENTS.SAVE_PLAYER_SETTINGS, this.state.persistentSettings);
+          window.localStorage.setItem("autoPlay", JSON.stringify(this.state.autoPlay.enabled));
+      },
 
     upNextDismissButtonClicked: function() {
       this.state.upNextInfo.countDownCancelled = true;
