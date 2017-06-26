@@ -730,7 +730,7 @@
         justify-content: space-between; }
         .oo-player-container .oo-config-panel ul li a:hover {
           color: rgba(255, 255, 255, 0.6); }
-  .oo-player-container .oo-config-panel .chevron {
+  .oo-player-container .oo-config-panel .oo-chevron {
     transform: rotate(-90deg);
     fill: #999999; }
 

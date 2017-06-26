@@ -1857,7 +1857,7 @@ var ConfigPanel = React.createClass({displayName: "ConfigPanel",
         return (
             React.createElement("div", {className: "oo-config-panel"}, 
                     React.createElement("ul", null, 
-                        React.createElement("li", null, React.createElement("a", {onClick: this.handleVideoQualityClick}, "Video Quality ", React.createElement("svg", {className: "chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
+                        React.createElement("li", null, React.createElement("a", {onClick: this.handleVideoQualityClick}, "Video Quality ", React.createElement("svg", {className: "oo-chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
                             React.createElement("path", {d: "M9 14a.997.997 0 0 1-.707-.293l-7-7a.999.999 0 1 1 1.414-1.414L9 11.586l6.293-6.293a.999.999 0 1 1 1.414 1.414l-7 7A.997.997 0 0 1 9 14", "fill-rule": "evenodd"})
                         ))), 
                         React.createElement("li", {className: "oo-autoplay-element"}, "Autoplay Videos", React.createElement(AutoplaySwitch, React.__spread({autoPlay: this.props.controller.state.autoPlay},  this.props)))
@@ -5004,7 +5004,7 @@ var VideoQualityPanel = React.createClass({displayName: "VideoQualityPanel",
             bitrateButtons
           ), 
           React.createElement("a", {className: "back", onClick: this.handleBackClick}, 
-            React.createElement("svg", {className: "chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
+            React.createElement("svg", {className: "oo-chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
             React.createElement("path", {d: "M9 14a.997.997 0 0 1-.707-.293l-7-7a.999.999 0 1 1 1.414-1.414L9 11.586l6.293-6.293a.999.999 0 1 1 1.414 1.414l-7 7A.997.997 0 0 1 9 14", "fill-rule": "evenodd"})), 
             "Back"
           )
@@ -5486,7 +5486,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "997a89f1d50721e526e38d071c0165fd6fddf9e5"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "bdda59ccf5a0984a76ca1305b125eb61778a5ff5"};
   }
 
   var Html5Skin = function (mb, id) {
