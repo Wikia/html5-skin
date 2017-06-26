@@ -12,12 +12,12 @@ var AutoplaySwitch = React.createClass({
 
         var switchThumbClassName = ClassNames({
             'oo-switch-thumb-autoplay': true,
-            'oo-switch-thumb-on': this.props.autoPlay.enabled,
-            'oo-switch-thumb-off': !this.props.autoPlay.enabled
+            'oo-switch-thumb-on-autoplay': this.props.autoPlay.enabled,
+            'oo-switch-thumb-off-autoplay': !this.props.autoPlay.enabled
         });
         var switchBodyClassName = ClassNames({
-            'oo-switch-body': true,
-            'oo-switch-body-off': !this.props.autoPlay.enabled
+            'oo-switch-body-autoplay': true,
+            'oo-switch-body-off-autoplay': !this.props.autoPlay.enabled
         });
         var onCaptionClassName = ClassNames({
             'oo-switch-captions oo-switch-captions-on': true,
@@ -27,21 +27,7 @@ var AutoplaySwitch = React.createClass({
             'oo-switch-captions oo-switch-captions-off': true,
             'oo-switch-captions-active': !this.props.autoPlay.enabled
         });
-          var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
-        // var offString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.OFF, this.props.localizableStrings);
-        // var onString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.ON, this.props.localizableStrings);
-
-        // return (
-        //     <div className="oo-switch-container">
-        //         <span className={offCaptionClassName}>Off</span>
-        //         <div className="oo-switch-element">
-        //             <span className={switchBodyClassName} style={ccOnStyle}></span>
-        //             <span className={switchThumbClassName}></span>
-        //         </div>
-        //         <span className={onCaptionClassName}>On</span>
-        //         <a className="oo-switch-container-selectable"></a>
-        //     </div>
-        // );
+        var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
 
         return (
             <div className="oo-switch-container-autoplay" onClick={this.handleAutoPlaySwitch}>

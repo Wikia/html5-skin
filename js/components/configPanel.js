@@ -4,17 +4,9 @@
  * @module VideoQualityPanel
  */
 var React = require('react'),
-    ClassNames = require('classnames'),
-    VideoQualityPanel = require('./videoQualityPanel'),
     AutoplaySwitch = require('./autoplaySwitch');
 
 var ConfigPanel = React.createClass({
-    getInitialState: function() {
-        return {
-
-        };
-    },
-
     handleVideoQualityClick: function () {
         this.props.toggleQualityAction();
     },

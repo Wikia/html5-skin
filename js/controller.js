@@ -104,16 +104,16 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         "showVideoQualityPopover":false
       },
 
-        "autoPlay": {
-          "enabled": Cookies.get('autoplay') !== '0'
-        },
+      "autoPlay": {
+        "enabled": Cookies.get('autoplay') !== '0'
+      },
 
-        "configPanelOptions": {
-            "availableBitrates": null,
-            "selectedBitrate": null,
-            "showVideoQualityPanel":false,
-            "showConfigPanelPopover": false
-        },
+      "configPanelOptions": {
+        "availableBitrates": null,
+        "selectedBitrate": null,
+        "showVideoQualityPanel":false,
+        "showConfigPanelPopover": false
+      },
 
       "volumeState": {
         "volume": 1,
@@ -1286,10 +1286,10 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.renderSkin();
     },
 
-      toggleVideoQualityPopOver: function() {
-          this.state.configPanelOptions.showVideoQualityPanel = !this.state.configPanelOptions.showVideoQualityPanel;
-          this.renderSkin();
-      },
+    toggleVideoQualityPopOver: function() {
+      this.state.configPanelOptions.showVideoQualityPanel = !this.state.configPanelOptions.showVideoQualityPanel;
+      this.renderSkin();
+    },
 
     toggleClosedCaptionPopOver: function() {
       this.state.closedCaptionOptions.showClosedCaptionPopover = !this.state.closedCaptionOptions.showClosedCaptionPopover;
@@ -1381,12 +1381,12 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.mb.publish(OO.EVENTS.SAVE_PLAYER_SETTINGS, this.state.persistentSettings);
     },
 
-      toggleAutoPlayEnabled: function() {
-          this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
-          this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
-          this.renderSkin();
-          Cookies.set('autoplay', this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
-      },
+    toggleAutoPlayEnabled: function() {
+      this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
+      this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
+      this.renderSkin();
+      Cookies.set('autoplay', this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
+    },
 
     upNextDismissButtonClicked: function() {
       this.state.upNextInfo.countDownCancelled = true;

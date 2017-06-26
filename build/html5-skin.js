@@ -631,12 +631,12 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
 
         var switchThumbClassName = ClassNames({
             'oo-switch-thumb-autoplay': true,
-            'oo-switch-thumb-on': this.props.autoPlay.enabled,
-            'oo-switch-thumb-off': !this.props.autoPlay.enabled
+            'oo-switch-thumb-on-autoplay': this.props.autoPlay.enabled,
+            'oo-switch-thumb-off-autoplay': !this.props.autoPlay.enabled
         });
         var switchBodyClassName = ClassNames({
-            'oo-switch-body': true,
-            'oo-switch-body-off': !this.props.autoPlay.enabled
+            'oo-switch-body-autoplay': true,
+            'oo-switch-body-off-autoplay': !this.props.autoPlay.enabled
         });
         var onCaptionClassName = ClassNames({
             'oo-switch-captions oo-switch-captions-on': true,
@@ -646,21 +646,7 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
             'oo-switch-captions oo-switch-captions-off': true,
             'oo-switch-captions-active': !this.props.autoPlay.enabled
         });
-          var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
-        // var offString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.OFF, this.props.localizableStrings);
-        // var onString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.ON, this.props.localizableStrings);
-
-        // return (
-        //     <div className="oo-switch-container">
-        //         <span className={offCaptionClassName}>Off</span>
-        //         <div className="oo-switch-element">
-        //             <span className={switchBodyClassName} style={ccOnStyle}></span>
-        //             <span className={switchThumbClassName}></span>
-        //         </div>
-        //         <span className={onCaptionClassName}>On</span>
-        //         <a className="oo-switch-container-selectable"></a>
-        //     </div>
-        // );
+        var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
 
         return (
             React.createElement("div", {className: "oo-switch-container-autoplay", onClick: this.handleAutoPlaySwitch}, 
@@ -990,12 +976,12 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
 
         var switchThumbClassName = ClassNames({
             'oo-switch-thumb-autoplay': true,
-            'oo-switch-thumb-on': this.props.autoPlay.enabled,
-            'oo-switch-thumb-off': !this.props.autoPlay.enabled
+            'oo-switch-thumb-on-autoplay': this.props.autoPlay.enabled,
+            'oo-switch-thumb-off-autoplay': !this.props.autoPlay.enabled
         });
         var switchBodyClassName = ClassNames({
-            'oo-switch-body': true,
-            'oo-switch-body-off': !this.props.autoPlay.enabled
+            'oo-switch-body-autoplay': true,
+            'oo-switch-body-off-autoplay': !this.props.autoPlay.enabled
         });
         var onCaptionClassName = ClassNames({
             'oo-switch-captions oo-switch-captions-on': true,
@@ -1005,21 +991,7 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
             'oo-switch-captions oo-switch-captions-off': true,
             'oo-switch-captions-active': !this.props.autoPlay.enabled
         });
-          var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
-        // var offString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.OFF, this.props.localizableStrings);
-        // var onString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.ON, this.props.localizableStrings);
-
-        // return (
-        //     <div className="oo-switch-container">
-        //         <span className={offCaptionClassName}>Off</span>
-        //         <div className="oo-switch-element">
-        //             <span className={switchBodyClassName} style={ccOnStyle}></span>
-        //             <span className={switchThumbClassName}></span>
-        //         </div>
-        //         <span className={onCaptionClassName}>On</span>
-        //         <a className="oo-switch-container-selectable"></a>
-        //     </div>
-        // );
+        var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
 
         return (
             React.createElement("div", {className: "oo-switch-container-autoplay", onClick: this.handleAutoPlaySwitch}, 
@@ -1838,17 +1810,9 @@ module.exports = ColorSelector;
  * @module VideoQualityPanel
  */
 var React = require('react'),
-    ClassNames = require('classnames'),
-    VideoQualityPanel = require('./videoQualityPanel'),
     AutoplaySwitch = require('./autoplaySwitch');
 
 var ConfigPanel = React.createClass({displayName: "ConfigPanel",
-    getInitialState: function() {
-        return {
-
-        };
-    },
-
     handleVideoQualityClick: function () {
         this.props.toggleQualityAction();
     },
@@ -1870,7 +1834,7 @@ var ConfigPanel = React.createClass({displayName: "ConfigPanel",
 
 module.exports = ConfigPanel;
 
-},{"./autoplaySwitch":9,"./videoQualityPanel":42,"classnames":59,"react":221}],24:[function(require,module,exports){
+},{"./autoplaySwitch":9,"react":221}],24:[function(require,module,exports){
 /********************************************************************
   CONTROL BAR
 *********************************************************************/
@@ -1990,23 +1954,23 @@ var ControlBar = React.createClass({displayName: "ControlBar",
     }
   },
 
-    toggleQualityPanel: function() {
-        this.props.controller.toggleVideoQualityPopOver();
-    },
+  toggleQualityPanel: function() {
+    this.props.controller.toggleVideoQualityPopOver();
+  },
 
-    handleConfigPanelClick: function() {
-        this.toggleConfigPopover();
-    },
+  handleConfigPanelClick: function() {
+    this.toggleConfigPopover();
+  },
 
   toggleConfigPopover: function() {
     this.props.controller.toggleConfigPanelPopover();
   },
 
-    closeConfigPopover: function() {
-        if(this.props.controller.state.configPanelOptions.showConfigPanelPopover == true) {
-            this.toggleConfigPopover();
-        }
-    },
+  closeConfigPopover: function() {
+    if(this.props.controller.state.configPanelOptions.showConfigPanelPopover == true) {
+      this.toggleConfigPopover();
+    }
+  },
 
   closeQualityPopover: function() {
     if(this.props.controller.state.videoQualityOptions.showVideoQualityPopover == true) {
@@ -2160,7 +2124,6 @@ var ControlBar = React.createClass({displayName: "ControlBar",
     });
     var configPanelContent = this.props.controller.state.configPanelOptions.showVideoQualityPanel ? React.createElement(VideoQualityPanel, React.__spread({}, this.props, {togglePopoverAction: this.toggleConfigPopover, toggleVideoQualityPanel: this.toggleQualityPanel, popover: true})) :  React.createElement(ConfigPanel, React.__spread({},  this.props, {toggleQualityAction: this.toggleQualityPanel}));
     var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? React.createElement(Popover, {popoverClassName: "oo-popover oo-popover-pull-autoplay"}, configPanelContent) : null;
-    //var videoQualityPopover = this.props.controller.state.videoQualityOptions.showVideoQualityPopover ? <Popover><VideoQualityPanel{...this.props} togglePopoverAction={this.toggleQualityPopover} popover={true}/></Popover> : null;
     var closedCaptionPopover = this.props.controller.state.closedCaptionOptions.showClosedCaptionPopover ? React.createElement(Popover, {popoverClassName: "oo-popover oo-popover-pull-right"}, React.createElement(ClosedCaptionPopover, React.__spread({},  this.props, {togglePopoverAction: this.toggleCaptionPopover}))) : null;
 
     var qualityClass = ClassNames({
@@ -5486,7 +5449,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "d1ddd5ffd174f4639e1a2b6316637fd568606118"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "cffc2d48400ca6342af1a25a2db59c5655ae2be2"};
   }
 
   var Html5Skin = function (mb, id) {
@@ -5568,16 +5531,16 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         "showVideoQualityPopover":false
       },
 
-        "autoPlay": {
-          "enabled": Cookies.get('autoplay') !== '0'
-        },
+      "autoPlay": {
+        "enabled": Cookies.get('autoplay') !== '0'
+      },
 
-        "configPanelOptions": {
-            "availableBitrates": null,
-            "selectedBitrate": null,
-            "showVideoQualityPanel":false,
-            "showConfigPanelPopover": false
-        },
+      "configPanelOptions": {
+        "availableBitrates": null,
+        "selectedBitrate": null,
+        "showVideoQualityPanel":false,
+        "showConfigPanelPopover": false
+      },
 
       "volumeState": {
         "volume": 1,
@@ -6750,10 +6713,10 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.renderSkin();
     },
 
-      toggleVideoQualityPopOver: function() {
-          this.state.configPanelOptions.showVideoQualityPanel = !this.state.configPanelOptions.showVideoQualityPanel;
-          this.renderSkin();
-      },
+    toggleVideoQualityPopOver: function() {
+      this.state.configPanelOptions.showVideoQualityPanel = !this.state.configPanelOptions.showVideoQualityPanel;
+      this.renderSkin();
+    },
 
     toggleClosedCaptionPopOver: function() {
       this.state.closedCaptionOptions.showClosedCaptionPopover = !this.state.closedCaptionOptions.showClosedCaptionPopover;
@@ -6845,12 +6808,12 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.mb.publish(OO.EVENTS.SAVE_PLAYER_SETTINGS, this.state.persistentSettings);
     },
 
-      toggleAutoPlayEnabled: function() {
-          this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
-          this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
-          this.renderSkin();
-          Cookies.set('autoplay', this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
-      },
+    toggleAutoPlayEnabled: function() {
+      this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
+      this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
+      this.renderSkin();
+      Cookies.set('autoplay', this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
+    },
 
     upNextDismissButtonClicked: function() {
       this.state.upNextInfo.countDownCancelled = true;

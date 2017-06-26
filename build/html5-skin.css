@@ -636,11 +636,11 @@
     background: #fff;
     border-radius: 100%;
     transition: all 0.1s ease-in 0s; }
-  .oo-player-container .oo-switch-container-autoplay .oo-switch-thumb-on {
+  .oo-player-container .oo-switch-container-autoplay .oo-switch-thumb-on-autoplay {
     right: 0; }
-  .oo-player-container .oo-switch-container-autoplay .oo-switch-thumb-off {
+  .oo-player-container .oo-switch-container-autoplay .oo-switch-thumb-off-autoplay {
     left: 0; }
-  .oo-player-container .oo-switch-container-autoplay .oo-switch-body {
+  .oo-player-container .oo-switch-container-autoplay .oo-switch-body-autoplay {
     display: block;
     width: 100%;
     height: 12px;
@@ -650,7 +650,7 @@
     border-radius: 40px;
     transition: all 0.5s ease-in-out;
     background: #448aff; }
-  .oo-player-container .oo-switch-container-autoplay .oo-switch-body-off {
+  .oo-player-container .oo-switch-container-autoplay .oo-switch-body-off-autoplay {
     background: #55595c; }
 
 .oo-player-container .oo-autoplay-element {

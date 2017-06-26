@@ -117,23 +117,23 @@ var ControlBar = React.createClass({
     }
   },
 
-    toggleQualityPanel: function() {
-        this.props.controller.toggleVideoQualityPopOver();
-    },
+  toggleQualityPanel: function() {
+    this.props.controller.toggleVideoQualityPopOver();
+  },
 
-    handleConfigPanelClick: function() {
-        this.toggleConfigPopover();
-    },
+  handleConfigPanelClick: function() {
+    this.toggleConfigPopover();
+  },
 
   toggleConfigPopover: function() {
     this.props.controller.toggleConfigPanelPopover();
   },
 
-    closeConfigPopover: function() {
-        if(this.props.controller.state.configPanelOptions.showConfigPanelPopover == true) {
-            this.toggleConfigPopover();
-        }
-    },
+  closeConfigPopover: function() {
+    if(this.props.controller.state.configPanelOptions.showConfigPanelPopover == true) {
+      this.toggleConfigPopover();
+    }
+  },
 
   closeQualityPopover: function() {
     if(this.props.controller.state.videoQualityOptions.showVideoQualityPopover == true) {
@@ -287,7 +287,6 @@ var ControlBar = React.createClass({
     });
     var configPanelContent = this.props.controller.state.configPanelOptions.showVideoQualityPanel ? <VideoQualityPanel{...this.props} togglePopoverAction={this.toggleConfigPopover} toggleVideoQualityPanel={this.toggleQualityPanel} popover={true}/> :  <ConfigPanel {...this.props} toggleQualityAction={this.toggleQualityPanel} />;
     var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? <Popover popoverClassName="oo-popover oo-popover-pull-autoplay">{configPanelContent}</Popover> : null;
-    //var videoQualityPopover = this.props.controller.state.videoQualityOptions.showVideoQualityPopover ? <Popover><VideoQualityPanel{...this.props} togglePopoverAction={this.toggleQualityPopover} popover={true}/></Popover> : null;
     var closedCaptionPopover = this.props.controller.state.closedCaptionOptions.showClosedCaptionPopover ? <Popover popoverClassName="oo-popover oo-popover-pull-right"><ClosedCaptionPopover {...this.props} togglePopoverAction={this.toggleCaptionPopover}/></Popover> : null;
 
     var qualityClass = ClassNames({

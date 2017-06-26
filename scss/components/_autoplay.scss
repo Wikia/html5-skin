@@ -51,13 +51,13 @@
     border-radius: 100%;
     transition: all 0.1s ease-in 0s;
   }
-  .oo-switch-thumb-on {
+  .oo-switch-thumb-on-autoplay {
     right: 0;
   }
-  .oo-switch-thumb-off {
+  .oo-switch-thumb-off-autoplay {
     left: 0;
   }
-  .oo-switch-body {
+  .oo-switch-body-autoplay {
     display: block;
     width: 100%;
     height: 12px;
@@ -68,7 +68,7 @@
     transition: all 0.5s ease-in-out;
     background: $blue-light;
   }
-  .oo-switch-body-off {
+  .oo-switch-body-off-autoplay {
     background: $gray;
   }
 }
