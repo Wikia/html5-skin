@@ -1737,7 +1737,7 @@
   max-height: 340px;
   width: 80px;
   text-align: center; }
-  .oo-player-container .oo-popover .oo-quality-screen-content .chevron {
+  .oo-player-container .oo-popover .oo-quality-screen-content .oo-chevron {
     transform: rotate(-270deg);
     fill: #999999; }
   .oo-player-container .oo-popover .oo-quality-screen-content .back {
