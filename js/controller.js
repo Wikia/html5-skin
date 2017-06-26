@@ -10,7 +10,8 @@ var React = require('react'),
     Skin = require('./skin'),
     SkinJSON = require('../config/skin'),
     Bulk = require('bulk-require'),
-    Localization = Bulk('./config', ['languageFiles/*.json']);
+    Localization = Bulk('./config', ['languageFiles/*.json']),
+    Cookies = require('js-cookie');
 
 OO.plugin("Html5Skin", function (OO, _, $, W) {
   //Check if the player is at least v4. If not, the skin cannot load.
@@ -104,7 +105,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       },
 
         "autoPlay": {
-          "enabled": false
+          "enabled": Cookies.get('autoplay') !== '0'
         },
 
         "configPanelOptions": {
@@ -1384,8 +1385,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
           this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
           this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
           this.renderSkin();
-          //this.mb.publish(OO.EVENTS.SAVE_PLAYER_SETTINGS, this.state.persistentSettings);
-          window.localStorage.setItem("autoPlay", JSON.stringify(this.state.autoPlay.enabled));
+          Cookies.set('autoplay', this.state.autoPlay.enabled ? 1 : 0, { expires: 14 });
       },
 
     upNextDismissButtonClicked: function() {
