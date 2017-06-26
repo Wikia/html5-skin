@@ -710,7 +710,7 @@
     height: calc(15vh); }
 
 .oo-player-container .oo-config-panel {
-  margin: 10px 0; }
+  margin: 18px 0; }
   .oo-player-container .oo-config-panel ul {
     display: flex;
     flex-direction: column;
@@ -720,8 +720,9 @@
     margin: 0;
     font-size: 12px; }
     .oo-player-container .oo-config-panel ul li {
-      display: inline-flex;
-      margin: 0 0 6px 0; }
+      display: inline-flex; }
+      .oo-player-container .oo-config-panel ul li:first-child {
+        margin-bottom: 12px; }
       .oo-player-container .oo-config-panel ul li a {
         color: #fff;
         width: 100%;
