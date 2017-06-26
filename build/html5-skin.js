@@ -1,5 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports={
+  "Autoplay Videos": "Autoplay Videos",
+  "Back": "Back",
   "Learn More" : "Learn More",
   "CLOSED CAPTION PREVIEW": "CLOSED CAPTION PREVIEW",
   "Sample Text": "Sample Text",
@@ -126,6 +128,8 @@ module.exports={
 }
 },{}],2:[function(require,module,exports){
 module.exports={
+  "Autoplay Videos": "Autoplay Videos",
+  "Back": "Back",
   "Learn More" : "Más información",
   "CLOSED CAPTION PREVIEW": "VISTA PRELIMINAR DE SUBTÍTULOS",
   "Sample Text": "Texto de muestra",
@@ -243,6 +247,8 @@ module.exports={
 }
 },{}],3:[function(require,module,exports){
 module.exports={
+  "Autoplay Videos": "Autoplay Videos",
+  "Back": "Back",
   "Learn More" : "了解更多",
   "CLOSED CAPTION PREVIEW": "闭合字幕预览",
   "Sample Text": "示例文本",
@@ -639,12 +645,12 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
             'oo-switch-body-off-autoplay': !this.props.autoPlay.enabled
         });
         var onCaptionClassName = ClassNames({
-            'oo-switch-captions oo-switch-captions-on': true,
-            'oo-switch-captions-active': this.props.autoPlay.enabled
+            'oo-switch-autoplay oo-switch-autoplay-on': true,
+            'oo-switch-autoplay-active': this.props.autoPlay.enabled
         });
         var offCaptionClassName = ClassNames({
-            'oo-switch-captions oo-switch-captions-off': true,
-            'oo-switch-captions-active': !this.props.autoPlay.enabled
+            'oo-switch-autoplay oo-switch-autoplay-off': true,
+            'oo-switch-autoplay-active': !this.props.autoPlay.enabled
         });
         var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
 
@@ -984,12 +990,12 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
             'oo-switch-body-off-autoplay': !this.props.autoPlay.enabled
         });
         var onCaptionClassName = ClassNames({
-            'oo-switch-captions oo-switch-captions-on': true,
-            'oo-switch-captions-active': this.props.autoPlay.enabled
+            'oo-switch-autoplay oo-switch-autoplay-on': true,
+            'oo-switch-autoplay-active': this.props.autoPlay.enabled
         });
         var offCaptionClassName = ClassNames({
-            'oo-switch-captions oo-switch-captions-off': true,
-            'oo-switch-captions-active': !this.props.autoPlay.enabled
+            'oo-switch-autoplay oo-switch-autoplay-off': true,
+            'oo-switch-autoplay-active': !this.props.autoPlay.enabled
         });
         var ccOnStyle =  {backgroundColor: this.props.autoPlay.enabled && this.props.skinConfig.general.accentColor ? this.props.skinConfig.general.accentColor : null};
 
@@ -1810,6 +1816,8 @@ module.exports = ColorSelector;
  * @module VideoQualityPanel
  */
 var React = require('react'),
+    CONSTANTS = require('../constants/constants'),
+    Utils = require('./utils'),
     AutoplaySwitch = require('./autoplaySwitch');
 
 var ConfigPanel = React.createClass({displayName: "ConfigPanel",
@@ -1818,23 +1826,26 @@ var ConfigPanel = React.createClass({displayName: "ConfigPanel",
     },
 
     render: function() {
-        return (
-            React.createElement("div", {className: "oo-config-panel"}, 
-                    React.createElement("ul", null, 
-                        React.createElement("li", null, React.createElement("a", {onClick: this.handleVideoQualityClick}, "Video Quality ", React.createElement("svg", {className: "oo-chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
-                            React.createElement("path", {d: "M9 14a.997.997 0 0 1-.707-.293l-7-7a.999.999 0 1 1 1.414-1.414L9 11.586l6.293-6.293a.999.999 0 1 1 1.414 1.414l-7 7A.997.997 0 0 1 9 14", "fill-rule": "evenodd"})
-                        ))), 
-                        React.createElement("li", {className: "oo-autoplay-element"}, "Autoplay Videos", React.createElement(AutoplaySwitch, React.__spread({autoPlay: this.props.controller.state.autoPlay},  this.props)))
-                    )
-            )
-        );
-    }
-});
+			var videoQualityText = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.VIDEO_QUALITY, this.props.localizableStrings);
+			var autoPlayText = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.AUTOPLAY_VIDEOS, this.props.localizableStrings);
+
+				return (
+                React.createElement("div", {className: "oo-config-panel"}, 
+                        React.createElement("ul", null, 
+                            React.createElement("li", null, React.createElement("a", {onClick: this.handleVideoQualityClick}, videoQualityText, " ", React.createElement("svg", {className: "oo-chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
+                                React.createElement("path", {d: "M9 14a.997.997 0 0 1-.707-.293l-7-7a.999.999 0 1 1 1.414-1.414L9 11.586l6.293-6.293a.999.999 0 1 1 1.414 1.414l-7 7A.997.997 0 0 1 9 14", "fill-rule": "evenodd"})
+                            ))), 
+                            React.createElement("li", {className: "oo-autoplay-element"}, autoPlayText, React.createElement(AutoplaySwitch, React.__spread({autoPlay: this.props.controller.state.autoPlay},  this.props)))
+                        )
+                )
+            );
+        }
+    });
 
 
 module.exports = ConfigPanel;
 
-},{"./autoplaySwitch":9,"react":221}],24:[function(require,module,exports){
+},{"../constants/constants":44,"./autoplaySwitch":9,"./utils":41,"react":221}],24:[function(require,module,exports){
 /********************************************************************
   CONTROL BAR
 *********************************************************************/
@@ -4899,6 +4910,8 @@ module.exports = Utils;
  */
 var React = require('react'),
     ScrollArea = require('react-scrollbar/dist/no-css'),
+	  CONSTANTS = require('../constants/constants'),
+	  Utils = require('./utils'),
     ClassNames = require('classnames'),
     AutoplaySwitch = require('./AutoplaySwitch'),
     Icon = require('../components/icon');
@@ -4959,11 +4972,12 @@ var VideoQualityPanel = React.createClass({displayName: "VideoQualityPanel",
     });
 
     var back;
+    var backText = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.BACK, this.props.localizableStrings);
     if(this.props.skinConfig.controlBar.autoplayToggle) {
       back = React.createElement("a", {className: "back", onClick: this.handleBackClick}, 
         React.createElement("svg", {className: "oo-chevron", width: "18", height: "18", viewBox: "0 0 18 18", xmlns: "http://www.w3.org/2000/svg"}, 
           React.createElement("path", {d: "M9 14a.997.997 0 0 1-.707-.293l-7-7a.999.999 0 1 1 1.414-1.414L9 11.586l6.293-6.293a.999.999 0 1 1 1.414 1.414l-7 7A.997.997 0 0 1 9 14", "fill-rule": "evenodd"})), 
-        "Back"
+        backText
       );
     }
 
@@ -5018,7 +5032,7 @@ VideoQualityPanel.defaultProps = {
 
 module.exports = VideoQualityPanel;
 
-},{"../components/icon":29,"./AutoplaySwitch":5,"classnames":59,"react":221,"react-scrollbar/dist/no-css":65}],43:[function(require,module,exports){
+},{"../components/icon":29,"../constants/constants":44,"./AutoplaySwitch":5,"./utils":41,"classnames":59,"react":221,"react-scrollbar/dist/no-css":65}],43:[function(require,module,exports){
 /**
  * Watermark component
  *
@@ -5186,6 +5200,8 @@ module.exports = {
   },
 
   SKIN_TEXT: {
+    AUTOPLAY_VIDEOS: "Autoplay Videos",
+    BACK: "Back",
     LEARN_MORE: "Learn More",
     CLOSED_CAPTION_PREVIEW: "CLOSED CAPTION PREVIEW",
     SAMPLE_TEXT: "Sample Text",
