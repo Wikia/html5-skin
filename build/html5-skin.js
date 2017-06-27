@@ -5613,7 +5613,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "c67d7ea027229c3dd991eeaa95c9272d385f1c92"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "bae55fd95ad3a7fa0986ba8baa0b09874c2ae5d4"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -5835,6 +5835,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
       //initial DOM manipulation
       this.state.mainVideoContainer.addClass('oo-player-container');
+      if (params.autoplay) {
+        this.state.mainVideoInnerWrapper.attr('data-autoplay', 'autoplay');
+      }
       this.state.mainVideoInnerWrapper.addClass('oo-player');
       this.state.mainVideoInnerWrapper.append("<div class='oo-player-skin'></div>");
 
