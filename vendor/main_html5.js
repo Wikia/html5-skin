@@ -3432,6 +3432,7 @@
 			 * @returns {object} A reference to the wrapper for the newly created element
 			 */
 			this.create = function(parentContainer, domId, controller, css, playerId) {
+				console.log(parentContainer);
 				// If the current player has reached max supported elements, do not create a new one
 				if (this.maxSupportedElements > 0 && playerId &&
 					currentInstances[playerId] >= this.maxSupportedElements) {
@@ -3441,6 +3442,9 @@
 				var video = $("<video>");
 				video.attr("class", "video");
 				video.attr("id", domId);
+				video.attr("playsinline", true);
+				video[0].autoplay = true;
+				video[0].muted = true;
 
 				// [PBW-5470] On Safari, when preload is set to 'none' and the user switches to a
 				// different tab while the video is about to auto play, the browser stops playback but

@@ -17030,7 +17030,7 @@ try {
 						(this.playerParams.autoPlay === 'true' || this.playerParams.autoPlay === true ||
 						this.playerParams.autoplay === 'true' || this.playerParams.autoplay === true);
 
-					if (this.playedAtLeastOnce == false && autoPlay && OO.allowAutoPlay) {
+					if (this.playedAtLeastOnce == false && autoPlay) {
 						this.mb.publish(OO.EVENTS.INITIAL_PLAY, Date.now());
 					}
 				},
@@ -17832,6 +17832,8 @@ try {
 			 * @param electedPlugin The plugin from which the video element is built
 			 */
 			var VideoControllerInterface = function(vtc, videoId, electedPlugin) {
+				console.log('asdasdasdasd', vtc);
+
 				/**
 				 * Event types accepted by the video controller from video plugins for the <code>notify()</code> method.
 				 * See VideoController#EVENTS for the full list of events and associated parameters.
