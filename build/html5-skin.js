@@ -5615,12 +5615,13 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
 	if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "bae4dceabcc4267d1d456c2883ac9e7c286086ba"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "200bc16bbf5c67c2d7da6ab6c26229d69deb214c"};
   }
 
   OO.EVENTS.WIKIA = {
     AUTOPLAY_TOGGLED: 'wikia.autoplayToggled'
   };
+  OO.exposeStaticApi('EVENTS', OO.EVENTS);
 
 	var autoplayCookieName = 'html5-skin.autoplay',
     Html5Skin = function (mb, id) {

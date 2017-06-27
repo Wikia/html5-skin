@@ -28,6 +28,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
   OO.EVENTS.WIKIA = {
     AUTOPLAY_TOGGLED: 'wikia.autoplayToggled'
   };
+  OO.exposeStaticApi('EVENTS', OO.EVENTS);
 
 	var autoplayCookieName = 'html5-skin.autoplay',
     Html5Skin = function (mb, id) {
