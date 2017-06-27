@@ -437,10 +437,6 @@ var ControlBar = React.createClass({
         continue;
       }
 
-      if (Utils.isIos() && (defaultItems[k].name === "volume")){
-        continue;
-      }
-
       // Not sure what to do when there are multi streams
       if (defaultItems[k].name === "live" &&
         (typeof this.props.isLiveStream === 'undefined' ||

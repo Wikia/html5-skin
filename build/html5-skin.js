@@ -2427,10 +2427,6 @@ var ControlBar = React.createClass({displayName: "ControlBar",
         continue;
       }
 
-      if (Utils.isIos() && (defaultItems[k].name === "volume")){
-        continue;
-      }
-
       // Not sure what to do when there are multi streams
       if (defaultItems[k].name === "live" &&
         (typeof this.props.isLiveStream === 'undefined' ||
@@ -5613,7 +5609,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "bae55fd95ad3a7fa0986ba8baa0b09874c2ae5d4"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "a4e2dd171351da06e4823fea0df929b9e794d469"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -5835,8 +5831,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
       //initial DOM manipulation
       this.state.mainVideoContainer.addClass('oo-player-container');
-      if (params.autoplay) {
+      if (params.autoplay && this.state.isMobile) {
         this.state.mainVideoInnerWrapper.attr('data-autoplay', 'autoplay');
+        this.setVolume(0);
       }
       this.state.mainVideoInnerWrapper.addClass('oo-player');
       this.state.mainVideoInnerWrapper.append("<div class='oo-player-skin'></div>");
@@ -6793,6 +6790,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     },
 
     setVolume: function(volume){
+      if (volume > 0) {
+        this.state.mainVideoElement[0].muted = false;
+      }
       this.mb.publish(OO.EVENTS.CHANGE_VOLUME, volume);
     },
 

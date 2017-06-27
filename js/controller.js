@@ -244,8 +244,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
       //initial DOM manipulation
       this.state.mainVideoContainer.addClass('oo-player-container');
-      if (params.autoplay) {
+      if (params.autoplay && this.state.isMobile) {
         this.state.mainVideoInnerWrapper.attr('data-autoplay', 'autoplay');
+        this.setVolume(0);
       }
       this.state.mainVideoInnerWrapper.addClass('oo-player');
       this.state.mainVideoInnerWrapper.append("<div class='oo-player-skin'></div>");
@@ -1202,6 +1203,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     },
 
     setVolume: function(volume){
+      if (volume > 0) {
+        this.state.mainVideoElement[0].muted = false;
+      }
       this.mb.publish(OO.EVENTS.CHANGE_VOLUME, volume);
     },
 
