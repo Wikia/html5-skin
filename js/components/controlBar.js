@@ -287,7 +287,7 @@ var ControlBar = React.createClass({
     });
     var showVideoQualityPanel = !this.props.skinConfig.controlBar.autoplayToggle || this.props.controller.state.configPanelOptions.showVideoQualityPanel;
     var configPanelContent = showVideoQualityPanel ? <VideoQualityPanel{...this.props} togglePopoverAction={this.toggleConfigPopover} toggleVideoQualityPanel={this.toggleQualityPanel} popover={true}/> :  <ConfigPanel {...this.props} toggleQualityAction={this.toggleQualityPanel} />;
-    var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? <Popover popoverClassName="oo-popover oo-popover-pull-autoplay">{configPanelContent}</Popover> : null;
+    var configPanelPopover = this.props.controller.state.configPanelOptions.showConfigPanelPopover  ? <Popover popoverClassName="oo-popover oo-popover-pull-right">{configPanelContent}</Popover> : null;
     var closedCaptionPopover = this.props.controller.state.closedCaptionOptions.showClosedCaptionPopover ? <Popover popoverClassName="oo-popover oo-popover-pull-right"><ClosedCaptionPopover {...this.props} togglePopoverAction={this.toggleCaptionPopover}/></Popover> : null;
 
     var qualityClass = ClassNames({
