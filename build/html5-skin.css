@@ -721,7 +721,7 @@
     font-size: 12px; }
     .oo-player-container .oo-config-panel ul li {
       display: inline-flex; }
-      .oo-player-container .oo-config-panel ul li:first-child {
+      .oo-player-container .oo-config-panel ul li:not(:last-child) {
         margin-bottom: 12px; }
       .oo-player-container .oo-config-panel ul li a {
         color: #fff;
