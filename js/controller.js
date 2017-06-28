@@ -245,6 +245,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       //initial DOM manipulation
       this.state.mainVideoContainer.addClass('oo-player-container');
       if (params.autoplay && this.state.isMobile) {
+        // set autoplay data attribute which is read by main_html5 plugin
         this.state.mainVideoInnerWrapper.attr('data-autoplay', 'autoplay');
         this.state.volumeState.muted = true;
         this.state.volumeState.volume = 0;
@@ -996,6 +997,11 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         }
       }
       this.state.fullscreen = !this.state.fullscreen;
+
+      // unmute on mobile when switching to fullscreen
+      if (this.state.isMobile && this.state.fullscreen && this.state.volumeState.muted) {
+        this.handleMuteClick();
+      }
       this.renderSkin();
     },
 
@@ -1206,7 +1212,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     },
 
     setVolume: function(volume){
-      if (this.state.mainVideoElement) {
+      if (this.state.isMobile && this.state.mainVideoElement) {
         if (volume > 0) {
           this.state.mainVideoElement[0].muted = false;
         } else {

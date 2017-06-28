@@ -5609,7 +5609,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "60d9869f9b95c6c5509974edfb506104406c7b01"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "a0833f4d2d4f196d1834876bdbb9652c12b4730d"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -5832,6 +5832,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       //initial DOM manipulation
       this.state.mainVideoContainer.addClass('oo-player-container');
       if (params.autoplay && this.state.isMobile) {
+        // set autoplay data attribute which is read by main_html5 plugin
         this.state.mainVideoInnerWrapper.attr('data-autoplay', 'autoplay');
         this.state.volumeState.muted = true;
         this.state.volumeState.volume = 0;
@@ -6583,6 +6584,11 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         }
       }
       this.state.fullscreen = !this.state.fullscreen;
+
+      // unmute on mobile when switching to fullscreen
+      if (this.state.isMobile && this.state.fullscreen && this.state.volumeState.muted) {
+        this.handleMuteClick();
+      }
       this.renderSkin();
     },
 
@@ -6793,7 +6799,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     },
 
     setVolume: function(volume){
-      if (this.state.mainVideoElement) {
+      if (this.state.isMobile && this.state.mainVideoElement) {
         if (volume > 0) {
           this.state.mainVideoElement[0].muted = false;
         } else {
