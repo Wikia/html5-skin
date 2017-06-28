@@ -246,6 +246,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       this.state.mainVideoContainer.addClass('oo-player-container');
       if (params.autoplay && this.state.isMobile) {
         this.state.mainVideoInnerWrapper.attr('data-autoplay', 'autoplay');
+        this.state.volumeState.muted = true;
+        this.state.volumeState.volume = 0;
+        this.state.volumeState.oldVolume = 1;
         this.setVolume(0);
       }
       this.state.mainVideoInnerWrapper.addClass('oo-player');
@@ -1203,8 +1206,12 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     },
 
     setVolume: function(volume){
-      if (volume > 0) {
-        this.state.mainVideoElement[0].muted = false;
+      if (this.state.mainVideoElement) {
+        if (volume > 0) {
+          this.state.mainVideoElement[0].muted = false;
+        } else {
+          this.state.mainVideoElement[0].muted = true;
+        }
       }
       this.mb.publish(OO.EVENTS.CHANGE_VOLUME, volume);
     },
