@@ -601,6 +601,8 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     },
 
     onPlaybackReady: function(event) {
+      var adVideo = this.state.mainVideoInnerWrapper.find('video[title=Advertisement]');
+      adVideo.attr({ muted: 'muted', autoplay: 'autoplay' });
       this.state.screenToShow = CONSTANTS.SCREEN.START_SCREEN;
       this.renderSkin({"contentTree": this.state.contentTree});
     },

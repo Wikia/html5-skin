@@ -5609,7 +5609,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "a0833f4d2d4f196d1834876bdbb9652c12b4730d"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "64d3a00804bdb7ca000fd2b64c4ef16b5c4f2c86"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -5626,8 +5626,6 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         "playerParam": {},
         "persistentSettings": {
           "closedCaptionOptions": {},
-          "autoPlay": {}
-
         },
         "assetId": null,
         "contentTree": {},
@@ -6190,6 +6188,8 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     },
 
     onPlaybackReady: function(event) {
+      var adVideo = this.state.mainVideoInnerWrapper.find('video[title=Advertisement]');
+      adVideo.attr({ muted: 'muted', autoplay: 'autoplay' });
       this.state.screenToShow = CONSTANTS.SCREEN.START_SCREEN;
       this.renderSkin({"contentTree": this.state.contentTree});
     },
@@ -6907,6 +6907,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
     toggleConfigPanelPopover: function() {
       this.state.configPanelOptions.showConfigPanelPopover = !this.state.configPanelOptions.showConfigPanelPopover;
+      this.state.configPanelOptions.showVideoQualityPanel = false;
       this.renderSkin();
     },
 
@@ -7007,7 +7008,6 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
     toggleAutoPlayEnabled: function() {
       this.state.autoPlay.enabled = !this.state.autoPlay.enabled;
-      this.state.persistentSettings.autoPlay['enabled'] = !!this.state.autoPlay.enabled;
       this.renderSkin();
       Cookies.set(autoplayCookieName, this.state.autoPlay.enabled ? 1 : 0, { expires: autoplayCookieExpireDays });
       this.mb.publish(OO.EVENTS.WIKIA.AUTOPLAY_TOGGLED, this.state.autoPlay.enabled);
