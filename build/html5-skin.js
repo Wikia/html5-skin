@@ -2375,7 +2375,7 @@ var ControlBar = React.createClass({displayName: "ControlBar",
     };
 
     var controlBarItems = [];
-    var defaultItems = this.props.controller.state.isPlayingAd ? this.props.skinConfig.buttons.desktopAd : this.props.skinConfig.buttons.desktopContent;
+    var defaultItems = this.props.controller.state.isPlayingAd && false ? this.props.skinConfig.buttons.desktopAd : this.props.skinConfig.buttons.desktopContent;
 
     //if mobile and not showing the slider or the icon, extra space can be added to control bar width. If volume bar is shown instead of slider, add some space as well:
     var volumeItem = null;
@@ -5609,7 +5609,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "64d3a00804bdb7ca000fd2b64c4ef16b5c4f2c86"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "081ba68bc24e4f692949bcf453e9171cfa49988e"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -7715,7 +7715,7 @@ var AdScreen = React.createClass({displayName: "AdScreen",
   },
 
   getPlaybackControlItems: function() {
-    if (!this.props.controller.state.showAdControls) return null;
+    if (!this.props.skinConfig.adScreen.showControlBar) return null;
 
     var showControlBar =
       this.props.playerState == CONSTANTS.STATE.PAUSE ||

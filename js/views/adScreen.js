@@ -120,7 +120,7 @@ var AdScreen = React.createClass({
   },
 
   getPlaybackControlItems: function() {
-    if (!this.props.controller.state.showAdControls) return null;
+    if (!this.props.skinConfig.adScreen.showControlBar) return null;
 
     var showControlBar =
       this.props.playerState == CONSTANTS.STATE.PAUSE ||

@@ -1568,6 +1568,9 @@
   height: 20px;
   width: 200px; }
 
+.oo-player-container .oo-volume .oo-volume-bar, .oo-player-container .oo-volume .oo-volume-slider {
+  display: none; }
+
 @media all and (-ms-high-contrast: none) {
   .oo-player-container *::-ms-backdrop, .oo-player-container .oo-volume-slider {
     height: auto; } }
