@@ -532,6 +532,9 @@
       font-family: 'Open Sans', sans-serif;
       font-size: 1em; }
 
+.oo-player-container .oo-wikia-ad-screen {
+  z-index: 100000; }
+
 .oo-player-container .oo-popover {
   position: absolute;
   background-color: rgba(26, 26, 26, 0.8);
