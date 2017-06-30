@@ -33,6 +33,7 @@ var WikiaAdScreen = React.createClass({
       "controlBar": <ControlBar {...this.props}
                                 controlBarVisible={showControlBar}
                                 playerState={this.props.playerState}
+                                isWikiaAdScreen={true}
                                 key='controlBar' />
     };
 
