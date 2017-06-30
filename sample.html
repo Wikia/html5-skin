@@ -13,6 +13,209 @@
   <script src="/vendor/google_ima.js"></script>
   <script src="/build/html5-skin.min.js"></script>
   <link rel="stylesheet" href="/build/html5-skin.min.css"/>
+  <style>
+    div.oo-player-container {
+      min-width: 0 !important
+    }
+
+    div.oo-player-container .oo-player {
+      transition: none
+    }
+
+    div.oo-player-container .oo-state-screen.oo-pause-screen .oo-state-screen-title {
+      display: none
+    }
+
+    div.oo-player-container .oo-state-screen.oo-start-screen .oo-start-screen-linear-gradient {
+      background: linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 100%)
+    }
+
+    div.oo-player-container .oo-state-screen.oo-start-screen .oo-action-icon {
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      background-color: #006cb0;
+      border: 6px solid rgba(0,0,0,0.32);
+      border-radius: 100%;
+      bottom: 35px;
+      box-shadow: 0 0 15px 5px rgba(0,0,0,0.3);
+      box-sizing: border-box;
+      height: 80px;
+      left: auto;
+      position: absolute;
+      right: 35px;
+      top: auto;
+      transform: none;
+      width: 80px
+    }
+
+    div.oo-player-container .oo-state-screen.oo-start-screen .oo-action-icon svg {
+      fill: #fff;
+      margin-left: 4px
+    }
+
+    div.oo-player-container .oo-state-screen .oo-action-icon {
+      position: absolute
+    }
+
+    div.oo-player-container .oo-state-screen .oo-state-screen-info {
+      bottom: 41px;
+      left: 38px;
+      top: auto
+    }
+
+    div.oo-player-container .oo-state-screen .oo-state-screen-info .oo-state-screen-title {
+      font-size: 24px;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      line-height: 32px;
+      margin-bottom: 0
+    }
+
+    div.oo-player-container .oo-state-screen .oo-state-screen-info .video-duration {
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.25px;
+      line-height: 18px;
+      opacity: .75
+    }
+
+    div.oo-player-container .oo-state-screen .oo-text-truncate {
+      overflow: visible;
+      text-overflow: clip;
+      white-space: normal
+    }
+
+    div.oo-player-container .oo-state-screen .oo-state-screen-selectable {
+      cursor: inherit
+    }
+
+    div.oo-player-container .oo-social-action-text {
+      display: none
+    }
+
+    div.oo-player-container .oo-player-skin .oo-content-panel.oo-share-panel .oo-share-tab-panel .oo-facebook,div.oo-player-container .oo-player-skin .oo-content-panel.oo-share-panel .oo-share-tab-panel .oo-twitter {
+      border-radius: 0;
+      height: 45px;
+      margin-right: 6px;
+      width: 45px
+    }
+
+    div.oo-player-container .oo-player-skin .oo-content-panel.oo-share-panel .oo-share-tab-panel .oo-facebook {
+      background-color: #3b5998;
+      background-size: 30px
+    }
+
+    div.oo-player-container .oo-player-skin .oo-content-panel.oo-share-panel .oo-share-tab-panel .oo-twitter {
+      background-color: #55acee;
+      background-size: 40px
+    }
+
+    div.oo-player-container .oo-player-skin .oo-content-panel.oo-share-panel .oo-share-tab-panel .oo-google-plus,div.oo-player-container .oo-player-skin .oo-content-panel.oo-share-panel .oo-share-tab-panel .oo-email-share {
+      display: none
+    }
+
+    div.oo-player-container .oo-thumbnail-carousel-time,div.oo-player-container .oo-thumbnail-time {
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+    }
+
+    div.oo-player-container .oo-scrubber-bar-container {
+      height: 5px
+    }
+
+    div.oo-player-container .oo-scrubber-bar-container .oo-scrubber-bar-padding .oo-scrubber-bar {
+      height: 3px
+    }
+
+    div.oo-player-container .oo-scrubber-bar-container .oo-scrubber-bar-padding .oo-playhead-padding .oo-playhead {
+      background: #00b7e0;
+      border-radius: 13px;
+      border: 2px solid #fff;
+      height: 13px;
+      width: 13px
+    }
+
+    div.oo-player-container .oo-scrubber-bar-container .oo-scrubber-bar-padding .oo-playhead-padding .oo-playhead-scrubbing {
+      background: #00b7e0;
+      border-radius: 20px;
+      border: 3px solid #fff;
+      height: 20px;
+      width: 20px
+    }
+
+    div.oo-player-container .oo-control-bar {
+      transition: none;
+      -webkit-transition: none;
+      height: 50px
+    }
+
+    div.oo-player-container .oo-control-bar .oo-logo {
+      display: none !important
+    }
+
+    div.oo-player-container .oo-control-bar .oo-icon:hover {
+      filter: none !important
+    }
+
+    div.oo-player-container .oo-control-bar .oo-control-bar-items-wrapper {
+      margin-top: 11px
+    }
+
+    div.oo-player-container .oo-control-bar .oo-control-bar-items-wrapper .oo-control-bar-item {
+      padding: 0 6px
+    }
+
+    div.oo-player-container .oo-control-bar .oo-control-bar-items-wrapper .oo-control-bar-item.oo-selected > .fandom-video-gear-icon {
+      color: transparent !important
+    }
+
+    div.oo-player-container .oo-control-bar .oo-control-bar-items-wrapper .oo-volume .oo-volume-bar {
+      transition: none;
+      -webkit-transition: none;
+      height: 16px;
+      background-color: rgba(255,255,255,0.2);
+      margin-bottom: 1px
+    }
+
+    div.oo-player-container .oo-control-bar .oo-control-bar-items-wrapper .oo-control-bar-duration {
+      font-weight: bold;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      top: 0
+    }
+
+    div.oo-player-container .oo-control-bar .oo-icon:hover {
+      color: #00b7e0 !important
+    }
+
+    div.oo-player-container .oo-control-bar .oo-icon-svg {
+      filter: none !important
+    }
+
+    div.oo-player-container .oo-control-bar .oo-icon-svg svg {
+      fill: #fff;
+      filter: none !important
+    }
+
+    div.oo-player-container .oo-control-bar .oo-icon-svg:hover svg {
+      fill: #00b7e0
+    }
+
+    div.oo-player-container .oo-volume-bar {
+      padding-left: 6px
+    }
+
+    div.oo-player-container .oo-icon-svg {
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important
+    }
+  </style>
 </head>
 
 <body>
