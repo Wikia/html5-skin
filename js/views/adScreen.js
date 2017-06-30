@@ -124,13 +124,14 @@ var AdScreen = React.createClass({
 
     var showControlBar =
       this.props.playerState == CONSTANTS.STATE.PAUSE ||
-      this.props.controller.state.forceControlBarVisible ||
+      // this.props.controller.state.forceControlBarVisible ||
       this.state.controlBarVisible;
 
     var playbackControlItemTemplates = {
      "controlBar": <ControlBar {...this.props}
        controlBarVisible={showControlBar}
        playerState={this.props.playerState}
+       isWikiaAdScreen={true}
        key='controlBar' />
     };
 

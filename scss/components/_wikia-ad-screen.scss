@@ -1,5 +1,9 @@
 .oo-wikia-ad-screen {
   z-index: 100000;
+
+  .oo-scrubber-bar-container {
+    visibility: hidden;
+  }
 }
 
 .oo-player-skin-plugins iframe {
