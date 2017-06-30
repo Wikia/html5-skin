@@ -78,6 +78,9 @@ var WikiaAdScreen = React.createClass({
            ref="wikiaAdScreen" onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}
            onClick={this.onClick}>
 
+        <div className="oo-wikia-ad-screen-top-bar">
+          <a className="oo-wikia-ad-screen-learn-more" href="#">Learn more</a>
+        </div>
         <div className="oo-interactive-container">
           {playbackControlItems}
         </div>
