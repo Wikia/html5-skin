@@ -553,6 +553,7 @@ module.exports={
     "desktopContent": [
       {"name":"playPause", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":45 },
       {"name":"volume", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":240 },
+      {"name":"volume", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":240 },
       {"name":"live", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":45},
       {"name":"timeDuration", "location":"controlBar", "whenDoesNotFit":"drop", "minWidth":145 },
       {"name":"flexibleSpace", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":1 },
@@ -1886,6 +1887,17 @@ var ControlBar = React.createClass({displayName: "ControlBar",
     });
   },
 
+  formatSecondsWithoutLeadingZero: function (timeInSeconds) {
+    var seconds = parseInt(timeInSeconds,10) % 60;
+    var minutes = parseInt(timeInSeconds / 60, 10);
+
+    if (seconds < 10) {
+      seconds = '0' + seconds;
+    }
+
+    return minutes + ":" + seconds;
+  },
+
   populateControlBar: function() {
     var dynamicStyles = this.setupItemStyle();
     var playIcon = "";
@@ -1955,6 +1967,8 @@ var ControlBar = React.createClass({displayName: "ControlBar",
     var liveClick = isLiveNow ? null : this.handleLiveClick;
     var playheadTimeContent = isLiveStream ? (isLiveNow ? null : Utils.formatSeconds(timeShift)) : playheadTime;
     var totalTimeContent = isLiveStream ? null : React.createElement("span", {className: "oo-total-time"}, totalTime);
+    var timeLeft = this.formatSecondsWithoutLeadingZero(Math.abs(timeShift));
+    var timeLeftContent = React.createElement("span", {className: "oo-ad-time-left"}, "Ad • ", timeLeft);
 
     // TODO: Update when implementing localization
     var liveText = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.LIVE, this.props.localizableStrings);
@@ -2008,6 +2022,8 @@ var ControlBar = React.createClass({displayName: "ControlBar",
       "timeDuration": React.createElement("a", {className: "oo-time-duration oo-control-bar-duration", style: durationSetting, key: "timeDuration"}, 
         React.createElement("span", null, playheadTimeContent), totalTimeContent
       ),
+
+      "adTimeLeft": timeLeftContent,
 
       "flexibleSpace": React.createElement("div", {className: "oo-flexible-space oo-control-bar-flex-space", key: "flexibleSpace"}),
 
@@ -2081,7 +2097,6 @@ var ControlBar = React.createClass({displayName: "ControlBar",
       }
     }
 
-
     //if no hours, add extra space to control bar width:
     var hours = parseInt(this.props.duration / 3600, 10);
     var extraSpaceDuration = (hours > 0) ? 0 : 45;
@@ -2119,6 +2134,15 @@ var ControlBar = React.createClass({displayName: "ControlBar",
       if (defaultItems[k].name === "live" &&
         (typeof this.props.isLiveStream === 'undefined' ||
         !(this.props.isLiveStream))) {
+        continue;
+      }
+
+      if (!this.props.isWikiaAdScreen && defaultItems[k].name === "adTimeLeft"){
+        continue;
+      }
+
+      // hide timeDuration, quality and share icon on wikia ad screen
+      if (this.props.isWikiaAdScreen && ['timeDuration', 'quality', 'share'].indexOf(defaultItems[k].name) > -1) {
         continue;
       }
 
@@ -8082,6 +8106,7 @@ var WikiaAdScreen = React.createClass({displayName: "WikiaAdScreen",
       "controlBar": React.createElement(ControlBar, React.__spread({},  this.props, 
                                 {controlBarVisible: showControlBar, 
                                 playerState: this.props.playerState, 
+                                isWikiaAdScreen: true, 
                                 key: "controlBar"}))
     };
 
