@@ -5272,7 +5272,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "afa3570b2175ddcd1a54723b81d628b19afac076"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "c844d855204bf7be5d9858de239d75e347a1252c"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -8040,8 +8040,6 @@ var WikiaAdScreen = React.createClass({displayName: "WikiaAdScreen",
 
   componentDidMount: function () {
     this.props.controller.startHideControlBarTimer();
-    const el = document.getElementById('clickThroughLink');
-    document.getElementsByClassName('oo-wikia-ad-screen')[0].appendChild(el);
   },
 
   componentWillUpdate: function (nextProps) {

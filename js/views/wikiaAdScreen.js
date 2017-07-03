@@ -16,8 +16,6 @@ var WikiaAdScreen = React.createClass({
 
   componentDidMount: function () {
     this.props.controller.startHideControlBarTimer();
-    const el = document.getElementById('clickThroughLink');
-    document.getElementsByClassName('oo-wikia-ad-screen')[0].appendChild(el);
   },
 
   componentWillUpdate: function (nextProps) {

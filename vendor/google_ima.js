@@ -4168,17 +4168,9 @@
 						//iphone performance is terrible if we don't use the custom playback (i.e. filling in the second param for adDisplayContainer)
 						//also doesn't not seem to work nicely with podded ads if you don't use it.
 
-						const learnMoreElement = document.createElement('span');
-						learnMoreElement.id = 'clickThroughLink';
-						learnMoreElement.innerHTML = "Learn more";
-						learnMoreElement.onclick = function() {
-							console.log('aaaaaaaa');	//TODO: remove it
-						};
 						//for IMA, we always want to use the plugins element to house the IMA UI. This allows it to behave
 						//properly with the Alice skin.
-						document.getElementsByClassName('oo-player-skin-plugins')[0].appendChild(learnMoreElement);
-						_IMAAdDisplayContainer = new google.ima.AdDisplayContainer(_uiContainer,
-							this.sharedVideoElement, learnMoreElement);
+						_IMAAdDisplayContainer = new google.ima.AdDisplayContainer(_uiContainer, this.sharedVideoElement);
 
 						_trySetAdManagerToReady();
 

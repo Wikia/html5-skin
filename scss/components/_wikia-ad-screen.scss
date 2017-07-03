@@ -1,4 +1,7 @@
 .oo-wikia-ad-screen {
+  bottom:0;
+  height: calc(100% - 30px);
+  top: initial;
   z-index: 100000;
 
   .oo-scrubber-bar-container {
@@ -6,13 +9,7 @@
   }
 }
 
-.oo-player-skin-plugins iframe {
-  z-index: -1 !important;
-}
 
-#clickThroughLink {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  //z-index: 9999999;
+.oo-player-skin-plugins-click-layer.oo-showing {
+  display: none !important;
 }
