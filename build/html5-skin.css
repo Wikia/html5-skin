@@ -538,12 +538,7 @@
 .oo-player-container .oo-player-skin-plugins iframe {
   z-index: -1 !important; }
 
-.oo-player-container .oo-wikia-ad-screen-top-bar {
-  position: relative;
-  height: 60px;
-  width: 100%; }
-
-.oo-player-container .oo-wikia-ad-screen-learn-more {
+.oo-player-container #clickThroughLink {
   position: absolute;
   right: 10px;
   top: 10px; }

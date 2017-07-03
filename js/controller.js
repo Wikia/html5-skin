@@ -651,6 +651,12 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
     onWillPlayAds: function(event) {
       OO.log("onWillPlayAds is called from event = " + event);
+
+      const learnMoreElement = document.createElement('span');
+      learnMoreElement.id = 'clickThroughLink';
+      learnMoreElement.innerHTML = "Learn more";
+      document.getElementsByClassName('oo-player-skin-plugins')[0].appendChild(learnMoreElement);
+
       this.state.isPlayingAd = true;
       this.state.pluginsElement.addClass("oo-showing");
       this.state.pluginsElement.css({

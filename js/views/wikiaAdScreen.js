@@ -16,6 +16,8 @@ var WikiaAdScreen = React.createClass({
 
   componentDidMount: function () {
     this.props.controller.startHideControlBarTimer();
+    const el = document.getElementById('clickThroughLink');
+    document.getElementsByClassName('oo-wikia-ad-screen')[0].appendChild(el);
   },
 
   componentWillUpdate: function (nextProps) {
@@ -34,6 +36,9 @@ var WikiaAdScreen = React.createClass({
         this.props.controller.startHideControlBarTimer();
       }
     }
+  },
+
+  componentDidUpdate: function () {
   },
 
   componentWillUnmount: function () {
@@ -111,9 +116,6 @@ var WikiaAdScreen = React.createClass({
 
         <div className="oo-state-screen-selectable" onClick={this.onClick}></div>
 
-        <div className="oo-wikia-ad-screen-top-bar">
-          <a className="oo-wikia-ad-screen-learn-more" href="#">Learn more</a>
-        </div>
         <div className="oo-interactive-container">
           {playbackControlItems}
         </div>

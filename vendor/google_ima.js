@@ -4171,7 +4171,7 @@
 						//for IMA, we always want to use the plugins element to house the IMA UI. This allows it to behave
 						//properly with the Alice skin.
 						_IMAAdDisplayContainer = new google.ima.AdDisplayContainer(_uiContainer,
-							this.sharedVideoElement);
+							this.sharedVideoElement, document.getElementById('clickThroughLink'));
 
 						_trySetAdManagerToReady();
 
