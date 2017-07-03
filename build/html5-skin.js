@@ -5272,7 +5272,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "c844d855204bf7be5d9858de239d75e347a1252c"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.10.4", "rev": "2d98bf97a55ef19761c9f8c8283c88f454db5097"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -8032,39 +8032,9 @@ var React = require('react'),
 var WikiaAdScreen = React.createClass({displayName: "WikiaAdScreen",
 
   getInitialState: function () {
-    this.isMobile = this.props.controller.state.isMobile;
     return {
-      controlBarVisible: true
+      isMobile: this.props.controller.state.isMobile
     };
-  },
-
-  componentDidMount: function () {
-    this.props.controller.startHideControlBarTimer();
-  },
-
-  componentWillUpdate: function (nextProps) {
-    if (nextProps) {
-      if (nextProps.controller.state.controlBarVisible == false && this.state.controlBarVisible == true) {
-        this.hideControlBar();
-      }
-
-      if (!this.props.fullscreen && nextProps.fullscreen) {
-        this.props.controller.startHideControlBarTimer();
-      }
-
-      if (this.props.fullscreen && !nextProps.fullscreen && this.isMobile) {
-        this.setState({controlBarVisible: true});
-        this.props.controller.showControlBar();
-        this.props.controller.startHideControlBarTimer();
-      }
-    }
-  },
-
-  componentDidUpdate: function () {
-  },
-
-  componentWillUnmount: function () {
-    this.props.controller.cancelTimer();
   },
 
   getPlaybackControlItems: function () {
@@ -8091,40 +8061,16 @@ var WikiaAdScreen = React.createClass({displayName: "WikiaAdScreen",
     return playbackControlItems;
   },
 
-  onClick: function (e) {
-    if (!this.state.controlBarVisible && this.props.playerState !== CONSTANTS.STATE.PAUSE) {
-      this.props.controller.startHideControlBarTimer();
-      this.showControlBar();
-    } else {
-      this.props.controller.togglePlayPause();
-    }
-    e.stopPropagation();
-  },
-
-  onMouseOver: function () {
-    if (!('ontouchstart' in window)) {
-      this.showControlBar();
-      this.props.controller.startHideControlBarTimer();
-    }
-  },
-
-  onMouseOut: function () {
-    if (!('ontouchstart' in window)) {
-      this.hideControlBar();
-    }
-  },
-
-  showControlBar: function() {
-    this.setState({controlBarVisible: true});
-    this.props.controller.showControlBar();
-  },
-
-  hideControlBar: function(event) {
-    if (!(this.isMobile && event)) {
-      this.setState({controlBarVisible: false});
-      this.props.controller.hideControlBar();
-    }
-  },
+  // FIXME move this to controller.js (?) so the first click shows controls, not toggles play/pause
+  // onClick: function (e) {
+  //   if (!this.state.controlBarVisible && this.props.playerState !== CONSTANTS.STATE.PAUSE) {
+  //     this.props.controller.startHideControlBarTimer();
+  //     this.showControlBar();
+  //   } else {
+  //     this.props.controller.togglePlayPause();
+  //   }
+  //   e.stopPropagation();
+  // },
 
   render: function () {
     var playbackControlItems = null;
@@ -8133,15 +8079,10 @@ var WikiaAdScreen = React.createClass({displayName: "WikiaAdScreen",
     }
 
     return (
-      React.createElement("div", {className: "oo-state-screen oo-wikia-ad-screen", 
-           ref: "wikiaAdScreen", onMouseOver: this.onMouseOver, onMouseOut: this.onMouseOut}, 
-
-        React.createElement("div", {className: "oo-state-screen-selectable", onClick: this.onClick}), 
-
+      React.createElement("div", {className: "oo-state-screen oo-wikia-ad-screen", ref: "wikiaAdScreen"}, 
         React.createElement("div", {className: "oo-interactive-container"}, 
           playbackControlItems
         )
-
       )
     );
   }

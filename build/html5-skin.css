@@ -532,13 +532,8 @@
       font-family: 'Open Sans', sans-serif;
       font-size: 1em; }
 
-.oo-player-container .oo-wikia-ad-screen {
-  bottom: 0;
-  height: calc(100% - 30px);
-  top: initial;
-  z-index: 100000; }
-  .oo-player-container .oo-wikia-ad-screen .oo-scrubber-bar-container {
-    visibility: hidden; }
+.oo-player-container .oo-wikia-ad-screen .oo-scrubber-bar-container {
+  visibility: hidden; }
 
 .oo-player-container .oo-player-skin-plugins-click-layer.oo-showing {
   display: none !important; }

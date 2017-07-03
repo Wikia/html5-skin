@@ -4347,6 +4347,7 @@
 					var adsSettings = new google.ima.AdsRenderingSettings();
 					adsSettings.restoreCustomPlaybackStateOnAdBreakComplete = false;
 					adsSettings.useStyledNonLinearAds = true;
+					adsSettings.uiElements = [];
 					if (this.useGoogleCountdown)
 					{
 						//both COUNTDOWN and AD_ATTRIBUTION are required as per
