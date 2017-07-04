@@ -11,6 +11,7 @@ var React = require('react'),
     VideoQualityPanel = require('./components/videoQualityPanel'),
     SharePanel = require('./components/sharePanel'),
     MoreOptionsPanel = require('./components/moreOptionsPanel'),
+    AdScreen = require('./views/adScreen'),
     WikiaAdScreen = require('./views/wikiaAdScreen'),
     EndScreen = require('./views/endScreen'),
     StartScreen = require('./views/startScreen'),
@@ -171,7 +172,7 @@ var Skin = React.createClass({
           break;
         case CONSTANTS.SCREEN.AD_SCREEN:
           screen = (
-            <WikiaAdScreen {...this.props}
+            <AdScreen {...this.props}
               contentTree={this.state.contentTree}
               currentAdsInfo={this.state.currentAdsInfo}
               currentPlayhead={this.state.currentPlayhead}
