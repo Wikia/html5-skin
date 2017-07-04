@@ -697,7 +697,7 @@ AccessibilityControls.prototype = {
 
 module.exports = AccessibilityControls;
 
-},{"./../constants/constants":43}],6:[function(require,module,exports){
+},{"./../constants/constants":42}],6:[function(require,module,exports){
 /********************************************************************
   AD OVERLAY
 *********************************************************************/
@@ -748,7 +748,7 @@ var AdOverlay = React.createClass({displayName: "AdOverlay",
 });
 module.exports = AdOverlay;
 
-},{"../constants/constants":43,"./closeButton":8,"classnames":58,"react":220}],7:[function(require,module,exports){
+},{"../constants/constants":42,"./closeButton":8,"classnames":57,"react":220}],7:[function(require,module,exports){
 var React = require('react'),
     ClassNames = require('classnames');
 
@@ -793,7 +793,8 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
 });
 
 module.exports = AutoplaySwitch;
-},{"classnames":58,"react":220}],8:[function(require,module,exports){
+
+},{"classnames":57,"react":220}],8:[function(require,module,exports){
 var React = require('react'),
     Icon = require('../components/icon');
 
@@ -821,7 +822,7 @@ CloseButton.defaultProps = {
 
 module.exports = CloseButton;
 
-},{"../components/icon":28,"react":220}],9:[function(require,module,exports){
+},{"../components/icon":27,"react":220}],9:[function(require,module,exports){
 var React = require('react'),
     ClassNames = require('classnames'),
     Utils = require('../utils'),
@@ -921,7 +922,7 @@ var CaptionOpacityTab = React.createClass({displayName: "CaptionOpacityTab",
 
 module.exports = CaptionOpacityTab;
 
-},{"../../constants/constants":43,"../slider":33,"../utils":40,"./selectionContainer":18,"classnames":58,"react":220}],10:[function(require,module,exports){
+},{"../../constants/constants":42,"../slider":32,"../utils":39,"./selectionContainer":18,"classnames":57,"react":220}],10:[function(require,module,exports){
 var React = require('react'),
     Utils = require('../utils'),
     CONSTANTS = require('../../constants/constants'),
@@ -954,7 +955,7 @@ var CCPreviewPanel = React.createClass({displayName: "CCPreviewPanel",
 
 module.exports = CCPreviewPanel;
 
-},{"../../constants/constants":43,"../textTrackPanel":36,"../utils":40,"classnames":58,"react":220}],11:[function(require,module,exports){
+},{"../../constants/constants":42,"../textTrackPanel":35,"../utils":39,"classnames":57,"react":220}],11:[function(require,module,exports){
 /********************************************************************
   CLOSED CAPTION PANEL
 *********************************************************************/
@@ -1028,7 +1029,7 @@ var ClosedCaptionPanel = React.createClass({displayName: "ClosedCaptionPanel",
 
 module.exports = ClosedCaptionPanel;
 
-},{"../../constants/constants":43,"../tabs":35,"../utils":40,"./captionOpacityTab":9,"./ccPreviewPanel":10,"./colorSelectionTab":13,"./fontSizeTab":14,"./fontTypeTab":15,"./languageTab":16,"./textEnhancementsTab":19,"react":220}],12:[function(require,module,exports){
+},{"../../constants/constants":42,"../tabs":34,"../utils":39,"./captionOpacityTab":9,"./ccPreviewPanel":10,"./colorSelectionTab":13,"./fontSizeTab":14,"./fontTypeTab":15,"./languageTab":16,"./textEnhancementsTab":19,"react":220}],12:[function(require,module,exports){
 var React = require('react'),
     CONSTANTS = require('../../constants/constants'),
     Utils = require('../utils'),
@@ -1067,7 +1068,7 @@ var ClosedCaptionPopover = React.createClass({displayName: "ClosedCaptionPopover
 
 module.exports = ClosedCaptionPopover;
 
-},{"../../constants/constants":43,"../closeButton":8,"../utils":40,"./onOffSwitch":17,"react":220}],13:[function(require,module,exports){
+},{"../../constants/constants":42,"../closeButton":8,"../utils":39,"./onOffSwitch":17,"react":220}],13:[function(require,module,exports){
 var React = require('react'),
     Utils = require('../utils'),
     CONSTANTS = require('../../constants/constants'),
@@ -1191,7 +1192,8 @@ var ColorSelectionTab = React.createClass({displayName: "ColorSelectionTab",
 });
 
 module.exports = ColorSelectionTab;
-},{"../../constants/constants":43,"../colorSelector":20,"../utils":40,"./selectionContainer":18,"react":220}],14:[function(require,module,exports){
+
+},{"../../constants/constants":42,"../colorSelector":20,"../utils":39,"./selectionContainer":18,"react":220}],14:[function(require,module,exports){
 var React = require('react'),
     ClassNames = require('classnames'),
     Utils = require('../utils'),
@@ -1272,7 +1274,7 @@ var FontSizeTab = React.createClass({displayName: "FontSizeTab",
 
 module.exports = FontSizeTab;
 
-},{"../../constants/constants":43,"../utils":40,"./selectionContainer":18,"classnames":58,"react":220}],15:[function(require,module,exports){
+},{"../../constants/constants":42,"../utils":39,"./selectionContainer":18,"classnames":57,"react":220}],15:[function(require,module,exports){
 var React = require('react'),
     DataSelector = require('../dataSelector');
 
@@ -1438,7 +1440,7 @@ var OnOffSwitch = React.createClass({displayName: "OnOffSwitch",
 
 module.exports = OnOffSwitch;
 
-},{"../../constants/constants":43,"./../utils":40,"classnames":58,"react":220}],18:[function(require,module,exports){
+},{"../../constants/constants":42,"./../utils":39,"classnames":57,"react":220}],18:[function(require,module,exports){
 var React = require('react');
 
 var SelectionContainer = React.createClass({displayName: "SelectionContainer",
@@ -1541,7 +1543,7 @@ var TextEnhancementsTab = React.createClass({displayName: "TextEnhancementsTab",
 
 module.exports = TextEnhancementsTab;
 
-},{"../../constants/constants":43,"../utils":40,"./selectionContainer":18,"classnames":58,"react":220}],20:[function(require,module,exports){
+},{"../../constants/constants":42,"../utils":39,"./selectionContainer":18,"classnames":57,"react":220}],20:[function(require,module,exports){
 var React = require('react'),
     ClassNames = require('classnames');
 
@@ -1586,7 +1588,7 @@ var ColorSelector = React.createClass({displayName: "ColorSelector",
 
 module.exports = ColorSelector;
 
-},{"classnames":58,"react":220}],21:[function(require,module,exports){
+},{"classnames":57,"react":220}],21:[function(require,module,exports){
 var React = require('react'),
   CONSTANTS = require('../constants/constants'),
   Utils = require('./utils'),
@@ -1631,7 +1633,8 @@ var ConfigPanel = React.createClass({displayName: "ConfigPanel",
 });
 
 module.exports = ConfigPanel;
-},{"../constants/constants":43,"./autoplaySwitch":7,"./utils":40,"react":220}],22:[function(require,module,exports){
+
+},{"../constants/constants":42,"./autoplaySwitch":7,"./utils":39,"react":220}],22:[function(require,module,exports){
 /********************************************************************
   CONTROL BAR
 *********************************************************************/
@@ -2194,7 +2197,7 @@ ControlBar.defaultProps = {
 };
 
 module.exports = ControlBar;
-},{"../constants/constants":43,"../views/popover":55,"./closed-caption/closedCaptionPopover":12,"./configPanel":21,"./icon":28,"./logo":29,"./scrubberBar":31,"./slider":33,"./utils":40,"./videoQualityPanel":41,"classnames":58,"react":220,"react-dom":63}],23:[function(require,module,exports){
+},{"../constants/constants":42,"../views/popover":54,"./closed-caption/closedCaptionPopover":12,"./configPanel":21,"./icon":27,"./logo":28,"./scrubberBar":30,"./slider":32,"./utils":39,"./videoQualityPanel":40,"classnames":57,"react":220,"react-dom":63}],23:[function(require,module,exports){
 /********************************************************************
   COUNT DOWN CLOCK
 *********************************************************************/
@@ -2417,7 +2420,7 @@ CountDownClock.defaultProps = {
 
 module.exports = CountDownClock;
 
-},{"../constants/constants":43,"classnames":58,"react":220,"react-dom":63}],24:[function(require,module,exports){
+},{"../constants/constants":42,"classnames":57,"react":220,"react-dom":63}],24:[function(require,module,exports){
 var React = require('react'),
     ClassNames = require('classnames'),
     Icon = require('./icon');
@@ -2526,101 +2529,7 @@ var DataSelector = React.createClass({displayName: "DataSelector",
 
 module.exports = DataSelector;
 
-},{"./icon":28,"classnames":58,"react":220}],25:[function(require,module,exports){
-/**
- * Credit: https://github.com/KyleAMathews/deepmerge
- */
-
-(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory();
-  } else {
-    root.deepmerge = factory();
-  }
-}(this, function () {
-
-  function isMergeableObject(val) {
-    var nonNullObject = val && typeof val === 'object';
-
-    return nonNullObject
-      && Object.prototype.toString.call(val) !== '[object RegExp]'
-      && Object.prototype.toString.call(val) !== '[object Date]'
-  }
-
-  function emptyTarget(val) {
-    return Array.isArray(val) ? [] : {}
-  }
-
-  function cloneIfNecessary(value, optionsArgument) {
-    var clone = optionsArgument && optionsArgument.clone === true;
-    return (clone && isMergeableObject(value)) ? deepmerge(emptyTarget(value), value, optionsArgument) : value
-  }
-
-  function defaultArrayMerge(target, source, optionsArgument) {
-    //console.log("****** utils defaultArrayMerge target: ", target);
-    //console.log("****** utils defaultArrayMerge source: ", source);
-
-    var destination = target.slice();
-    source.forEach(function(e, i) {
-      if (typeof destination[i] === 'undefined') {
-        destination[i] = cloneIfNecessary(e, optionsArgument)
-      } else if (isMergeableObject(e)) {
-        destination[i] = deepmerge(target[i], e, optionsArgument)
-      } else if (target.indexOf(e) === -1) {
-        destination.push(cloneIfNecessary(e, optionsArgument))
-      }
-    });
-    //console.log("****** utils defaultArrayMerge destination: ", destination);
-    return destination;
-  }
-
-  function mergeObject(target, source, optionsArgument) {
-    var destination = {};
-    if (isMergeableObject(target)) {
-      Object.keys(target).forEach(function (key) {
-        destination[key] = cloneIfNecessary(target[key], optionsArgument)
-      })
-    }
-    Object.keys(source).forEach(function (key) {
-      if (!isMergeableObject(source[key]) || !target[key]) {
-        destination[key] = cloneIfNecessary(source[key], optionsArgument)
-      } else {
-        destination[key] = deepmerge(target[key], source[key], optionsArgument)
-      }
-    });
-    return destination
-  }
-
-  function deepmerge(target, source, optionsArgument) {
-    var array = Array.isArray(source);
-    var options = optionsArgument || { arrayMerge: defaultArrayMerge };
-    var arrayMerge = options.arrayMerge || defaultArrayMerge;
-
-    if (array) {
-      return Array.isArray(target) ? arrayMerge(target, source, optionsArgument) : cloneIfNecessary(source, optionsArgument)
-    } else {
-      return mergeObject(target, source, optionsArgument)
-    }
-  }
-
-  deepmerge.all = function deepmergeAll(array, optionsArgument) {
-    if (!Array.isArray(array) || array.length < 2) {
-      throw new Error('first argument should be an array with at least two elements')
-    }
-
-    // we are sure there are at least 2 values, so it is safe to have no initial value
-    return array.reduce(function(prev, next) {
-      return deepmerge(prev, next, optionsArgument)
-    })
-  };
-
-  return deepmerge
-
-}));
-
-},{}],26:[function(require,module,exports){
+},{"./icon":27,"classnames":57,"react":220}],25:[function(require,module,exports){
 var React = require('react'),
     Utils = require('./utils');
 
@@ -2686,7 +2595,8 @@ DiscoverItem.propTypes = {
 };
 
 module.exports = DiscoverItem;
-},{"./utils":40,"react":220}],27:[function(require,module,exports){
+
+},{"./utils":39,"react":220}],26:[function(require,module,exports){
 /**
  * Panel component for Discovery Screen
  *
@@ -2916,7 +2826,8 @@ DiscoveryPanel.defaultProps = {
 };
 
 module.exports = DiscoveryPanel;
-},{"../components/icon":28,"../constants/constants":43,"../mixins/resizeMixin":47,"./countDownClock":23,"./discoverItem":26,"classnames":58,"react":220,"react-dom":63}],28:[function(require,module,exports){
+
+},{"../components/icon":27,"../constants/constants":42,"../mixins/resizeMixin":46,"./countDownClock":23,"./discoverItem":25,"classnames":57,"react":220,"react-dom":63}],27:[function(require,module,exports){
 var React = require('react'),
     Utils = require('./utils');
 
@@ -2963,7 +2874,7 @@ Icon.defaultProps = {
 
 module.exports = Icon;
 
-},{"./utils":40,"react":220}],29:[function(require,module,exports){
+},{"./utils":39,"react":220}],28:[function(require,module,exports){
 var React = require('react');
 
 var Logo = React.createClass({displayName: "Logo",
@@ -3009,7 +2920,7 @@ Logo.defaultProps = {
 
 module.exports = Logo;
 
-},{"react":220}],30:[function(require,module,exports){
+},{"react":220}],29:[function(require,module,exports){
 /********************************************************************
  MORE OPTIONS PANEL
  *********************************************************************/
@@ -3138,7 +3049,7 @@ MoreOptionsPanel.defaultProps = {
 
 module.exports = MoreOptionsPanel;
 
-},{"../components/icon":28,"../constants/constants":43,"../mixins/animateMixin":46,"./utils":40,"classnames":58,"react":220}],31:[function(require,module,exports){
+},{"../components/icon":27,"../constants/constants":42,"../mixins/animateMixin":45,"./utils":39,"classnames":57,"react":220}],30:[function(require,module,exports){
 /********************************************************************
   SCRUBBER BAR
 *********************************************************************/
@@ -3466,7 +3377,7 @@ ScrubberBar.defaultProps = {
 
 module.exports = ScrubberBar;
 
-},{"../constants/constants":43,"../mixins/resizeMixin":47,"./thumbnail":37,"./thumbnailCarousel":38,"react":220,"react-dom":63}],32:[function(require,module,exports){
+},{"../constants/constants":42,"../mixins/resizeMixin":46,"./thumbnail":36,"./thumbnailCarousel":37,"react":220,"react-dom":63}],31:[function(require,module,exports){
 /********************************************************************
  SHARE PANEL
  *********************************************************************/
@@ -3628,7 +3539,7 @@ SharePanel.defaultProps = {
 
 module.exports = SharePanel;
 
-},{"../constants/constants":43,"./utils":40,"classnames":58,"react":220}],33:[function(require,module,exports){
+},{"../constants/constants":42,"./utils":39,"classnames":57,"react":220}],32:[function(require,module,exports){
 var React = require('react'),
     Utils = require('./utils');
 
@@ -3685,7 +3596,7 @@ var Slider = React.createClass({displayName: "Slider",
 });
 module.exports = Slider;
 
-},{"./utils":40,"react":220}],34:[function(require,module,exports){
+},{"./utils":39,"react":220}],33:[function(require,module,exports){
 var React = require('react');
 
 var Spinner = React.createClass({displayName: "Spinner",
@@ -3701,7 +3612,7 @@ var Spinner = React.createClass({displayName: "Spinner",
 });
 module.exports = Spinner;
 
-},{"react":220}],35:[function(require,module,exports){
+},{"react":220}],34:[function(require,module,exports){
 // taken from https://github.com/pedronauck/react-simpletabs
 
 var React = require('react'),
@@ -3902,7 +3813,8 @@ Tabs.Panel = React.createClass({
     );
   }
 });
-},{"./icon":28,"classnames":58,"react":220}],36:[function(require,module,exports){
+
+},{"./icon":27,"classnames":57,"react":220}],35:[function(require,module,exports){
 /**
  * Display component for video text tracks
  *
@@ -4076,7 +3988,7 @@ TextTrackPanel.defaultProps = {
 
 module.exports = TextTrackPanel;
 
-},{"./utils":40,"react":220}],37:[function(require,module,exports){
+},{"./utils":39,"react":220}],36:[function(require,module,exports){
 /**
  * Thumbnail component
  *
@@ -4119,7 +4031,7 @@ Thumbnail.defaultProps = {
 
 module.exports = Thumbnail;
 
-},{"./utils":40,"react":220}],38:[function(require,module,exports){
+},{"./utils":39,"react":220}],37:[function(require,module,exports){
 /**
  * ThumbnailCarousel component
  *
@@ -4271,7 +4183,7 @@ ThumbnailCarousel.defaultProps = {
 
 module.exports = ThumbnailCarousel;
 
-},{"./utils":40,"react":220,"react-dom":63}],39:[function(require,module,exports){
+},{"./utils":39,"react":220,"react-dom":63}],38:[function(require,module,exports){
 /********************************************************************
   UP NEXT PANEL
 *********************************************************************/
@@ -4376,13 +4288,13 @@ UpNextPanel.defaultProps = {
 
 module.exports = UpNextPanel;
 
-},{"../components/icon":28,"./../constants/constants":43,"./closeButton":8,"./countDownClock":23,"./utils":40,"react":220}],40:[function(require,module,exports){
+},{"../components/icon":27,"./../constants/constants":42,"./closeButton":8,"./countDownClock":23,"./utils":39,"react":220}],39:[function(require,module,exports){
 /**
 * Utility class that holds helper functions
 *
 * @module Utils
 */
-var DeepMerge = require('./deepMerge');
+var DeepMerge = require('deepmerge');
 
 var Utils = {
   /**
@@ -4992,7 +4904,7 @@ var Utils = {
 };
 
 module.exports = Utils;
-},{"./deepMerge":25}],41:[function(require,module,exports){
+},{"deepmerge":58}],40:[function(require,module,exports){
 /**
  * Panel component for video quality selection
  *
@@ -5120,7 +5032,7 @@ VideoQualityPanel.defaultProps = {
 
 module.exports = VideoQualityPanel;
 
-},{"../constants/constants":43,"./utils":40,"classnames":58,"react":220,"react-scrollbar/dist/no-css":64}],42:[function(require,module,exports){
+},{"../constants/constants":42,"./utils":39,"classnames":57,"react":220,"react-scrollbar/dist/no-css":64}],41:[function(require,module,exports){
 /**
  * Watermark component
  *
@@ -5258,7 +5170,7 @@ Watermark.defaultProps = {
 
 module.exports = Watermark;
 
-},{"../components/utils":40,"../constants/constants":43,"classnames":58,"react":220}],43:[function(require,module,exports){
+},{"../components/utils":39,"../constants/constants":42,"classnames":57,"react":220}],42:[function(require,module,exports){
 /********************************************************************
   CONSTANT
 *********************************************************************/
@@ -5536,7 +5448,8 @@ module.exports = {
     }
   }
 };
-},{}],44:[function(require,module,exports){
+
+},{}],43:[function(require,module,exports){
 /********************************************************************
  CONTROLLER
  *********************************************************************/
@@ -5545,11 +5458,11 @@ var React = require('react'),
     Utils = require('./components/utils'),
     CONSTANTS = require('./constants/constants'),
     AccessibilityControls = require('./components/accessibilityControls'),
-    DeepMerge = require('./components/deepMerge'),
+    DeepMerge = require('deepmerge'),
     Fullscreen = require('screenfull'),
     Skin = require('./skin'),
     SkinJSON = require('../config/skin'),
-    Localization = ({"languageFiles":({"en":require("..\\config\\languageFiles\\en.json"),"es":require("..\\config\\languageFiles\\es.json"),"zh":require("..\\config\\languageFiles\\zh.json")})}),
+    Localization = ({"languageFiles":({"en":require("../config/languageFiles/en.json"),"es":require("../config/languageFiles/es.json"),"zh":require("../config/languageFiles/zh.json")})}),
     Cookies = require('js-cookie');
 
 OO.plugin("Html5Skin", function (OO, _, $, W) {
@@ -5561,7 +5474,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "1ea62b7cd76b6bc20f547183adbc8cdedb599fa0"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "5cea64c83aa43ce614a571553377af0f4534371e"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -7299,7 +7212,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   return Html5Skin;
 });
-},{"../config/skin":4,"..\\config\\languageFiles\\en.json":1,"..\\config\\languageFiles\\es.json":2,"..\\config\\languageFiles\\zh.json":3,"./components/accessibilityControls":5,"./components/deepMerge":25,"./components/utils":40,"./constants/constants":43,"./skin":49,"js-cookie":59,"react":220,"react-dom":63,"screenfull":221}],45:[function(require,module,exports){
+},{"../config/languageFiles/en.json":1,"../config/languageFiles/es.json":2,"../config/languageFiles/zh.json":3,"../config/skin":4,"./components/accessibilityControls":5,"./components/utils":39,"./constants/constants":42,"./skin":48,"deepmerge":58,"js-cookie":59,"react":220,"react-dom":63,"screenfull":221}],44:[function(require,module,exports){
 /**
  * Enables accessability controls.
  *
@@ -7317,7 +7230,7 @@ var AccessibilityMixin = {
 };
 module.exports = AccessibilityMixin;
 
-},{}],46:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 /**
  * Enable animation after component mounts
  * Set animate state var 1ms after component mounts
@@ -7351,7 +7264,7 @@ var AnimateMixin = {
 };
 module.exports = AnimateMixin;
 
-},{}],47:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 /**
  * Fires handleResize() function if player width (props.componentWidth) changes
  *
@@ -7370,7 +7283,7 @@ var ResizeMixin = {
 };
 module.exports = ResizeMixin;
 
-},{}],48:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 var ReactDOM = require('react-dom'),
     ClassNames = require('classnames'),
     debounce = require('lodash.debounce');
@@ -7436,7 +7349,7 @@ var ResponsiveManagerMixin = {
 };
 module.exports = ResponsiveManagerMixin;
 
-},{"classnames":58,"lodash.debounce":60,"react-dom":63}],49:[function(require,module,exports){
+},{"classnames":57,"lodash.debounce":60,"react-dom":63}],48:[function(require,module,exports){
 /********************************************************************
   RENDERER PLACEHOLDER
 *********************************************************************/
@@ -7743,7 +7656,8 @@ Skin.defaultProps = {
 };
 
 module.exports = Skin;
-},{"./components/closed-caption/closedCaptionPanel":11,"./components/closed-caption/onOffSwitch":17,"./components/discoveryPanel":27,"./components/moreOptionsPanel":30,"./components/sharePanel":32,"./components/spinner":34,"./components/utils":40,"./components/videoQualityPanel":41,"./constants/constants":43,"./mixins/responsiveManagerMixin":48,"./views/contentScreen":50,"./views/endScreen":51,"./views/errorScreen":52,"./views/pauseScreen":53,"./views/playingScreen":54,"./views/startScreen":56,"./views/wikiaAdScreen":57,"react":220}],50:[function(require,module,exports){
+
+},{"./components/closed-caption/closedCaptionPanel":11,"./components/closed-caption/onOffSwitch":17,"./components/discoveryPanel":26,"./components/moreOptionsPanel":29,"./components/sharePanel":31,"./components/spinner":33,"./components/utils":39,"./components/videoQualityPanel":40,"./constants/constants":42,"./mixins/responsiveManagerMixin":47,"./views/contentScreen":49,"./views/endScreen":50,"./views/errorScreen":51,"./views/pauseScreen":52,"./views/playingScreen":53,"./views/startScreen":55,"./views/wikiaAdScreen":56,"react":220}],49:[function(require,module,exports){
 var React = require('react'),
     CloseButton = require('../components/closeButton'),
     Utils = require('../components/utils'),
@@ -7836,7 +7750,8 @@ ContentScreen.defaultProps = {
 };
 
 module.exports = ContentScreen;
-},{"../components/closeButton":8,"../components/icon":28,"../components/utils":40,"../components/watermark":42,"../constants/constants":43,"../mixins/accessibilityMixin":45,"react":220}],51:[function(require,module,exports){
+
+},{"../components/closeButton":8,"../components/icon":27,"../components/utils":39,"../components/watermark":41,"../constants/constants":42,"../mixins/accessibilityMixin":44,"react":220}],50:[function(require,module,exports){
 /********************************************************************
   END SCREEN
 *********************************************************************/
@@ -7952,7 +7867,7 @@ var EndScreen = React.createClass({displayName: "EndScreen",
 });
 module.exports = EndScreen;
 
-},{"../components/controlBar":22,"../components/icon":28,"../components/utils":40,"../components/watermark":42,"../mixins/resizeMixin":47,"classnames":58,"react":220,"react-dom":63}],52:[function(require,module,exports){
+},{"../components/controlBar":22,"../components/icon":27,"../components/utils":39,"../components/watermark":41,"../mixins/resizeMixin":46,"classnames":57,"react":220,"react-dom":63}],51:[function(require,module,exports){
 /********************************************************************
   ERROR SCREEN
 *********************************************************************/
@@ -8005,7 +7920,7 @@ ErrorScreen.defaultProps = {
 
 module.exports = ErrorScreen;
 
-},{"../components/utils":40,"../constants/constants":43,"../mixins/accessibilityMixin":45,"classnames":58,"react":220}],53:[function(require,module,exports){
+},{"../components/utils":39,"../constants/constants":42,"../mixins/accessibilityMixin":44,"classnames":57,"react":220}],52:[function(require,module,exports){
 /********************************************************************
  PAUSE SCREEN
  *********************************************************************/
@@ -8155,7 +8070,7 @@ var PauseScreen = React.createClass({displayName: "PauseScreen",
 });
 module.exports = PauseScreen;
 
-},{"../components/adOverlay":6,"../components/controlBar":22,"../components/icon":28,"../components/textTrackPanel":36,"../components/upNextPanel":39,"../components/utils":40,"../components/watermark":42,"../mixins/animateMixin":46,"../mixins/resizeMixin":47,"classnames":58,"react":220,"react-dom":63}],54:[function(require,module,exports){
+},{"../components/adOverlay":6,"../components/controlBar":22,"../components/icon":27,"../components/textTrackPanel":35,"../components/upNextPanel":38,"../components/utils":39,"../components/watermark":41,"../mixins/animateMixin":45,"../mixins/resizeMixin":46,"classnames":57,"react":220,"react-dom":63}],53:[function(require,module,exports){
 /********************************************************************
   PLAYING SCREEN
 *********************************************************************/
@@ -8310,7 +8225,8 @@ var PlayingScreen = React.createClass({displayName: "PlayingScreen",
   }
 });
 module.exports = PlayingScreen;
-},{"../components/adOverlay":6,"../components/controlBar":22,"../components/spinner":34,"../components/textTrackPanel":36,"../components/upNextPanel":39,"../components/watermark":42,"../mixins/resizeMixin":47,"classnames":58,"react":220,"react-dom":63}],55:[function(require,module,exports){
+
+},{"../components/adOverlay":6,"../components/controlBar":22,"../components/spinner":33,"../components/textTrackPanel":35,"../components/upNextPanel":38,"../components/watermark":41,"../mixins/resizeMixin":46,"classnames":57,"react":220,"react-dom":63}],54:[function(require,module,exports){
 var React = require('react');
 
 var Popover = React.createClass({displayName: "Popover",
@@ -8331,7 +8247,7 @@ Popover.defaultProps = {
 
 module.exports = Popover;
 
-},{"react":220}],56:[function(require,module,exports){
+},{"react":220}],55:[function(require,module,exports){
 /********************************************************************
  START SCREEN
  *********************************************************************/
@@ -8515,7 +8431,7 @@ StartScreen.defaultProps = {
 
 module.exports = StartScreen;
 
-},{"../components/icon":28,"../components/spinner":34,"../components/utils":40,"../components/watermark":42,"../constants/constants":43,"../mixins/resizeMixin":47,"classnames":58,"react":220,"react-dom":63}],57:[function(require,module,exports){
+},{"../components/icon":27,"../components/spinner":33,"../components/utils":39,"../components/watermark":41,"../constants/constants":42,"../mixins/resizeMixin":46,"classnames":57,"react":220,"react-dom":63}],56:[function(require,module,exports){
 /********************************************************************
  WIKIA AD SCREEN
  *********************************************************************/
@@ -8585,7 +8501,7 @@ var WikiaAdScreen = React.createClass({displayName: "WikiaAdScreen",
 });
 module.exports = WikiaAdScreen;
 
-},{"../components/controlBar":22,"../constants/constants":43,"react":220}],58:[function(require,module,exports){
+},{"../components/controlBar":22,"../constants/constants":42,"react":220}],57:[function(require,module,exports){
 /*!
   Copyright (c) 2016 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -8634,6 +8550,92 @@ module.exports = WikiaAdScreen;
 		window.classNames = classNames;
 	}
 }());
+
+},{}],58:[function(require,module,exports){
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define(factory);
+    } else if (typeof exports === 'object') {
+        module.exports = factory();
+    } else {
+        root.deepmerge = factory();
+    }
+}(this, function () {
+
+function isMergeableObject(val) {
+    var nonNullObject = val && typeof val === 'object'
+
+    return nonNullObject
+        && Object.prototype.toString.call(val) !== '[object RegExp]'
+        && Object.prototype.toString.call(val) !== '[object Date]'
+}
+
+function emptyTarget(val) {
+    return Array.isArray(val) ? [] : {}
+}
+
+function cloneIfNecessary(value, optionsArgument) {
+    var clone = optionsArgument && optionsArgument.clone === true
+    return (clone && isMergeableObject(value)) ? deepmerge(emptyTarget(value), value, optionsArgument) : value
+}
+
+function defaultArrayMerge(target, source, optionsArgument) {
+    var destination = target.slice()
+    source.forEach(function(e, i) {
+        if (typeof destination[i] === 'undefined') {
+            destination[i] = cloneIfNecessary(e, optionsArgument)
+        } else if (isMergeableObject(e)) {
+            destination[i] = deepmerge(target[i], e, optionsArgument)
+        } else if (target.indexOf(e) === -1) {
+            destination.push(cloneIfNecessary(e, optionsArgument))
+        }
+    })
+    return destination
+}
+
+function mergeObject(target, source, optionsArgument) {
+    var destination = {}
+    if (isMergeableObject(target)) {
+        Object.keys(target).forEach(function (key) {
+            destination[key] = cloneIfNecessary(target[key], optionsArgument)
+        })
+    }
+    Object.keys(source).forEach(function (key) {
+        if (!isMergeableObject(source[key]) || !target[key]) {
+            destination[key] = cloneIfNecessary(source[key], optionsArgument)
+        } else {
+            destination[key] = deepmerge(target[key], source[key], optionsArgument)
+        }
+    })
+    return destination
+}
+
+function deepmerge(target, source, optionsArgument) {
+    var array = Array.isArray(source);
+    var options = optionsArgument || { arrayMerge: defaultArrayMerge }
+    var arrayMerge = options.arrayMerge || defaultArrayMerge
+
+    if (array) {
+        return Array.isArray(target) ? arrayMerge(target, source, optionsArgument) : cloneIfNecessary(source, optionsArgument)
+    } else {
+        return mergeObject(target, source, optionsArgument)
+    }
+}
+
+deepmerge.all = function deepmergeAll(array, optionsArgument) {
+    if (!Array.isArray(array) || array.length < 2) {
+        throw new Error('first argument should be an array with at least two elements')
+    }
+
+    // we are sure there are at least 2 values, so it is safe to have no initial value
+    return array.reduce(function(prev, next) {
+        return deepmerge(prev, next, optionsArgument)
+    })
+}
+
+return deepmerge
+
+}));
 
 },{}],59:[function(require,module,exports){
 /*!
@@ -28568,4 +28570,4 @@ module.exports = require('./lib/React');
 	}
 })();
 
-},{}]},{},[44]);
+},{}]},{},[43]);

@@ -3,7 +3,7 @@
 *
 * @module Utils
 */
-var DeepMerge = require('./deepMerge');
+var DeepMerge = require('deepmerge');
 
 var Utils = {
   /**
