@@ -3277,6 +3277,7 @@
           this.useGoogleCountdown = false;
           this.useInsecureVpaidMode = false;
           this.imaIframeZIndex = DEFAULT_IMA_IFRAME_Z_INDEX;
+          this.onAdRequestSuccess = function () {};
 
           //flag to track whether ad rules failed to load
           this.adRulesLoadError = false;
@@ -3415,6 +3416,12 @@
           if (metadata.hasOwnProperty("iframeZIndex"))
           {
             this.imaIframeZIndex = metadata.iframeZIndex;
+          }
+
+          this.onAdRequestSuccess = function () {};
+          if (metadata.hasOwnProperty("onAdRequestSuccess"))
+          {
+            this.onAdRequestSuccess = metadata.onAdRequestSuccess;
           }
 
           //On second video playthroughs, we will not be initializing the ad manager again.
@@ -4370,6 +4377,8 @@
           }
           adsSettings.useStyledLinearAds = this.useGoogleAdUI;
           _IMAAdsManager = adsManagerLoadedEvent.getAdsManager(_playheadTracker, adsSettings);
+
+          this.onAdRequestSuccess(_IMAAdsManager);
 
           // When the ads manager is ready, we are ready to apply css changes to the video element
           // If the sharedVideoElement is not used, mark it as null before applying css

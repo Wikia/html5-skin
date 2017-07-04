@@ -27,7 +27,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
   }
 
   OO.EVENTS.WIKIA = {
-    AUTOPLAY_TOGGLED: 'wikia.autoplayToggled'
+    AUTOPLAY_TOGGLED: 'wikia.autoplayToggled',
+    SHOW_AD_TIME_LEFT: 'wikia.showAdTimeLeft',
+    SHOW_FULLSCREEN_TOGGLE: 'wikia.showFullScreenToggle',
   };
   OO.exposeStaticApi('EVENTS', OO.EVENTS);
 
@@ -159,7 +161,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         "isFullScreenSupported": false,
         "isVideoFullScreenSupported": false,
         "isFullWindow": false,
-        "autoPauseDisabled": false
+        "autoPauseDisabled": false,
+        "showAdTimeLeft": true,
+        "showFullScreenToggle": true
       };
 
       this.init();
@@ -207,6 +211,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         this.mb.subscribe(OO.EVENTS.VC_VIDEO_ELEMENT_IN_FOCUS, "customerUi", _.bind(this.onVideoElementFocus, this));
         this.mb.subscribe(OO.EVENTS.REPLAY, "customerUi", _.bind(this.onReplay, this));
         this.mb.subscribe(OO.EVENTS.ASSET_DIMENSION, "customerUi", _.bind(this.onAssetDimensionsReceived, this));
+        this.mb.subscribe(OO.EVENTS.WIKIA.SHOW_FULLSCREEN_TOGGLE, "customerUi", _.bind(this.onShowFullScreenToggle, this));
         // PLAYBACK_READY is a fundamental event in the init process that can be unsubscribed by errors.
         // If and only if such has occured, it needs a route to being resubscribed.
         if(!this.state.isPlaybackReadySubscribed) {
@@ -229,6 +234,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
           this.mb.subscribe(OO.EVENTS.SHOW_AD_SKIP_BUTTON, "customerUi", _.bind(this.onShowAdSkipButton, this));
           this.mb.subscribe(OO.EVENTS.SHOW_AD_CONTROLS, "customerUi", _.bind(this.onShowAdControls, this));
           this.mb.subscribe(OO.EVENTS.SHOW_AD_MARQUEE, "customerUi", _.bind(this.onShowAdMarquee, this));
+          this.mb.subscribe(OO.EVENTS.WIKIA.SHOW_AD_TIME_LEFT, "customerUi", _.bind(this.onShowAdTimeLeft, this));
         }
       }
       this.state.isSubscribed = true;
@@ -774,6 +780,16 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
     onShowAdMarquee: function(event, showAdMarquee) {
       this.state.showAdMarquee = showAdMarquee;
+      this.renderSkin();
+    },
+
+    onShowAdTimeLeft: function (event, showAdTimeLeft) {
+      this.state.showAdTimeLeft = showAdTimeLeft;
+      this.renderSkin();
+    },
+
+    onShowFullScreenToggle: function (event, showFullScreenToggle) {
+      this.state.showFullScreenToggle = showFullScreenToggle;
       this.renderSkin();
     },
 
