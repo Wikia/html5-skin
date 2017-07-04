@@ -793,6 +793,7 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
 });
 
 module.exports = AutoplaySwitch;
+
 },{"classnames":58,"react":220}],8:[function(require,module,exports){
 var React = require('react'),
     Icon = require('../components/icon');
@@ -1191,6 +1192,7 @@ var ColorSelectionTab = React.createClass({displayName: "ColorSelectionTab",
 });
 
 module.exports = ColorSelectionTab;
+
 },{"../../constants/constants":43,"../colorSelector":20,"../utils":40,"./selectionContainer":18,"react":220}],14:[function(require,module,exports){
 var React = require('react'),
     ClassNames = require('classnames'),
@@ -1631,6 +1633,7 @@ var ConfigPanel = React.createClass({displayName: "ConfigPanel",
 });
 
 module.exports = ConfigPanel;
+
 },{"../constants/constants":43,"./autoplaySwitch":7,"./utils":40,"react":220}],22:[function(require,module,exports){
 /********************************************************************
   CONTROL BAR
@@ -2533,7 +2536,7 @@ module.exports = DataSelector;
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(factory);
+    define('deepmerge', factory);
   } else if (typeof exports === 'object') {
     module.exports = factory();
   } else {
@@ -2686,6 +2689,7 @@ DiscoverItem.propTypes = {
 };
 
 module.exports = DiscoverItem;
+
 },{"./utils":40,"react":220}],27:[function(require,module,exports){
 /**
  * Panel component for Discovery Screen
@@ -2916,6 +2920,7 @@ DiscoveryPanel.defaultProps = {
 };
 
 module.exports = DiscoveryPanel;
+
 },{"../components/icon":28,"../constants/constants":43,"../mixins/resizeMixin":47,"./countDownClock":23,"./discoverItem":26,"classnames":58,"react":220,"react-dom":63}],28:[function(require,module,exports){
 var React = require('react'),
     Utils = require('./utils');
@@ -3902,6 +3907,7 @@ Tabs.Panel = React.createClass({
     );
   }
 });
+
 },{"./icon":28,"classnames":58,"react":220}],36:[function(require,module,exports){
 /**
  * Display component for video text tracks
@@ -5536,6 +5542,7 @@ module.exports = {
     }
   }
 };
+
 },{}],44:[function(require,module,exports){
 /********************************************************************
  CONTROLLER
@@ -5549,7 +5556,7 @@ var React = require('react'),
     Fullscreen = require('screenfull'),
     Skin = require('./skin'),
     SkinJSON = require('../config/skin'),
-    Localization = ({"languageFiles":({"en":require("..\\config\\languageFiles\\en.json"),"es":require("..\\config\\languageFiles\\es.json"),"zh":require("..\\config\\languageFiles\\zh.json")})}),
+    Localization = ({"languageFiles":({"en":require("../config/languageFiles/en.json"),"es":require("../config/languageFiles/es.json"),"zh":require("../config/languageFiles/zh.json")})}),
     Cookies = require('js-cookie');
 
 OO.plugin("Html5Skin", function (OO, _, $, W) {
@@ -5561,7 +5568,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "1ea62b7cd76b6bc20f547183adbc8cdedb599fa0"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "5cea64c83aa43ce614a571553377af0f4534371e"};
   }
 
   OO.EVENTS.WIKIA = {
@@ -7299,7 +7306,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   return Html5Skin;
 });
-},{"../config/skin":4,"..\\config\\languageFiles\\en.json":1,"..\\config\\languageFiles\\es.json":2,"..\\config\\languageFiles\\zh.json":3,"./components/accessibilityControls":5,"./components/deepMerge":25,"./components/utils":40,"./constants/constants":43,"./skin":49,"js-cookie":59,"react":220,"react-dom":63,"screenfull":221}],45:[function(require,module,exports){
+},{"../config/languageFiles/en.json":1,"../config/languageFiles/es.json":2,"../config/languageFiles/zh.json":3,"../config/skin":4,"./components/accessibilityControls":5,"./components/deepMerge":25,"./components/utils":40,"./constants/constants":43,"./skin":49,"js-cookie":59,"react":220,"react-dom":63,"screenfull":221}],45:[function(require,module,exports){
 /**
  * Enables accessability controls.
  *
@@ -7743,6 +7750,7 @@ Skin.defaultProps = {
 };
 
 module.exports = Skin;
+
 },{"./components/closed-caption/closedCaptionPanel":11,"./components/closed-caption/onOffSwitch":17,"./components/discoveryPanel":27,"./components/moreOptionsPanel":30,"./components/sharePanel":32,"./components/spinner":34,"./components/utils":40,"./components/videoQualityPanel":41,"./constants/constants":43,"./mixins/responsiveManagerMixin":48,"./views/contentScreen":50,"./views/endScreen":51,"./views/errorScreen":52,"./views/pauseScreen":53,"./views/playingScreen":54,"./views/startScreen":56,"./views/wikiaAdScreen":57,"react":220}],50:[function(require,module,exports){
 var React = require('react'),
     CloseButton = require('../components/closeButton'),
@@ -7836,6 +7844,7 @@ ContentScreen.defaultProps = {
 };
 
 module.exports = ContentScreen;
+
 },{"../components/closeButton":8,"../components/icon":28,"../components/utils":40,"../components/watermark":42,"../constants/constants":43,"../mixins/accessibilityMixin":45,"react":220}],51:[function(require,module,exports){
 /********************************************************************
   END SCREEN
@@ -8310,6 +8319,7 @@ var PlayingScreen = React.createClass({displayName: "PlayingScreen",
   }
 });
 module.exports = PlayingScreen;
+
 },{"../components/adOverlay":6,"../components/controlBar":22,"../components/spinner":34,"../components/textTrackPanel":36,"../components/upNextPanel":39,"../components/watermark":42,"../mixins/resizeMixin":47,"classnames":58,"react":220,"react-dom":63}],55:[function(require,module,exports){
 var React = require('react');
 
