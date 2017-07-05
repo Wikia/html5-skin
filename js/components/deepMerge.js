@@ -3,13 +3,8 @@
  */
 
 (function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define('deepmerge', factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory();
-  } else {
-    root.deepmerge = factory();
-  }
+  // Wikia quickfix for issues with Modil.js (require(['deepMerge']) was returning an empty object)
+  window.ooyalaDeepMerge = factory();
 }(this, function () {
 
   function isMergeableObject(val) {

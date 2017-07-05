@@ -3,7 +3,9 @@
 *
 * @module Utils
 */
-var DeepMerge = require('./deepMerge');
+require('./deepMerge');
+
+var DeepMerge = window.ooyalaDeepMerge;
 
 var Utils = {
   /**

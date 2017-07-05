@@ -1,12 +1,14 @@
 /********************************************************************
  CONTROLLER
  *********************************************************************/
+require('./components/deepMerge');
+
 var React = require('react'),
     ReactDOM = require('react-dom'),
     Utils = require('./components/utils'),
     CONSTANTS = require('./constants/constants'),
     AccessibilityControls = require('./components/accessibilityControls'),
-    DeepMerge = require('./components/deepMerge'),
+    DeepMerge = window.ooyalaDeepMerge,
     Fullscreen = require('screenfull'),
     Skin = require('./skin'),
     SkinJSON = require('../config/skin'),

@@ -2678,13 +2678,8 @@ module.exports = DataSelector;
  */
 
 (function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define('deepmerge', factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory();
-  } else {
-    root.deepmerge = factory();
-  }
+  // Wikia quickfix for issues with Modil.js (require(['deepMerge']) was returning an empty object)
+  window.ooyalaDeepMerge = factory();
 }(this, function () {
 
   function isMergeableObject(val) {
@@ -4531,7 +4526,9 @@ module.exports = UpNextPanel;
 *
 * @module Utils
 */
-var DeepMerge = require('./deepMerge');
+require('./deepMerge');
+
+var DeepMerge = window.ooyalaDeepMerge;
 
 var Utils = {
   /**
@@ -5691,12 +5688,14 @@ module.exports = {
 /********************************************************************
  CONTROLLER
  *********************************************************************/
+require('./components/deepMerge');
+
 var React = require('react'),
     ReactDOM = require('react-dom'),
     Utils = require('./components/utils'),
     CONSTANTS = require('./constants/constants'),
     AccessibilityControls = require('./components/accessibilityControls'),
-    DeepMerge = require('./components/deepMerge'),
+    DeepMerge = window.ooyalaDeepMerge,
     Fullscreen = require('screenfull'),
     Skin = require('./skin'),
     SkinJSON = require('../config/skin'),
@@ -5712,7 +5711,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "ad7d484d4d0b40b90d4621324a4e39163ce4ced7"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "c90326ffeddf40b775f1d185245f2598df37bce1"};
   }
 
   OO.EVENTS.WIKIA = {
