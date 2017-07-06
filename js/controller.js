@@ -1339,9 +1339,9 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
       // WIKIA CHANGE - START
       if (this.state.isMobile && this.state.mainVideoElement) {
         if (volume > 0) {
-          this.state.mainVideoElement[0].muted = false;
+          this.state.mainVideoElement.muted = false;
         } else {
-          this.state.mainVideoElement[0].muted = true;
+          this.state.mainVideoElement.muted = true;
         }
       }
       // WIKIA CHANGE - END
