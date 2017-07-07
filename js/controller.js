@@ -228,26 +228,23 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         }
 
         // ad events
-        if (!Utils.isIPhone()) {
-          //since iPhone is always playing in full screen and not showing our skin, don't need to render skin
-          this.mb.subscribe(OO.EVENTS.ADS_PLAYED, "customerUi", _.bind(this.onAdsPlayed, this));
-          this.mb.subscribe(OO.EVENTS.WILL_PLAY_ADS , "customerUi", _.bind(this.onWillPlayAds, this));
-          this.mb.subscribe(OO.EVENTS.AD_POD_STARTED, "customerUi", _.bind(this.onAdPodStarted, this));
-          this.mb.subscribe(OO.EVENTS.WILL_PLAY_SINGLE_AD , "customerUi", _.bind(this.onWillPlaySingleAd, this));
-          this.mb.subscribe(OO.EVENTS.SINGLE_AD_PLAYED , "customerUi", _.bind(this.onSingleAdPlayed, this));
-          this.mb.subscribe(OO.EVENTS.PLAY_NONLINEAR_AD, "customerUi", _.bind(this.onPlayNonlinearAd, this));
-          this.mb.subscribe(OO.EVENTS.NONLINEAR_AD_PLAYED, "customerUi", _.bind(this.closeNonlinearAd, this));
-          this.mb.subscribe(OO.EVENTS.HIDE_NONLINEAR_AD, "customerUi", _.bind(this.hideNonlinearAd, this));
-          this.mb.subscribe(OO.EVENTS.SHOW_NONLINEAR_AD, "customerUi", _.bind(this.showNonlinearAd, this));
-          this.mb.subscribe(OO.EVENTS.SHOW_NONLINEAR_AD_CLOSE_BUTTON, "customerUi", _.bind(this.showNonlinearAdCloseButton, this));
-          this.mb.subscribe(OO.EVENTS.SHOW_AD_SKIP_BUTTON, "customerUi", _.bind(this.onShowAdSkipButton, this));
-          this.mb.subscribe(OO.EVENTS.SHOW_AD_CONTROLS, "customerUi", _.bind(this.onShowAdControls, this));
-          this.mb.subscribe(OO.EVENTS.SHOW_AD_MARQUEE, "customerUi", _.bind(this.onShowAdMarquee, this));
-          // WIKIA CHANGE - START
-          this.mb.subscribe(OO.EVENTS.WIKIA.SHOW_AD_TIME_LEFT, "customerUi", _.bind(this.onShowAdTimeLeft, this));
-          this.mb.subscribe(OO.EVENTS.WIKIA.SHOW_AD_FULLSCREEN_TOGGLE, "customerUi", _.bind(this.onShowAdFullScreenToggle, this));
-          // WIKIA CHANGE - END
-        }
+        this.mb.subscribe(OO.EVENTS.ADS_PLAYED, "customerUi", _.bind(this.onAdsPlayed, this));
+        this.mb.subscribe(OO.EVENTS.WILL_PLAY_ADS , "customerUi", _.bind(this.onWillPlayAds, this));
+        this.mb.subscribe(OO.EVENTS.AD_POD_STARTED, "customerUi", _.bind(this.onAdPodStarted, this));
+        this.mb.subscribe(OO.EVENTS.WILL_PLAY_SINGLE_AD , "customerUi", _.bind(this.onWillPlaySingleAd, this));
+        this.mb.subscribe(OO.EVENTS.SINGLE_AD_PLAYED , "customerUi", _.bind(this.onSingleAdPlayed, this));
+        this.mb.subscribe(OO.EVENTS.PLAY_NONLINEAR_AD, "customerUi", _.bind(this.onPlayNonlinearAd, this));
+        this.mb.subscribe(OO.EVENTS.NONLINEAR_AD_PLAYED, "customerUi", _.bind(this.closeNonlinearAd, this));
+        this.mb.subscribe(OO.EVENTS.HIDE_NONLINEAR_AD, "customerUi", _.bind(this.hideNonlinearAd, this));
+        this.mb.subscribe(OO.EVENTS.SHOW_NONLINEAR_AD, "customerUi", _.bind(this.showNonlinearAd, this));
+        this.mb.subscribe(OO.EVENTS.SHOW_NONLINEAR_AD_CLOSE_BUTTON, "customerUi", _.bind(this.showNonlinearAdCloseButton, this));
+        this.mb.subscribe(OO.EVENTS.SHOW_AD_SKIP_BUTTON, "customerUi", _.bind(this.onShowAdSkipButton, this));
+        this.mb.subscribe(OO.EVENTS.SHOW_AD_CONTROLS, "customerUi", _.bind(this.onShowAdControls, this));
+        this.mb.subscribe(OO.EVENTS.SHOW_AD_MARQUEE, "customerUi", _.bind(this.onShowAdMarquee, this));
+        // WIKIA CHANGE - START
+        this.mb.subscribe(OO.EVENTS.WIKIA.SHOW_AD_TIME_LEFT, "customerUi", _.bind(this.onShowAdTimeLeft, this));
+        this.mb.subscribe(OO.EVENTS.WIKIA.SHOW_AD_FULLSCREEN_TOGGLE, "customerUi", _.bind(this.onShowAdFullScreenToggle, this));
+        // WIKIA CHANGE - END
       }
       this.state.isSubscribed = true;
     },
@@ -1335,7 +1332,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
     setVolume: function(volume){
       // WIKIA CHANGE - START
-      if (this.state.isMobile && !Utils.isIos() && this.state.mainVideoElement) {
+      if (this.state.isMobile && this.state.mainVideoElement) {
         if (volume > 0) {
           this.state.mainVideoElement.muted = false;
         } else {

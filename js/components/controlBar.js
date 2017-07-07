@@ -469,7 +469,7 @@ var ControlBar = React.createClass({
       }
 
       // WIKIA CHANGE - START
-      if (Utils.isIos() && defaultItems[k].name === "volume") {
+      if (Utils.isIos() && OO.iosMajorVersion < 10 && defaultItems[k].name === "volume") {
         continue;
       }
 
