@@ -107,6 +107,9 @@ var ControlBar = React.createClass({
     this.props.controller.toggleShareScreen();
   },
 
+  // FIXME it looks like we've lost quality choosing functionality while updating ooyala, this
+  // function is not used anywhere but I leave it here cause it may be useful when we will be
+  // able to enable quality controls
   handleQualityClick: function() {
     if(this.props.responsiveView == this.props.skinConfig.responsive.breakpoints.xs.id) {
       this.props.controller.toggleScreen(CONSTANTS.SCREEN.VIDEO_QUALITY_SCREEN);
@@ -200,16 +203,8 @@ var ControlBar = React.createClass({
     this.removeHighlight({target: ReactDOM.findDOMNode(this.refs.volumeIcon)});
   },
 
-  changeVolumeSlider: function(event) {
-    var newVolume = parseFloat(event.target.value);
-    this.props.controller.setVolume(newVolume);
-    this.setState({
-      volumeSliderValue: event.target.value
-    });
-  },
-
-  // WIKIA CHANGE
-  formatSecondsWithoutLeadingZero: function (timeInSeconds) {
+  // WIKIA CHANGE - START
+  formatAdCountdown: function (timeInSeconds) {
     var seconds = parseInt(timeInSeconds,10) % 60;
     var minutes = parseInt(timeInSeconds / 60, 10);
 
@@ -219,6 +214,7 @@ var ControlBar = React.createClass({
 
     return minutes + ":" + seconds;
   },
+  // WIKIA CHANGE - END
 
   populateControlBar: function() {
     var dynamicStyles = this.setupItemStyle();
@@ -264,20 +260,11 @@ var ControlBar = React.createClass({
         onClick={this.handleVolumeClick}></a>);
     }
 
-    var volumeSlider = <div className="oo-volume-slider"><Slider value={parseFloat(this.props.controller.state.volumeState.volume)}
-                        onChange={this.changeVolumeSlider}
-                        className={"oo-slider oo-slider-volume"}
-                        itemRef={"volumeSlider"}
-                        minValue={"0"}
-                        maxValue={"1"}
-                        step={"0.1"}/></div>;
-
     var volumeControls;
-    if (!this.isMobile){
-      volumeControls = volumeBars;
-    }
-    else {
-      volumeControls = this.props.controller.state.volumeState.volumeSliderVisible ? volumeSlider : null;
+    if (!this.props.isWikiaAdScreen) {
+      if (!this.isMobile) {
+        volumeControls = volumeBars;
+      }
     }
 
     var playheadTime = isFinite(parseInt(this.props.currentPlayhead)) ? Utils.formatSeconds(parseInt(this.props.currentPlayhead)) : null;
@@ -290,7 +277,7 @@ var ControlBar = React.createClass({
     var playheadTimeContent = isLiveStream ? (isLiveNow ? null : Utils.formatSeconds(timeShift)) : playheadTime;
     var totalTimeContent = isLiveStream ? null : <span className="oo-total-time">{totalTime}</span>;
     // WIKIA CHANGE - START
-    var timeLeft = this.formatSecondsWithoutLeadingZero(Math.abs(timeShift));
+    var timeLeft = this.formatAdCountdown(Math.abs(timeShift));
     var timeLeftContent = <span className="oo-ad-time-left">Ad • {timeLeft}</span>;
     // WIKIA CHANGE - END
 
@@ -405,8 +392,9 @@ var ControlBar = React.createClass({
     };
 
     var controlBarItems = [];
-    // WIKIA CHANGE
+    // WIKIA CHANGE - START
     var defaultItems = this.props.skinConfig.buttons.desktopContent;
+    // WIKIA CHANGE - END
 
     //if mobile and not showing the slider or the icon, extra space can be added to control bar width. If volume bar is shown instead of slider, add some space as well:
     var volumeItem = null;
@@ -481,6 +469,10 @@ var ControlBar = React.createClass({
       }
 
       // WIKIA CHANGE - START
+      if (Utils.isIos() && defaultItems[k].name === "volume") {
+        continue;
+      }
+
       if (this.props.isWikiaAdScreen && !this.props.showAdFullScreenToggle && defaultItems[k].name === "fullscreen") {
         continue;
       }

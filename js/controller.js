@@ -1337,7 +1337,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
     setVolume: function(volume){
       // WIKIA CHANGE - START
-      if (this.state.isMobile && this.state.mainVideoElement) {
+      if (this.state.isMobile && !Utils.isIos() && this.state.mainVideoElement) {
         if (volume > 0) {
           this.state.mainVideoElement.muted = false;
         } else {
