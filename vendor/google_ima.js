@@ -4542,8 +4542,11 @@
          */
         var _raisePauseEvent = privateMember(function()
         {
+
           if (this.videoControllerWrapper)
           {
+            // FIXME not here
+            this.videoControllerWrapper.raiseFullScreenEvent();
             this.videoControllerWrapper.raisePauseEvent();
           }
         });
@@ -5398,6 +5401,11 @@
       this.raisePauseEvent = function()
       {
         notifyIfInControl(this.controller.EVENTS.PAUSED);
+      };
+
+      this.raiseFullScreenEvent = function()
+      {
+        notifyIfInControl(this.controller.EVENTS.FULLSCREEN_CHANGED);
       };
 
       this.raiseVolumeEvent = function()
