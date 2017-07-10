@@ -5691,7 +5691,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "4ab60ceeac5e1202277d61be0c2550a578e9138c"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "957fb1d6ea40aa6bdcd1c5089d3f6dd84d5c554f"};
   }
 
   // WIKIA CHANGE - START
@@ -8655,7 +8655,7 @@ var WikiaAdScreen = React.createClass({displayName: "WikiaAdScreen",
                                 playerState: this.props.playerState, 
                                 isWikiaAdScreen: true, 
                                 showAdTimeLeft: this.props.controller.state.showAdTimeLeft, 
-                                showAdFullScreenToggle: this.props.controller.state.showAdFullScreenToggleToggle, 
+                                showAdFullScreenToggle: this.props.controller.state.showAdFullScreenToggle, 
                                 key: "controlBar"}))
     };
 
