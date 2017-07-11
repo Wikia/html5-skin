@@ -935,7 +935,6 @@ var AutoplaySwitch = React.createClass({displayName: "AutoplaySwitch",
 });
 
 module.exports = AutoplaySwitch;
-
 },{"classnames":59,"react":221}],9:[function(require,module,exports){
 var React = require('react'),
     Icon = require('../components/icon');
@@ -1334,7 +1333,6 @@ var ColorSelectionTab = React.createClass({displayName: "ColorSelectionTab",
 });
 
 module.exports = ColorSelectionTab;
-
 },{"../../constants/constants":44,"../colorSelector":21,"../utils":41,"./selectionContainer":19,"react":221}],15:[function(require,module,exports){
 var React = require('react'),
     ClassNames = require('classnames'),
@@ -1775,7 +1773,6 @@ var ConfigPanel = React.createClass({displayName: "ConfigPanel",
 });
 
 module.exports = ConfigPanel;
-
 },{"../constants/constants":44,"./autoplaySwitch":8,"./utils":41,"react":221}],23:[function(require,module,exports){
 /********************************************************************
   CONTROL BAR
@@ -2325,7 +2322,6 @@ ControlBar.defaultProps = {
 };
 
 module.exports = ControlBar;
-
 },{"../constants/constants":44,"../views/popover":56,"./closed-caption/closedCaptionPopover":13,"./configPanel":22,"./icon":29,"./logo":30,"./scrubberBar":32,"./utils":41,"./videoQualityPanel":42,"classnames":59,"react":221,"react-dom":64}],24:[function(require,module,exports){
 /********************************************************************
   COUNT DOWN CLOCK
@@ -2747,7 +2743,6 @@ module.exports = DataSelector;
   return deepmerge
 
 }));
-
 },{}],27:[function(require,module,exports){
 var React = require('react'),
     Utils = require('./utils');
@@ -2814,7 +2809,6 @@ DiscoverItem.propTypes = {
 };
 
 module.exports = DiscoverItem;
-
 },{"./utils":41,"react":221}],28:[function(require,module,exports){
 /**
  * Panel component for Discovery Screen
@@ -3045,7 +3039,6 @@ DiscoveryPanel.defaultProps = {
 };
 
 module.exports = DiscoveryPanel;
-
 },{"../components/icon":29,"../constants/constants":44,"../mixins/resizeMixin":48,"./countDownClock":24,"./discoverItem":27,"classnames":59,"react":221,"react-dom":64}],29:[function(require,module,exports){
 var React = require('react'),
     Utils = require('./utils');
@@ -4032,7 +4025,6 @@ Tabs.Panel = React.createClass({
     );
   }
 });
-
 },{"./icon":29,"classnames":59,"react":221}],37:[function(require,module,exports){
 /**
  * Display component for video text tracks
@@ -5126,7 +5118,6 @@ var Utils = {
 };
 
 module.exports = Utils;
-
 },{"./deepMerge":26}],42:[function(require,module,exports){
 /**
  * Panel component for video quality selection
@@ -5671,7 +5662,6 @@ module.exports = {
     }
   }
 };
-
 },{}],45:[function(require,module,exports){
 /********************************************************************
  CONTROLLER
@@ -5689,7 +5679,7 @@ var React = require('react'),
     Fullscreen = require('screenfull'),
     Skin = require('./skin'),
     SkinJSON = require('../config/skin'),
-    Localization = ({"languageFiles":({"en":require("../config/languageFiles/en.json"),"es":require("../config/languageFiles/es.json"),"ja":require("../config/languageFiles/ja.json"),"zh":require("../config/languageFiles/zh.json")})}),
+    Localization = ({"languageFiles":({"en":require("..\\config\\languageFiles\\en.json"),"es":require("..\\config\\languageFiles\\es.json"),"ja":require("..\\config\\languageFiles\\ja.json"),"zh":require("..\\config\\languageFiles\\zh.json")})}),
     Cookies = require('js-cookie');
 
 OO.plugin("Html5Skin", function (OO, _, $, W) {
@@ -5701,7 +5691,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "5b99344f50dd4366d57dc5207921af7536167179"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "4c534c75f25728604c72f2c3ed10882802081a55"};
   }
 
   // WIKIA CHANGE - START
@@ -7417,8 +7407,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   return Html5Skin;
 });
-
-},{"../config/languageFiles/en.json":1,"../config/languageFiles/es.json":2,"../config/languageFiles/ja.json":3,"../config/languageFiles/zh.json":4,"../config/skin":5,"./components/accessibilityControls":6,"./components/deepMerge":26,"./components/utils":41,"./constants/constants":44,"./skin":50,"js-cookie":60,"react":221,"react-dom":64,"screenfull":222}],46:[function(require,module,exports){
+},{"../config/skin":5,"..\\config\\languageFiles\\en.json":1,"..\\config\\languageFiles\\es.json":2,"..\\config\\languageFiles\\ja.json":3,"..\\config\\languageFiles\\zh.json":4,"./components/accessibilityControls":6,"./components/deepMerge":26,"./components/utils":41,"./constants/constants":44,"./skin":50,"js-cookie":60,"react":221,"react-dom":64,"screenfull":222}],46:[function(require,module,exports){
 /**
  * Enables accessability controls.
  *
@@ -7865,7 +7854,6 @@ Skin.defaultProps = {
 };
 
 module.exports = Skin;
-
 },{"./components/closed-caption/closedCaptionPanel":12,"./components/closed-caption/onOffSwitch":18,"./components/discoveryPanel":28,"./components/moreOptionsPanel":31,"./components/sharePanel":33,"./components/spinner":35,"./components/utils":41,"./components/videoQualityPanel":42,"./constants/constants":44,"./mixins/responsiveManagerMixin":49,"./views/contentScreen":51,"./views/endScreen":52,"./views/errorScreen":53,"./views/pauseScreen":54,"./views/playingScreen":55,"./views/startScreen":57,"./views/wikiaAdScreen":58,"react":221}],51:[function(require,module,exports){
 var React = require('react'),
     CloseButton = require('../components/closeButton'),
@@ -7959,7 +7947,6 @@ ContentScreen.defaultProps = {
 };
 
 module.exports = ContentScreen;
-
 },{"../components/closeButton":9,"../components/icon":29,"../components/utils":41,"../components/watermark":43,"../constants/constants":44,"../mixins/accessibilityMixin":46,"react":221}],52:[function(require,module,exports){
 /********************************************************************
   END SCREEN
@@ -8434,7 +8421,6 @@ var PlayingScreen = React.createClass({displayName: "PlayingScreen",
   }
 });
 module.exports = PlayingScreen;
-
 },{"../components/adOverlay":7,"../components/controlBar":23,"../components/spinner":35,"../components/textTrackPanel":37,"../components/upNextPanel":40,"../components/watermark":43,"../mixins/resizeMixin":48,"classnames":59,"react":221,"react-dom":64}],56:[function(require,module,exports){
 var React = require('react');
 
@@ -8699,7 +8685,6 @@ var WikiaAdScreen = React.createClass({displayName: "WikiaAdScreen",
   }
 });
 module.exports = WikiaAdScreen;
-
 },{"../components/controlBar":23,"../constants/constants":44,"react":221}],59:[function(require,module,exports){
 /*!
   Copyright (c) 2016 Jed Watson.

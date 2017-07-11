@@ -4388,7 +4388,7 @@
           _IMAAdsManager = adsManagerLoadedEvent.getAdsManager(_playheadTracker, adsSettings);
 
           // WIKIA CHANGE - START
-          this.onAdRequestSuccess(_IMAAdsManager);
+          this.onAdRequestSuccess(_IMAAdsManager, _uiContainer);
           // WIKIA CHANGE - END
 
           // When the ads manager is ready, we are ready to apply css changes to the video element
