@@ -76,6 +76,7 @@
         }, false, this);
 
         // that's a hack for autoplay on mobile for VPAID ads
+        // VPAID ads still don't work perfectly
         var initiallyResumed = false;
         IMAAdsManager.addEventListener('pause', function (eventData) {
           if (eventData.getAd().getApiFramework() === 'VPAID') {
