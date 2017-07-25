@@ -97,7 +97,7 @@ gulp.task('build:all', ['build:vendor', 'build'], function () {
     'build/main_html5.js',
     'build/html5-skin.min.js',
     'build/google_ima.js',
-    'build/discover_api.js'
+    'build/discovery_api.js'
   ]).pipe(concat('all.js')).pipe(gulp.dest('build'));
 });
 
