@@ -25,7 +25,7 @@
     "availableLanguageFile": [
       {
         "language": "en",
-        "languageFile": "http:\/\/0.0.0.0:4444\/config\/languageFiles\/en.json",
+        "languageFile": "\/config\/languageFiles\/en.json",
         "androidResource": "skin-config\/en.json",
         "iosResource": "en"
       }
@@ -88,7 +88,7 @@
     "showTitle": true,
     "showDescription": false,
     "infoPanelPosition": "topLeft",
-    "screenToShowOnPause": "default"
+    "screenToShowOnPause": "discovery"
   },
   "endScreen": {
     "screenToShowOnEnd": "discovery",
@@ -117,7 +117,7 @@
   },
   "upNext": {
     "showUpNext": true,
-    "timeToShow": "10"
+    "timeToShow": "1"
   },
   "controlBar": {
     "volumeControl": {
