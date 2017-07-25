@@ -194,7 +194,10 @@ OO.plugin("DiscoveryApi", function(OO, _, $, W) {
 			var params = {
 				sign_version: 'player',
 				pcode: OO.playerParams.pcode,
-				discovery_profile_id: OO.playerParams.playerBrandingId,
+				// WIKIA CHANGE - START
+				// Ooyala returns empty list or server error when we use discovery profile
+        // discovery_profile_id: OO.playerParams.playerBrandingId,
+				// WIKIA CHANGE - END
 				video_pcode: OO.playerParams.pcode,
 				limit: MAX_VIDEOS,
 				device_id: this.guid,
