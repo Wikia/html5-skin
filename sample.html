@@ -92,6 +92,10 @@
     },
     replayAds: false,
     initialVolume: autoplay ? 0 : 1,
+    discoveryApiAdditionalParams: {
+      discovery_profile_id: 0,
+      where: 'labels INCLUDES \'Fandom\''
+    }
   };
   OO.ready(function() {
     window.pp = OO.Player.create('container', '51ZmdxYTE6oaO5aQo9Hqt31Nn9Nave4e', playerParam);
