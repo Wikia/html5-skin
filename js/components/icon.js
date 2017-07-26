@@ -10,7 +10,7 @@ var Icon = React.createClass({
   render: function() {
     // WIKIA CHANGE - START
     if (!this.props.icon) {
-      return '';
+      return (<span></span>);
     }
     // WIKIA CHANGE - END
 

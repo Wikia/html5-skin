@@ -3050,7 +3050,7 @@ var Icon = React.createClass({displayName: "Icon",
   render: function() {
     // WIKIA CHANGE - START
     if (!this.props.icon) {
-      return '';
+      return (React.createElement("span", null));
     }
     // WIKIA CHANGE - END
 
@@ -5695,7 +5695,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "51ed4e5a6aba9e27d46454e7b0cd00918e1b88de"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "b443b77e1d39098c1c424674479baf2543086c97"};
   }
 
   // WIKIA CHANGE - START
