@@ -2833,7 +2833,7 @@ var DiscoveryPanel = React.createClass({displayName: "DiscoveryPanel",
 
   getInitialState: function() {
     return {
-      // allow recommended video autoplay only if tab is active
+      // WIKIA CHANGE - allow recommended video autoplay only if tab is active
       showDiscoveryCountDown: !document.hidden && (this.props.skinConfig.discoveryScreen.showCountDownTimerOnEndScreen || this.props.forceCountDownTimer),
       currentPage: 1,
       componentHeight: null
@@ -5706,7 +5706,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "6cbab8ca434928d991433367f808a6e10f94662f"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "098b4b720814791b83f8657cf737f0d08d8c4615"};
   }
 
   // WIKIA CHANGE - START
