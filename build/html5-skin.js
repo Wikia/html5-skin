@@ -12,14 +12,13 @@ module.exports={
   "CC Options": "Caption options",
   "On": "On",
   "Off": "Off",
-  "Discovery": "Discovery",
   "Facebook Unavailable": "Facebook Unavailable",
   "Facebook Success": "Check out this video on Facebook",
   "Twitter Unavailable": "Twitter Unavailable",
   "Twitter Success": "Check out this video on Twitter",
   "Post Title": "Post Successfully",
   "Account Configure": "Please set up your account on device",
-  "Discover": "Discover",
+  "Discover": "Recommended",
   "Up next": "Up next",
   "Video Quality": "Video Quality",
   "Invest In Social Change": "Invest In Social Change",
@@ -140,7 +139,7 @@ module.exports={
   "CC Options": "Opciones de subtitulado",
   "On": "Sí",
   "Off": "No",
-  "Discover": "Descubrir",
+  "Discover": "Recommended",
   "Up next": "Siguiente",
   "Video Quality": "Calidad de video",
   "Invest In Social Change": "Invertir en el cambio social",
@@ -259,14 +258,13 @@ module.exports={
   "CC Options": "字幕設定",
   "On": "オン",
   "Off": "オフ",
-  "Discovery": "Discovery",
   "Facebook Unavailable": "Facebookログイン失敗",
   "Facebook Success": "Facebookで動画を見る",
   "Twitter Unavailable": "Twitterログイン失敗",
   "Twitter Success": "Twitterで動画を見る",
   "Post Title": "投稿完了",
   "Account Configure": "アカウントを設定してください。",
-  "Discover": "Discover",
+  "Discover": "Recommended",
   "Up next": "次の動画",
   "Video Quality": "動画の品質",
   "Invest In Social Change": "動画をシェアする",
@@ -388,7 +386,7 @@ module.exports={
   "CC Options": "抄送选项",
   "On": "在",
   "Off": "关闭",
-  "Discover": "发现",
+  "Discover": "Recommended",
   "Up next": "下一个",
   "Video Quality": "视频质量",
   "Invest In Social Change": "投资于社会变迁",
@@ -5708,7 +5706,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "0c013230ee3024d696594141fe2f1813a835c51a"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "6cbab8ca434928d991433367f808a6e10f94662f"};
   }
 
   // WIKIA CHANGE - START
