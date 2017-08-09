@@ -17,7 +17,8 @@ var DiscoveryPanel = React.createClass({
 
   getInitialState: function() {
     return {
-      showDiscoveryCountDown: this.props.skinConfig.discoveryScreen.showCountDownTimerOnEndScreen || this.props.forceCountDownTimer,
+      // allow recommended video autoplay only if tab is active
+      showDiscoveryCountDown: !document.hidden && (this.props.skinConfig.discoveryScreen.showCountDownTimerOnEndScreen || this.props.forceCountDownTimer),
       currentPage: 1,
       componentHeight: null
     };
