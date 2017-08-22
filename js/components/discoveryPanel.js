@@ -16,9 +16,11 @@ var DiscoveryPanel = React.createClass({
   mixins: [ResizeMixin],
 
   getInitialState: function() {
+    var willShowDiscoveryCountDown = this.props.skinConfig.discoveryScreen.showCountDownTimerOnEndScreen || this.props.forceCountDownTimer;
     return {
       // WIKIA CHANGE - allow recommended video autoplay only if tab is active
-      showDiscoveryCountDown: !document.hidden && (this.props.skinConfig.discoveryScreen.showCountDownTimerOnEndScreen || this.props.forceCountDownTimer),
+      willShowDiscoveryCountDown: willShowDiscoveryCountDown,
+      showDiscoveryCountDown: !document.hidden && willShowDiscoveryCountDown,
       currentPage: 1,
       componentHeight: null
     };
@@ -26,6 +28,25 @@ var DiscoveryPanel = React.createClass({
 
   componentDidMount: function () {
     this.detectHeight();
+    document.addEventListener('visibilitychange', this.showCountDown);
+  },
+
+  componentWillUnmount: function() {
+    document.removeEventListener('visibilitychange', this.showCountDown);
+  },
+
+  showCountDown: function () {
+    if(!document.hidden && !this.state.autoplayCanceled) {
+      this.setState({
+        showDiscoveryCountDown: this.state.willShowDiscoveryCountDown
+      });
+    }
+  },
+
+  autoplayCanceled: function () {
+    this.setState({
+      autoplayCanceled: true
+    });
   },
 
   handleResize: function(nextProps) {
@@ -125,7 +146,7 @@ var DiscoveryPanel = React.createClass({
       <div className={discoveryCountDownWrapperStyle}>
         <a className="oo-discovery-count-down-icon-style" onClick={this.handleDiscoveryCountDownClick}>
           <CountDownClock {...this.props} timeToShow={this.props.skinConfig.discoveryScreen.countDownTime}
-          ref="CountDownClock" />
+          autoplayCanceled={this.autoplayCanceled} ref="CountDownClock" />
           <Icon {...this.props} icon="pause"/>
         </a>
       </div>
