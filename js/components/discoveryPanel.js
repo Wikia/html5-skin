@@ -38,14 +38,14 @@ var DiscoveryPanel = React.createClass({
   showCountDown: function () {
     if(!document.hidden && !this.state.autoplayCanceled) {
       this.setState({
-        showDiscoveryCountDown: true
+        showDiscoveryCountDown: this.state.willShowDiscoveryCountDown
       });
     }
   },
 
   autoplayCanceled: function () {
     this.setState({
-      autoplayCanceled: this.state.willShowDiscoveryCountDown
+      autoplayCanceled: true
     });
   },
 
