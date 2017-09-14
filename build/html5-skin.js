@@ -5730,7 +5730,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "2cf5088c91d2e6e3f2f8fefdf91de74bffce75a4"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "8618b2f605540ab7fbf22ab8e686f111f1a4260b"};
   }
 
   // WIKIA CHANGE - START
