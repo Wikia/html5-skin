@@ -2965,7 +2965,7 @@ var DiscoveryPanel = React.createClass({displayName: "DiscoveryPanel",
       React.createElement("div", {className: discoveryCountDownWrapperStyle}, 
         React.createElement("a", {className: "oo-discovery-count-down-icon-style", onClick: this.handleDiscoveryCountDownClick}, 
           React.createElement(CountDownClock, React.__spread({},  this.props, {timeToShow: this.props.skinConfig.discoveryScreen.countDownTime, 
-          autoplayCanceled: this.autoplayCanceled, ref: "CountDownClock"})),
+          autoplayCanceled: this.autoplayCanceled, ref: "CountDownClock"})), 
           React.createElement(Icon, React.__spread({},  this.props, {icon: "pause"}))
         )
       )
@@ -5730,7 +5730,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "c08f5fc472480c6ae6b9439c8f7d600df211e4a6"};
+    OO.publicApi.VERSION.skin = {"releaseVersion": "4.14.8", "rev": "2cf5088c91d2e6e3f2f8fefdf91de74bffce75a4"};
   }
 
   // WIKIA CHANGE - START
