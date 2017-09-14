@@ -26,7 +26,7 @@ var VideoQualityPanel = React.createClass({
       selected: selectedBitrateId
     });
     this.props.togglePopoverAction();
-    this.props.toggleVideoQualityPanel();
+    this.props.toggleVideoQualityPopOver();
   },
 
     handleBackClick: function() {
