@@ -47,6 +47,9 @@ var CountDownClock = React.createClass({
       if(this.props.controller.state.screenToShow === CONSTANTS.SCREEN.DISCOVERY_SCREEN) {
         this.setState({hideClock: true});
         clearInterval(this.interval);
+        if(this.props.autoplayCanceled) {
+          this.props.autoplayCanceled();
+        }
       }
     }
   },
