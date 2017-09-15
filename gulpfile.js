@@ -99,6 +99,14 @@ gulp.task('build:all', ['build:vendor', 'build'], function () {
     'build/google_ima.js',
     'build/discovery_api.js'
   ]).pipe(concat('all.js')).pipe(gulp.dest('build'));
+
+  gulp.src([
+      'build/core.js',
+      'build/bit_wrapper.js',
+      'build/html5-skin.min.js',
+      'build/google_ima.js',
+      'build/discovery_api.js'
+  ]).pipe(concat('all-with-bitmovin.js')).pipe(gulp.dest('build'));
 });
 
 gulp.task('build:vendor', function () {

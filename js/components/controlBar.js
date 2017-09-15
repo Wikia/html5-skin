@@ -101,7 +101,7 @@ var ControlBar = React.createClass({
     if(this.props.responsiveView == this.props.skinConfig.responsive.breakpoints.xs.id) {
       this.props.controller.toggleScreen(CONSTANTS.SCREEN.VIDEO_QUALITY_SCREEN);
     } else {
-      this.toggleQualityPopover();
+      this.toggleQualityPopOver();
       this.closeCaptionPopover();
       this.closeConfigPopover();
     }
@@ -127,7 +127,7 @@ var ControlBar = React.createClass({
 
   closeQualityPopover: function() {
     if(this.props.controller.state.videoQualityOptions.showVideoQualityPopover == true) {
-      this.toggleQualityPopover();
+      this.toggleQualityPopOver();
     }
   },
 
