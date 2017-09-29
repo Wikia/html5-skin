@@ -26,7 +26,7 @@ var TextTrackPanel = React.createClass({
     "Monospaced Serif": '"Courier New", Courier, "Nimbus Mono L", "Cutive Mono", monospace',
     "Proportional Serif": '"Times New Roman", Times, Georgia, Cambria, "PT Serif Caption", serif',
     "Monospaced Sans-Serif": '"Deja Vu Sans Mono", "Lucida Console", Monaco, Consolas, "PT Mono", monospace',
-    "Proportional Sans-Serif": 'Roboto, "Arial Unicode Ms", Arial, Helvetica, Verdana, "PT Sans Caption", sans-serif',
+    "Proportional Sans-Serif": '"Ooyala Roboto", "Arial Unicode Ms", Arial, Helvetica, Verdana, "PT Sans Caption", sans-serif',
     "Casual": '"Comic Sans MS", Impact, Handlee, fantasy',
     "Cursive": '"Monotype Corsiva", "URW Chancery L", "Apple Chancery", "Dancing Script", cursive',
     "Small Capitals": '"Arial Unicode Ms", Arial, Helvetica, Verdana, "Marcellus SC", sans-serif'
